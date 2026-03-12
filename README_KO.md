@@ -6,22 +6,29 @@
 
 </div>
 
-AI 제품과 CI/CD가 내장된 스타터 템플릿을 만들고 있습니다.
-AI 에이전트 시스템 탐구 중 — LangGraph, VLM, RAG.
+MCP 서버, AI 제품, CI/CD 내장 스타터 템플릿을 만들고 있습니다.
 
 ---
 
-### SkillBridge
+### MCP 서버
 
-**[SkillBridge](https://github.com/heznpc/skillbridge)** — Anthropic Academy를 26개+ 언어로 번역하는 크롬 확장 프로그램 (AI 튜터 포함). 언어에 관계없이 AI 교육을 접근 가능하게.
+| 프로젝트 | 설명 |
+|---------|------|
+| [iMcp](https://github.com/heznpc/iMcp) | Apple Notes용 MCP 서버 — CRUD, 일괄 작업, 스마트 비교 |
+| [k-compliance](https://github.com/heznpc/k-compliance) | 한국 규제 대응 MCP 서버 모노레포 (AI기본법, 식품영양라벨) |
 
----
+### AI & 도구
+
+| 프로젝트 | 설명 |
+|---------|------|
+| [SkillBridge](https://github.com/heznpc/skillbridge) | 크롬 확장 — Anthropic Academy를 26개+ 언어로 번역 (AI 튜터 포함) |
+| [ProfileKit](https://github.com/heznpc/ProfileKit) | 올인원 GitHub 프로필 카드. 등급 없이, 숫자만 |
+| [villagent](https://github.com/heznpc/villagent) | AI 에이전트 생태계를 설계하고 관리하는 GUI 플랫폼 |
+| [code-sense](https://github.com/heznpc/code-sense) | 실무에서 터지는 것들을 코드로 체험하는 개발 감각 가이드 |
 
 ### Starter Series
 
 > Clone → 내 코드로 교체 → push → 배포 완료.
-
-CI/CD가 내장된 프로덕션 레디 템플릿.
 
 | 스타터 | 배포 대상 |
 |--------|----------|
@@ -33,6 +40,7 @@ CI/CD가 내장된 프로덕션 레디 템플릿.
 | [electron-app-starter](https://github.com/heznpc/electron-app-starter) | 크로스 플랫폼 |
 | [vscode-extension-starter](https://github.com/heznpc/vscode-extension-starter) | VS Marketplace + Open VSX |
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npm 레지스트리 |
+| [mcp-server-starter](https://github.com/heznpc/mcp-server-starter) | npm 레지스트리 |
 
 ---
 
@@ -41,7 +49,5 @@ CI/CD가 내장된 프로덕션 레디 템플릿.
 <img src="https://profilekit.vercel.app/api/stats?username=heznpc" alt="Stats" />
 
 <img src="https://profilekit.vercel.app/api/languages?username=heznpc&layout=donut" alt="Languages" />
-
-<img src="https://profilekit.vercel.app/api/social?github=heznpc&email=heznpc@gmail.com&layout=compact" alt="Social" />
 
 </div>

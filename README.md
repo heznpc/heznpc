@@ -6,22 +6,29 @@
 
 </div>
 
-I ship AI products and starter templates that handle CI/CD so you don't have to.
-Currently exploring AI agent systems — LangGraph, VLM, RAG.
+Building MCP servers, AI products, and starter templates with CI/CD baked in.
 
 ---
 
-### SkillBridge
+### MCP Servers
 
-**[SkillBridge](https://github.com/heznpc/skillbridge)** — Chrome extension that translates Anthropic Academy into 26+ languages, with an AI tutor built in. Making AI education accessible regardless of language.
+| Project | Description |
+|---------|-------------|
+| [iMcp](https://github.com/heznpc/iMcp) | MCP server for Apple Notes — full CRUD, bulk ops, smart comparison |
+| [k-compliance](https://github.com/heznpc/k-compliance) | Korean regulatory compliance MCP servers (AI Act, food labeling) |
 
----
+### AI & Tools
+
+| Project | Description |
+|---------|-------------|
+| [SkillBridge](https://github.com/heznpc/skillbridge) | Chrome extension — translates Anthropic Academy into 26+ languages with AI tutor |
+| [ProfileKit](https://github.com/heznpc/ProfileKit) | All-in-one GitHub profile cards. No ratings, no rankings |
+| [villagent](https://github.com/heznpc/villagent) | GUI platform for designing and managing AI agent ecosystems |
+| [code-sense](https://github.com/heznpc/code-sense) | Developer intuition guide — learn from real-world production bugs |
 
 ### Starter Series
 
 > Clone → replace your code → push → deployed.
-
-Production-ready templates with CI/CD baked in.
 
 | Starter | Deploy to |
 |---------|-----------|
@@ -33,6 +40,7 @@ Production-ready templates with CI/CD baked in.
 | [electron-app-starter](https://github.com/heznpc/electron-app-starter) | Cross-platform |
 | [vscode-extension-starter](https://github.com/heznpc/vscode-extension-starter) | VS Marketplace + Open VSX |
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npm registry |
+| [mcp-server-starter](https://github.com/heznpc/mcp-server-starter) | npm registry |
 
 ---
 
@@ -41,7 +49,5 @@ Production-ready templates with CI/CD baked in.
 <img src="https://profilekit.vercel.app/api/stats?username=heznpc" alt="Stats" />
 
 <img src="https://profilekit.vercel.app/api/languages?username=heznpc&layout=donut" alt="Languages" />
-
-<img src="https://profilekit.vercel.app/api/social?github=heznpc&email=heznpc@gmail.com&layout=compact" alt="Social" />
 
 </div>

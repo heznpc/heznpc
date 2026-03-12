@@ -6,22 +6,29 @@
 
 </div>
 
-AIプロダクトとCI/CD内蔵のスターターテンプレートを作っています。
-AIエージェントシステムを探求中 — LangGraph、VLM、RAG。
+MCPサーバー、AIプロダクト、CI/CD内蔵のスターターテンプレートを作っています。
 
 ---
 
-### SkillBridge
+### MCPサーバー
 
-**[SkillBridge](https://github.com/heznpc/skillbridge)** — Anthropic Academyを26以上の言語に翻訳するChrome拡張機能（AIチューター付き）。言語に関係なくAI教育をアクセス可能に。
+| プロジェクト | 説明 |
+|------------|------|
+| [iMcp](https://github.com/heznpc/iMcp) | Apple Notes用MCPサーバー — CRUD、一括操作、スマート比較 |
+| [k-compliance](https://github.com/heznpc/k-compliance) | 韓国規制対応MCPサーバーモノレポ（AI基本法、食品栄養ラベル） |
 
----
+### AI & ツール
+
+| プロジェクト | 説明 |
+|------------|------|
+| [SkillBridge](https://github.com/heznpc/skillbridge) | Chrome拡張 — Anthropic Academyを26以上の言語に翻訳（AIチューター付き） |
+| [ProfileKit](https://github.com/heznpc/ProfileKit) | オールインワンGitHubプロフィールカード。評価なし、数字だけ |
+| [villagent](https://github.com/heznpc/villagent) | AIエージェントエコシステムを設計・管理するGUIプラットフォーム |
+| [code-sense](https://github.com/heznpc/code-sense) | 実務で起きる問題をコードで体験する開発感覚ガイド |
 
 ### Starter Series
 
 > Clone → 自分のコードに差し替え → push → デプロイ完了。
-
-CI/CD内蔵のプロダクション対応テンプレート。
 
 | スターター | デプロイ先 |
 |-----------|----------|
@@ -33,6 +40,7 @@ CI/CD内蔵のプロダクション対応テンプレート。
 | [electron-app-starter](https://github.com/heznpc/electron-app-starter) | クロスプラットフォーム |
 | [vscode-extension-starter](https://github.com/heznpc/vscode-extension-starter) | VS Marketplace + Open VSX |
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npmレジストリ |
+| [mcp-server-starter](https://github.com/heznpc/mcp-server-starter) | npmレジストリ |
 
 ---
 
@@ -41,7 +49,5 @@ CI/CD内蔵のプロダクション対応テンプレート。
 <img src="https://profilekit.vercel.app/api/stats?username=heznpc" alt="Stats" />
 
 <img src="https://profilekit.vercel.app/api/languages?username=heznpc&layout=donut" alt="Languages" />
-
-<img src="https://profilekit.vercel.app/api/social?github=heznpc&email=heznpc@gmail.com&layout=compact" alt="Social" />
 
 </div>
