@@ -5,13 +5,11 @@
 I ship AI products and starter templates that handle CI/CD so you don't have to.
 Currently exploring AI agent systems — LangGraph, VLM, RAG.
 
-**Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
-
 ---
 
 ### SkillBridge
 
-[SkillBridge](https://github.com/heznpc/skillbridge) — Chrome extension that translates Anthropic Academy into 26+ languages, with an AI tutor built in. Making AI education accessible regardless of language.
+**[SkillBridge](https://github.com/heznpc/skillbridge)** — Chrome extension that translates Anthropic Academy into 26+ languages, with an AI tutor built in. Making AI education accessible regardless of language.
 
 ---
 
@@ -33,5 +31,7 @@ Production-ready templates with CI/CD baked in.
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npm registry |
 
 ---
+
+**Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
 
 📫 heznpc@gmail.com

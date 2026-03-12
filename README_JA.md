@@ -2,16 +2,14 @@
 
 ## Heznpc
 
-AIプロダクトとスターターテンプレートを作っています。CI/CDは勝手に回るようにしてあります。
-最近はAIエージェント方面を掘っています — LangGraph、VLM、RAG。
-
-**Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
+AIプロダクトと、CI/CD込みのスターターテンプレートを作っています。
+最近はAIエージェントシステムを掘り下げ中 — LangGraph、VLM、RAG。
 
 ---
 
 ### SkillBridge
 
-[SkillBridge](https://github.com/heznpc/skillbridge) — Anthropic Academyを26以上の言語に翻訳するChrome拡張機能。AIチューター内蔵。言語を問わずAI教育にアクセスできるように。
+**[SkillBridge](https://github.com/heznpc/skillbridge)** — Anthropic Academyを26以上の言語に翻訳するChrome拡張機能。AIチューター内蔵。言語を問わずAI教育にアクセスできるように。
 
 ---
 
@@ -33,5 +31,7 @@ CI/CD設定済みの本番対応テンプレート。
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npmレジストリ |
 
 ---
+
+**Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
 
 📫 heznpc@gmail.com
