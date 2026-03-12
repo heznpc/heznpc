@@ -47,24 +47,4 @@
 
 </div>
 
-<br />
-
-### GitHub統計
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=heznpc&show_icons=true&theme=github_dark_dimmed&hide_border=true&bg_color=00000000" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=heznpc&show_icons=true&theme=default&hide_border=true&bg_color=00000000" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=heznpc&show_icons=true&theme=github_dark_dimmed&hide_border=true" />
-</picture>
-&nbsp;&nbsp;
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=heznpc&theme=github-dark-dimmed&hide_border=true&background=00000000" />
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=heznpc&theme=default&hide_border=true&background=00000000" />
-  <img height="165" src="https://streak-stats.demolab.com?user=heznpc&theme=github-dark-dimmed&hide_border=true" />
-</picture>
-
-</div>
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:30363d&height=100&section=footer" width="100%" />
