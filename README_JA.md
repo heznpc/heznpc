@@ -2,8 +2,8 @@
 
 ## Heznpc
 
-AIプロダクトと、CI/CD込みのスターターテンプレートを作っています。
-最近はAIエージェントシステムを掘り下げ中 — LangGraph、VLM、RAG。
+AIプロダクトとスターターテンプレートを作っています。CI/CDは勝手に回るようにしてあります。
+最近はAIエージェント方面を掘っています — LangGraph、VLM、RAG。
 
 **Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
 

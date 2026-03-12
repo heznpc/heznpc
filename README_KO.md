@@ -2,8 +2,8 @@
 
 ## Heznpc
 
-AI 제품과 CI/CD가 내장된 스타터 템플릿을 만들고 있습니다.
-요즘은 AI 에이전트 시스템을 파고 있습니다 — LangGraph, VLM, RAG.
+AI 제품과 스타터 템플릿을 만듭니다. CI/CD는 알아서 돌아가게 해둡니다.
+요즘은 AI 에이전트 쪽을 파는 중 — LangGraph, VLM, RAG.
 
 **Stack:** TypeScript · React · Next.js · Node.js · Java · Spring · Python · FastAPI · Flutter · Docker · AWS
 
