@@ -14,7 +14,7 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 
 | Project | Description |
 |---------|-------------|
-| [iMcp](https://github.com/heznpc/iMcp) | MCP server for Apple Notes — full CRUD, bulk ops, smart comparison |
+| [iMcp](https://github.com/heznpc/iMcp) | MCP server for the entire Apple ecosystem — 110 tools across 13 apps |
 | [k-compliance](https://github.com/heznpc/k-compliance) | Korean regulatory compliance MCP servers (AI Act, food labeling) |
 
 ### AI & Tools
