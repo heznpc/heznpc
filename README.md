@@ -41,13 +41,3 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 | [vscode-extension-starter](https://github.com/heznpc/vscode-extension-starter) | VS Marketplace + Open VSX |
 | [npm-package-starter](https://github.com/heznpc/npm-package-starter) | npm registry |
 | [mcp-server-starter](https://github.com/heznpc/mcp-server-starter) | npm registry |
-
----
-
-<div align="center">
-
-<img src="https://profilekit.vercel.app/api/stats?username=heznpc" alt="Stats" />
-
-<img src="https://profilekit.vercel.app/api/languages?username=heznpc&layout=donut" alt="Languages" />
-
-</div>
