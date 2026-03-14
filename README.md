@@ -14,7 +14,6 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 | Project | Description |
 |---------|-------------|
 | [AirMCP](https://github.com/heznpc/AirMCP) | MCP server for the entire Apple ecosystem — 173 tools across 18 apps |
-| [k-compliance](https://github.com/heznpc/k-compliance) | Korean regulatory compliance MCP servers (AI Act, food labeling) |
 
 ### AI & Tools
 
