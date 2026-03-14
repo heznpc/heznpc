@@ -2,7 +2,6 @@
 
 <img src="https://profilekit.vercel.app/api/typing?lines=Hi,+I'm+Heznpc,AI+/+Software+Engineer&size=24&weight=500&color=e6edf3&align=center&width=500&height=45&speed=80" alt="Typing" />
 
-[English](README.md) · [한국어](README_KO.md) · [日本語](README_JA.md)
 
 </div>
 
@@ -14,7 +13,7 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 
 | Project | Description |
 |---------|-------------|
-| [iConnect](https://github.com/heznpc/iConnect) | MCP server for the entire Apple ecosystem — 110 tools across 13 apps |
+| [AirMCP](https://github.com/heznpc/AirMCP) | MCP server for the entire Apple ecosystem — 173 tools across 18 apps |
 | [k-compliance](https://github.com/heznpc/k-compliance) | Korean regulatory compliance MCP servers (AI Act, food labeling) |
 
 ### AI & Tools
