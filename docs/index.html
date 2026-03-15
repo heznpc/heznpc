@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>heznpc — AI / Software Engineer</title>
+  <meta name="description" content="Building MCP servers, AI products, and starter templates with CI/CD baked in.">
+  <meta name="theme-color" content="#0e1117">
+  <meta property="og:title" content="heznpc — AI / Software Engineer">
+  <meta property="og:description" content="Building MCP servers, AI products, and starter templates with CI/CD baked in.">
+  <meta property="og:image" content="https://github.com/heznpc.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="heznpc — AI / Software Engineer">
+  <meta name="twitter:image" content="https://github.com/heznpc.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === Theme tokens === */
+    :root{--bg:#0e1117;--nav-bg:rgba(14,17,23,.6);--nav-border:rgba(255,255,255,.06)}
+    [data-theme="light"]{--bg:#e8eaef;--nav-bg:rgba(255,255,255,.45);--nav-border:rgba(255,255,255,.5)}
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+      background:var(--bg);color:#fff;-webkit-font-smoothing:antialiased;
+      overflow-x:hidden;line-height:1.6;transition:background .5s,color .5s;
+    }
+    [data-theme="light"] body{color:#1d1d1f}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer;border:0;background:0 0}
+
+    /* === Ambient orbs === */
+    .scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(60px);will-change:transform;animation:drift 22s ease-in-out infinite alternate}
+    .orb-a{width:800px;height:800px;top:-12%;left:-10%;background:radial-gradient(circle,rgba(14,165,233,.3),transparent 70%)}
+    .orb-b{width:600px;height:600px;top:28%;right:-10%;background:radial-gradient(circle,rgba(244,114,182,.25),transparent 70%);animation-delay:-7s}
+    .orb-c{width:550px;height:550px;bottom:-5%;left:12%;background:radial-gradient(circle,rgba(45,212,191,.22),transparent 70%);animation-delay:-14s}
+    [data-theme="light"] .orb-a{background:radial-gradient(circle,rgba(14,165,233,.32),transparent 70%)}
+    [data-theme="light"] .orb-b{background:radial-gradient(circle,rgba(244,114,182,.26),transparent 70%)}
+    [data-theme="light"] .orb-c{background:radial-gradient(circle,rgba(45,212,191,.24),transparent 70%)}
+    @keyframes drift{to{transform:translate(60px,-40px) scale(1.08)}}
+
+    /* === Nav === */
+    .glass-nav{
+      position:fixed;inset:0 0 auto;z-index:100;height:56px;
+      background:var(--nav-bg);
+      backdrop-filter:blur(24px) saturate(1.7);-webkit-backdrop-filter:blur(24px) saturate(1.7);
+      border-bottom:1px solid var(--nav-border);transition:background .5s,border-color .5s;
+    }
+    .nav-inner{max-width:720px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:100%}
+    .nav-brand{font-family:'JetBrains Mono',monospace;font-size:.88rem;font-weight:500;opacity:.8;letter-spacing:-.02em}
+    .pill-btn{
+      padding:5px 14px;border-radius:9999px;font-size:.76rem;font-weight:600;
+      opacity:.4;border:1px solid rgba(255,255,255,.08);transition:all .25s;
+    }
+    [data-theme="light"] .pill-btn{border-color:rgba(255,255,255,.4);color:#1d1d1f}
+    .pill-btn:hover{opacity:.7}
+
+    /* === Profile name gradient === */
+    .profile-name{
+      background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.45));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    [data-theme="light"] .profile-name{
+      background:linear-gradient(180deg,#1d1d1f 30%,rgba(29,29,31,.45));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+
+    /* === Avatar === */
+    .avatar{
+      width:120px;height:120px;border-radius:50%;
+      border:3px solid rgba(255,255,255,.12);
+      box-shadow:0 8px 32px rgba(0,0,0,.2),0 0 0 1px rgba(255,255,255,.06);
+      transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    }
+    .avatar:hover{transform:scale(1.05)}
+    [data-theme="light"] .avatar{border-color:rgba(255,255,255,.5);box-shadow:0 8px 32px rgba(0,0,0,.08)}
+
+    /* === Glass card === */
+    .glass-card{
+      position:relative;border-radius:20px;overflow:hidden;
+      box-shadow:0 4px 16px rgba(0,0,0,.15),0 0 0 .5px rgba(255,255,255,.2),0 0 15px rgba(255,255,255,.04);
+      transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+    }
+    [data-theme="light"] .glass-card{
+      box-shadow:0 4px 24px rgba(0,0,0,.07),0 0 0 .5px rgba(255,255,255,.7),inset 0 .5px 0 rgba(255,255,255,.6),0 0 24px rgba(255,255,255,.25);
+    }
+    .glass-card.clickable{cursor:pointer}
+    .glass-card.clickable:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.25),0 0 1px rgba(255,255,255,.25)}
+    [data-theme="light"] .glass-card.clickable:hover{
+      box-shadow:0 20px 48px rgba(0,0,0,.1),0 0 0 .5px rgba(255,255,255,.8),inset 0 .5px 0 rgba(255,255,255,.7),0 0 32px rgba(255,255,255,.3);
+    }
+
+    /* Light sweep */
+    .glass-card.clickable::before{
+      content:'';position:absolute;inset:0;z-index:4;border-radius:inherit;pointer-events:none;
+      background:linear-gradient(115deg,transparent 0%,transparent 20%,rgba(255,255,255,.01) 28%,rgba(255,255,255,.04) 38%,rgba(255,255,255,.06) 50%,rgba(255,255,255,.04) 62%,rgba(255,255,255,.01) 72%,transparent 80%,transparent 100%);
+      opacity:0;transform:translateX(-140%);transition:none;
+    }
+    .glass-card.clickable:hover::before{opacity:1;transform:translateX(140%);transition:transform 8s cubic-bezier(.08,.6,0,1),opacity .6s}
+
+    .glass-fx{position:absolute;inset:0;z-index:0;border-radius:inherit;backdrop-filter:blur(3px) saturate(180%) brightness(1.1);-webkit-backdrop-filter:blur(3px) saturate(180%) brightness(1.1)}
+    [data-theme="light"] .glass-fx{backdrop-filter:blur(16px) saturate(200%) brightness(1.08);-webkit-backdrop-filter:blur(16px) saturate(200%) brightness(1.08)}
+    .glass-tint{position:absolute;inset:0;z-index:1;border-radius:inherit;background:rgba(255,255,255,.04)}
+    [data-theme="light"] .glass-tint{background:rgba(255,255,255,.35)}
+    .glass-shine{
+      position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;
+      box-shadow:inset 0 1px 12px rgba(255,255,255,.06),inset 0 -1px 8px rgba(255,255,255,.02);
+      background:linear-gradient(170deg,rgba(255,255,255,.06) 0%,transparent 35%,transparent 85%,rgba(255,255,255,.015) 100%);
+    }
+    [data-theme="light"] .glass-shine{
+      box-shadow:inset 0 1px 1px rgba(255,255,255,.8),inset 0 -1px 1px rgba(255,255,255,.3);
+      background:linear-gradient(170deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.08) 25%,transparent 45%,transparent 80%,rgba(255,255,255,.12) 100%);
+    }
+    .glass-content{position:relative;z-index:3;padding:24px}
+
+    /* === Section === */
+    .section-label{
+      font-size:.75rem;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;color:rgba(56,189,248,.7);margin-bottom:20px;
+    }
+    [data-theme="light"] .section-label{color:rgba(14,120,200,.8)}
+
+    /* === Project card elements === */
+    .proj-icon{width:44px;height:44px;border-radius:12px;flex-shrink:0}
+    .proj-title{font-size:.95rem;font-weight:700;letter-spacing:-.02em}
+    .proj-desc{font-size:.82rem;opacity:.45;line-height:1.5;margin-top:2px}
+    [data-theme="light"] .proj-desc{opacity:.55}
+    .proj-tag{
+      font-size:.62rem;font-weight:600;padding:2px 8px;border-radius:9999px;
+      background:rgba(56,189,248,.1);color:rgba(56,189,248,.8);border:1px solid rgba(56,189,248,.15);
+    }
+    [data-theme="light"] .proj-tag{background:rgba(14,120,200,.08);color:rgba(14,120,200,.8);border-color:rgba(14,120,200,.15)}
+
+    /* === Link row === */
+    .link-row .glass-content{padding:16px 24px}
+    .link-icon{width:20px;height:20px;opacity:.5;flex-shrink:0}
+    .link-label{font-size:.88rem;font-weight:600}
+    .link-sub{font-size:.72rem;font-family:'JetBrains Mono',monospace;opacity:.35}
+    .link-arrow{width:14px;height:14px;opacity:.25;flex-shrink:0}
+
+    /* === Starter grid === */
+    .starter-item{
+      display:flex;align-items:center;gap:10px;padding:10px 14px;
+      border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);
+      transition:background .2s;font-size:.82rem;
+    }
+    .starter-item:hover{background:rgba(255,255,255,.07)}
+    [data-theme="light"] .starter-item{background:rgba(0,0,0,.02);border-color:rgba(0,0,0,.04)}
+    [data-theme="light"] .starter-item:hover{background:rgba(0,0,0,.05)}
+    .starter-name{font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:500;opacity:.75;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .starter-deploy{font-size:.65rem;opacity:.35;white-space:nowrap}
+
+    /* === Reveal === */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* === Mobile === */
+    @media(max-width:640px){
+      .proj-grid{grid-template-columns:1fr !important}
+      .starter-grid{grid-template-columns:1fr !important}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient orbs -->
+  <div class="scene" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="glass-nav">
+    <div class="nav-inner">
+      <span class="nav-brand">heznpc</span>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="https://github.com/heznpc" target="_blank" rel="noopener" style="font-size:.82rem;opacity:.45;font-weight:500;transition:opacity .2s" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='.45'">GitHub</a>
+        <button class="pill-btn" id="themeToggle" aria-label="Toggle theme">
+          <span id="themeIcon"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header style="position:relative;z-index:1;padding:calc(56px + 80px) 0 48px;text-align:center">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:20px">
+        <img src="https://github.com/heznpc.png" alt="heznpc" class="avatar" width="120" height="120">
+        <h1 style="font-size:clamp(2.4rem,7vw,4.5rem);font-weight:700;line-height:.98;letter-spacing:-.04em" class="profile-name">heznpc</h1>
+      </div>
+      <p class="reveal" data-delay="60" style="margin-top:16px;font-size:1.1rem;opacity:.45;font-weight:500">Building MCP servers, AI products, and starter templates.</p>
+    </div>
+  </header>
+
+  <!-- MCP Servers -->
+  <section style="position:relative;z-index:1;padding:24px 0 40px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">MCP Servers</p>
+      <a href="https://heznpc.github.io/AirMCP/" target="_blank" rel="noopener">
+        <div class="glass-card clickable reveal" data-delay="40">
+          <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+          <div class="glass-content">
+            <div style="display:flex;align-items:start;gap:16px">
+              <img src="https://heznpc.github.io/AirMCP/airmcp-icon-128.png" alt="AirMCP" class="proj-icon" width="44" height="44">
+              <div style="flex:1;min-width:0">
+                <div class="proj-title">AirMCP</div>
+                <p class="proj-desc">MCP server for the entire Apple ecosystem — connect any AI to your Mac.</p>
+                <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+                  <span class="proj-tag">252 tools</span>
+                  <span class="proj-tag">25 modules</span>
+                  <span class="proj-tag">macOS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- AI & Tools -->
+  <section style="position:relative;z-index:1;padding:24px 0 40px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">AI &amp; Tools</p>
+      <div class="proj-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+
+        <a href="https://github.com/heznpc/skillbridge" target="_blank" rel="noopener">
+          <div class="glass-card clickable reveal" data-delay="40">
+            <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+            <div class="glass-content">
+              <div class="proj-title">SkillBridge</div>
+              <p class="proj-desc">Chrome extension — translates Anthropic Academy into 26+ languages with AI tutor.</p>
+              <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+                <span class="proj-tag">Chrome</span>
+                <span class="proj-tag">AI</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://github.com/heznpc/ProfileKit" target="_blank" rel="noopener">
+          <div class="glass-card clickable reveal" data-delay="80">
+            <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+            <div class="glass-content">
+              <div class="proj-title">ProfileKit</div>
+              <p class="proj-desc">All-in-one GitHub profile cards. No ratings, no rankings.</p>
+              <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+                <span class="proj-tag">GitHub</span>
+                <span class="proj-tag">API</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://github.com/heznpc/villagent" target="_blank" rel="noopener">
+          <div class="glass-card clickable reveal" data-delay="80">
+            <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+            <div class="glass-content">
+              <div class="proj-title">villagent</div>
+              <p class="proj-desc">GUI platform for designing and managing AI agent ecosystems.</p>
+              <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+                <span class="proj-tag">Agents</span>
+                <span class="proj-tag">GUI</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://github.com/heznpc/code-sense" target="_blank" rel="noopener">
+          <div class="glass-card clickable reveal" data-delay="120">
+            <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+            <div class="glass-content">
+              <div class="proj-title">code-sense</div>
+              <p class="proj-desc">Developer intuition guide — learn from real-world production bugs.</p>
+              <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+                <span class="proj-tag">Education</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Starter Series -->
+  <section style="position:relative;z-index:1;padding:24px 0 48px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">Starter Series</p>
+      <p class="reveal" data-delay="20" style="font-size:.86rem;opacity:.35;margin-top:-12px;margin-bottom:16px">Clone &rarr; replace your code &rarr; push &rarr; deployed.</p>
+      <div class="glass-card reveal" data-delay="40">
+        <div class="glass-fx"></div><div class="glass-tint"></div><div class="glass-shine"></div>
+        <div class="glass-content" style="padding:20px">
+          <div class="starter-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+
+            <a href="https://github.com/heznpc/docker-deploy-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">docker-deploy-starter</span>
+              <span class="starter-deploy">Any VPS</span>
+            </a>
+
+            <a href="https://github.com/heznpc/browser-extension-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">browser-extension-starter</span>
+              <span class="starter-deploy">Chrome + AMO</span>
+            </a>
+
+            <a href="https://github.com/heznpc/discord-bot-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">discord-bot-starter</span>
+              <span class="starter-deploy">Railway / Fly.io</span>
+            </a>
+
+            <a href="https://github.com/heznpc/telegram-bot-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">telegram-bot-starter</span>
+              <span class="starter-deploy">Railway / Fly.io</span>
+            </a>
+
+            <a href="https://github.com/heznpc/react-native-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">react-native-starter</span>
+              <span class="starter-deploy">App / Play Store</span>
+            </a>
+
+            <a href="https://github.com/heznpc/electron-app-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">electron-app-starter</span>
+              <span class="starter-deploy">Cross-platform</span>
+            </a>
+
+            <a href="https://github.com/heznpc/vscode-extension-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">vscode-extension-starter</span>
+              <span class="starter-deploy">VS Marketplace</span>
+            </a>
+
+            <a href="https://github.com/heznpc/npm-package-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">npm-package-starter</span>
+              <span class="starter-deploy">npm registry</span>
+            </a>
+
+            <a href="https://github.com/heznpc/mcp-server-starter" target="_blank" rel="noopener" class="starter-item">
+              <span class="starter-name">mcp-server-starter</span>
+              <span class="starter-deploy">npm registry</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="position:relative;z-index:1;padding:24px 0;border-top:1px solid rgba(255,255,255,.04);text-align:center">
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.78rem;opacity:.25">heznpc</p>
+  </footer>
+
+  <script>
+    // Theme toggle
+    (function(){
+      var root=document.documentElement,toggle=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
+      function u(){icon.textContent=root.dataset.theme==='dark'?'\u2600':'\u263E';}
+      try{var s=localStorage.getItem('airmcp-theme');if(s)root.dataset.theme=s;}catch(e){}
+      u();
+      toggle.addEventListener('click',function(){
+        root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+        try{localStorage.setItem('airmcp-theme',root.dataset.theme);}catch(e){}
+        u();
+      });
+    })();
+    // Scroll reveal
+    (function(){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var d=parseInt(e.target.dataset.delay||0);
+            setTimeout(function(){e.target.classList.add('visible');},d);
+            obs.unobserve(e.target);
+          }
+        });
+      },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+    })();
+  </script>
+</body>
+</html>
