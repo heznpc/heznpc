@@ -14,6 +14,7 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 | Project | Description |
 |---------|-------------|
 | [AirMCP](https://github.com/heznpc/AirMCP) | MCP server for the entire Apple ecosystem — 173 tools across 18 apps |
+| [PLOIDY](https://github.com/heznpc/PLOIDY) | Cross-session debate protocol — same model, different context depths, better decisions |
 
 ### AI & Tools
 
