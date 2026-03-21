@@ -5,7 +5,7 @@
 
 </div>
 
-Building MCP servers, AI products, and starter templates with CI/CD baked in.
+Building MCP servers, AI products, research papers, and starter templates with CI/CD baked in.
 
 ---
 
@@ -13,7 +13,7 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 
 | Project | Description |
 |---------|-------------|
-| [AirMCP](https://github.com/heznpc/AirMCP) | MCP server for the entire Apple ecosystem — 173 tools across 18 apps |
+| [AirMCP](https://github.com/heznpc/AirMCP) | MCP server for the entire Apple ecosystem — 252 tools across 25 modules |
 | [PLOIDY](https://github.com/heznpc/PLOIDY) | Cross-session debate protocol — same model, different context depths, better decisions |
 
 ### AI & Tools
@@ -24,6 +24,15 @@ Building MCP servers, AI products, and starter templates with CI/CD baked in.
 | [ProfileKit](https://github.com/heznpc/ProfileKit) | All-in-one GitHub profile cards. No ratings, no rankings |
 | [villagent](https://github.com/heznpc/villagent) | GUI platform for designing and managing AI agent ecosystems |
 | [code-sense](https://github.com/heznpc/code-sense) | Developer intuition guide — learn from real-world production bugs |
+| [FollowPrint](https://github.com/heznpc/FollowPrint) | Print & screenshot tracking utility built with Next.js |
+
+### Research
+
+| Project | Description |
+|---------|-------------|
+| [eddy](https://github.com/heznpc/eddy) | ADHD × AI — position paper on neurodivergent workflows as competitive advantage |
+| [analogic-appropriation](https://github.com/heznpc/analogic-appropriation) | Cross-cultural media study on children's play and combat narratives |
+| [z-gap](https://github.com/heznpc/z-gap) | Convergence ≠ Communicability — Platonic Representations at the NL-Code Interface |
 
 ### Starter Series
 
