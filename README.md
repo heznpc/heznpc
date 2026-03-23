@@ -1,11 +1,8 @@
 <div align="center">
 
-<img src="https://profilekit.vercel.app/api/typing?lines=Hi,+I'm+Heznpc,AI+/+Software+Engineer&size=24&weight=500&color=e6edf3&align=center&width=500&height=45&speed=80" alt="Typing" />
-
+<img src="https://profilekit.vercel.app/api/typing?lines=gives+quests+to+AI+agents&size=24&weight=500&color=e6edf3&align=center&width=500&height=45&speed=80" alt="Typing" />
 
 </div>
-
-Building MCP servers, AI products, research papers, and starter templates with CI/CD baked in.
 
 ---
 
