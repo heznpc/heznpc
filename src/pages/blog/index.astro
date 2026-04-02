@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GlassCard from '../../components/GlassCard.astro';
+import { getCollection } from 'astro:content';
+import { base } from '../../utils/base';
+import { formatDate } from '../../utils/date';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="Blog — heznpc" description="Thoughts on AI, software engineering, and building ecosystems.">
+
+  <header style="position:relative;z-index:1;padding:calc(56px + 60px) 0 32px;text-align:center">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <h1 class="reveal profile-name" style="font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.04em">Blog</h1>
+      <p class="reveal" data-delay="60" style="margin-top:12px;font-size:.9rem;opacity:.4">Thoughts on AI, software engineering, and building ecosystems.</p>
+    </div>
+  </header>
+
+  <section style="position:relative;z-index:1;padding:0 0 80px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      {posts.length === 0 ? (
+        <div class="reveal" style="text-align:center;padding:48px 0">
+          <p style="font-size:.9rem;opacity:.4">No posts yet. Check back soon.</p>
+        </div>
+      ) : (
+        <div class="blog-grid">
+          {posts.map((post, i) => (
+            <a href={`${base}blog/${post.id}/`} class="blog-card-link">
+              <GlassCard class="clickable blog-card reveal" extraAttrs={{ 'data-delay': String(Math.min(i * 40, 200)) }}>
+                <span class="blog-date">{formatDate(new Date(post.data.date))}</span>
+                <h2 class="blog-title">{post.data.title}</h2>
+                <p class="blog-excerpt">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="blog-tags">
+                    {post.data.tags.map((tag: string) => (
+                      <span class="proj-tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </GlassCard>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

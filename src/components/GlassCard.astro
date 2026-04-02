@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+  extraAttrs?: Record<string, string>;
+}
+
+const { class: className, extraAttrs = {} } = Astro.props;
+const classes = ['glass-card', className].filter(Boolean).join(' ');
+---
+
+<div class={classes} {...extraAttrs}>
+  <div class="glass-fx"></div>
+  <div class="glass-tint"></div>
+  <div class="glass-shine"></div>
+  <div class="glass-content">
+    <slot />
+  </div>
+</div>

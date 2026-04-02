@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GlassCard from '../components/GlassCard.astro';
+import EcoMap from '../components/EcoMap.astro';
+import ProjectIcon from '../components/ProjectIcon.astro';
+import ProjectTags from '../components/ProjectTags.astro';
+import { groupByCategory, type Project, type Starter } from '../utils/types';
+
+import projectsData from '../../projects.json';
+
+const meta = projectsData.meta;
+const projects = projectsData.projects as Project[];
+const starters = projectsData.starters as Starter[];
+
+const flagships = projects.filter(p => p.tier === 1);
+const catalogProjects = projects.filter(p => p.tier !== 1);
+
+const airmcp = flagships.find(p => p.id === 'airmcp');
+const otherFlagships = flagships.filter(p => p.id !== 'airmcp');
+
+const categories = groupByCategory(projects);
+
+const projectCount = projects.length;
+const researchCount = categories.research.length;
+const starterCount = starters.length;
+const footerExtra = `${projectCount} projects &middot; ${researchCount} publications &middot; ${starterCount} templates`;
+---
+
+<BaseLayout title={`${meta.name} — AI / Software Engineer`} footerExtra={footerExtra}>
+
+  <!-- 1. HERO -->
+  <header style="position:relative;z-index:1;padding:calc(56px + 80px) 0 48px;text-align:center">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:16px">
+        <h1 style="font-size:clamp(2.4rem,7vw,4.5rem);font-weight:700;line-height:.98;letter-spacing:-.04em" class="profile-name">{meta.name}</h1>
+      </div>
+      <p class="reveal" data-delay="60" style="margin-top:16px;font-size:1.15rem;font-weight:600;opacity:.7">{meta.tagline}</p>
+      <p class="reveal" data-delay="100" style="margin-top:8px;font-size:.9rem;opacity:.4">{meta.bio}</p>
+    </div>
+  </header>
+
+  <!-- 2. ECOSYSTEM MAP -->
+  <section style="position:relative;z-index:1;padding:0 0 48px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">Ecosystem</p>
+      <GlassCard class="reveal eco-map-wrap" extraAttrs={{ 'data-delay': '40' }}>
+        <div style="padding:16px 12px">
+          <EcoMap categories={categories} />
+        </div>
+      </GlassCard>
+    </div>
+  </section>
+
+  <!-- 3. FLAGSHIP SECTION -->
+  <section style="position:relative;z-index:1;padding:24px 0 40px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">Flagship</p>
+
+      {/* AirMCP large card */}
+      {airmcp && (
+        <a href={airmcp.url} target="_blank" rel="noopener" class="flagship-link">
+          <GlassCard class="clickable flagship-large reveal" extraAttrs={{ 'data-delay': '40' }}>
+            <div style="display:flex;align-items:start;gap:20px;flex-wrap:wrap">
+              <ProjectIcon icon={airmcp.icon} iconEmoji={airmcp.iconEmoji} name={airmcp.name} size={64} fontSize="2rem" />
+              <div style="flex:1;min-width:200px">
+                <div style="font-size:1.3rem;font-weight:700;letter-spacing:-.02em">{airmcp.name}</div>
+                <p class="proj-desc" style="font-size:.92rem;margin-top:6px">{airmcp.description}</p>
+                <ProjectTags tags={airmcp.tags} />
+              </div>
+            </div>
+          </GlassCard>
+        </a>
+      )}
+
+      {/* Other flagships in 2-col */}
+      {otherFlagships.length > 0 && (
+        <div class="flagship-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          {otherFlagships.map((p, i) => (
+            <a href={p.url} target="_blank" rel="noopener" class="flagship-link">
+              <GlassCard class="clickable flagship-medium reveal" extraAttrs={{ 'data-delay': String(60 + i * 40) }}>
+                <div style="display:flex;align-items:start;gap:14px">
+                  <ProjectIcon icon={p.icon} iconEmoji={p.iconEmoji} name={p.name} size={48} fontSize="1.6rem" />
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                      <span class="proj-title" style="font-size:1.05rem">{p.name}</span>
+                      {p.venue && <span class="venue-badge">{p.venue}</span>}
+                    </div>
+                    <p class="proj-desc" style="margin-top:4px">{p.description}</p>
+                    <ProjectTags tags={p.tags} />
+                  </div>
+                </div>
+              </GlassCard>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- 4. THESIS BLOCK -->
+  <section style="position:relative;z-index:1;padding:32px 0 48px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <div class="reveal" data-delay="40">
+        <p class="thesis">{meta.thesis}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FULL CATALOG -->
+  <section style="position:relative;z-index:1;padding:24px 0 40px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <p class="section-label reveal">Catalog</p>
+      <div class="tab-bar reveal" data-delay="20" role="tablist" aria-label="Filter projects by category">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-filter="all">All</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-filter="foundation">Foundation</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-filter="products">Products</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-filter="tools">Tools</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-filter="research">Research</button>
+      </div>
+      <div class="catalog-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px" role="tabpanel">
+        {catalogProjects.map((p, i) => (
+          <a href={p.url} target="_blank" rel="noopener" class="catalog-link">
+            <GlassCard class="clickable catalog-card reveal" extraAttrs={{ 'data-delay': String(Math.min(i * 30, 200)), 'data-category': p.category }}>
+              <div style="display:flex;align-items:start;gap:12px">
+                <ProjectIcon icon={p.icon} iconEmoji={p.iconEmoji} name={p.name} size={36} fontSize="1.2rem" />
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                    <span class="proj-title">{p.name}</span>
+                    {p.venue && <span class="venue-badge">{p.venue}</span>}
+                  </div>
+                  <p class="proj-desc" style="margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{p.description}</p>
+                  <ProjectTags tags={p.tags} />
+                </div>
+              </div>
+            </GlassCard>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. STARTERS -->
+  <section style="position:relative;z-index:1;padding:24px 0 48px">
+    <div style="max-width:720px;margin:0 auto;padding:0 20px">
+      <GlassCard class="reveal" extraAttrs={{ 'data-delay': '40' }}>
+        <div style="padding:20px 24px">
+          <button class="accordion-toggle" id="starterToggle" aria-expanded="false" aria-controls="starterContent">
+            <div>
+              <p class="section-label" style="margin-bottom:4px">Starter Series</p>
+              <p style="font-size:.82rem;opacity:.35">Clone &rarr; Push &rarr; Deployed &mdash; {starterCount} CI/CD templates</p>
+            </div>
+            <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content" id="starterContent" role="region" aria-labelledby="starterToggle">
+            <div>
+              <div class="starter-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:16px">
+                {starters.map((s) => (
+                  <a href={`https://github.com/${s.repo}`} target="_blank" rel="noopener" class="starter-item">
+                    <span class="starter-name">{s.name}</span>
+                    <span class="starter-deploy">{s.deployTo}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </GlassCard>
+    </div>
+  </section>
+
+  <!-- Tab filtering & Accordion (page-specific JS) -->
+  <script is:inline>
+    // Tab filtering
+    (function(){
+      var tabs=document.querySelectorAll('.tab-btn');
+      var cards=document.querySelectorAll('.catalog-card');
+      tabs.forEach(function(tab){
+        tab.addEventListener('click',function(){
+          tabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected','true');
+          var filter=tab.dataset.filter;
+          cards.forEach(function(card){
+            var link=card.closest('.catalog-link');
+            if(filter==='all'||card.dataset.category===filter){
+              if(link)link.style.display='';
+            }else{
+              if(link)link.style.display='none';
+            }
+          });
+        });
+      });
+    })();
+
+    // Accordion
+    (function(){
+      var toggle=document.getElementById('starterToggle');
+      var content=document.getElementById('starterContent');
+      if(!toggle||!content) return;
+      var arrow=toggle.querySelector('.accordion-arrow');
+      toggle.addEventListener('click',function(){
+        var open=content.classList.toggle('open');
+        toggle.setAttribute('aria-expanded',open?'true':'false');
+        arrow.style.transform=open?'rotate(180deg)':'';
+      });
+    })();
+  </script>
+</BaseLayout>

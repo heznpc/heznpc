@@ -1,0 +1,19 @@
+---
+interface Props {
+  icon?: string | null;
+  iconEmoji?: string;
+  name: string;
+  size: number;
+  fontSize: string;
+}
+
+const { icon, iconEmoji, name, size, fontSize } = Astro.props;
+---
+
+{icon ? (
+  <img src={icon} alt={name} class="proj-icon" width={size} height={size} style={`width:${size}px;height:${size}px`} />
+) : (
+  <div class="proj-icon" style={`width:${size}px;height:${size}px;display:flex;align-items:center;justify-content:center;background:rgba(56,189,248,.1);font-size:${fontSize}`}>
+    {iconEmoji || ''}
+  </div>
+)}
