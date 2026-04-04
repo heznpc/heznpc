@@ -11,40 +11,49 @@
     {
       "id": "airmcp",
       "name": "AirMCP",
-      "description": "MCP server for the entire Apple ecosystem — connect any AI to your Mac.",
+      "description": "One MCP server for your entire Apple ecosystem.",
       "repo": "heznpc/AirMCP",
       "category": "foundation",
       "tier": 1,
-      "icon": "https://heznpc.github.io/AirMCP/airmcp-icon-128.png",
-      "tags": ["262 tools", "25 modules", "macOS"],
-      "url": "https://heznpc.github.io/AirMCP/",
-      "status": "active"
+      "tags": [
+        "262 tools",
+        "25 modules",
+        "macOS"
+      ],
+      "url": "https://github.com/heznpc/AirMCP",
+      "status": "active",
+      "icon": "https://heznpc.github.io/AirMCP/airmcp-icon-128.png"
     },
     {
       "id": "ploidy",
       "name": "PLOIDY",
-      "description": "Cross-session debate protocol — same model, different context depths, better decisions.",
+      "description": "Cross-session debate protocol — same model, different context depths, better decisions",
       "repo": "heznpc/PLOIDY",
       "category": "foundation",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83e\uddec",
-      "tags": ["MCP", "Protocol"],
+      "tags": [
+        "MCP",
+        "Protocol"
+      ],
       "url": "https://github.com/heznpc/PLOIDY",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🧬",
+      "venue": "COLM 2026"
     },
     {
       "id": "canary",
-      "name": "Canary",
-      "description": "Project health dashboard — scans dependencies, grades repos, keeps docs fresh.",
+      "name": "canary",
+      "description": "Project health dashboard — monitor stack freshness, deploy status, code quality, and activity across all your repos",
       "repo": "heznpc/Canary",
       "category": "foundation",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83d\udc24",
-      "tags": ["Dashboard", "Health"],
-      "url": "https://github.com/heznpc/Canary",
-      "status": "active"
+      "tags": [
+        "Dashboard",
+        "Health"
+      ],
+      "url": "https://github.com/heznpc/canary",
+      "status": "active",
+      "iconEmoji": "🐤"
     },
     {
       "id": "trashmonster",
@@ -53,11 +62,14 @@
       "repo": "heznpc/TrashMonster",
       "category": "products",
       "tier": 1,
-      "icon": null,
-      "iconEmoji": "\ud83d\uddd1\ufe0f",
-      "tags": ["Kids", "AI", "EdTech"],
+      "tags": [
+        "Kids",
+        "AI",
+        "EdTech"
+      ],
       "url": "https://github.com/heznpc/TrashMonster",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🗑️"
     },
     {
       "id": "dol-pin",
@@ -66,24 +78,14 @@
       "repo": "heznpc/dol-pin",
       "category": "products",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83d\udc2c",
-      "tags": ["K-pop", "Marketplace", "Flutter"],
+      "tags": [
+        "K-pop",
+        "Marketplace",
+        "Flutter"
+      ],
       "url": "https://github.com/heznpc/dol-pin",
-      "status": "active"
-    },
-    {
-      "id": "tr-archive",
-      "name": "TR Archive",
-      "description": "Tales Runner unofficial utility — runner stats, maps, costumes, and probability calculator.",
-      "repo": "heznpc/tr-archive",
-      "category": "products",
-      "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83c\udfc3",
-      "tags": ["Next.js", "Game"],
-      "url": "https://github.com/heznpc/tr-archive",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🐬"
     },
     {
       "id": "plantmonster",
@@ -92,24 +94,29 @@
       "repo": "heznpc/PlantMonster",
       "category": "products",
       "tier": 3,
-      "icon": null,
-      "iconEmoji": "\ud83c\udf31",
-      "tags": ["Kids", "AI"],
+      "tags": [
+        "Kids",
+        "AI"
+      ],
       "url": "https://github.com/heznpc/PlantMonster",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🌱"
     },
     {
       "id": "skillbridge",
-      "name": "SkillBridge",
-      "description": "Chrome extension — translates Anthropic Academy into 26+ languages with AI tutor.",
+      "name": "skillBridge",
+      "description": "Chrome extension that translates Anthropic Academy into your language with an AI tutor chatbot",
       "repo": "heznpc/skillbridge",
       "category": "tools",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83c\udf10",
-      "tags": ["Chrome", "AI", "Education"],
-      "url": "https://github.com/heznpc/skillbridge",
-      "status": "active"
+      "tags": [
+        "Chrome",
+        "AI",
+        "Education"
+      ],
+      "url": "https://github.com/heznpc/skillBridge",
+      "status": "active",
+      "iconEmoji": "🌐"
     },
     {
       "id": "profilekit",
@@ -118,24 +125,28 @@
       "repo": "heznpc/ProfileKit",
       "category": "tools",
       "tier": 3,
-      "icon": null,
-      "iconEmoji": "\ud83e\udeaa",
-      "tags": ["GitHub", "API"],
+      "tags": [
+        "GitHub",
+        "API"
+      ],
       "url": "https://github.com/heznpc/ProfileKit",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🪪"
     },
     {
       "id": "villagent",
       "name": "villagent",
-      "description": "GUI platform for designing and managing AI agent ecosystems.",
+      "description": "GUI platform for designing and managing AI agent ecosystems",
       "repo": "heznpc/villagent",
       "category": "tools",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83c\udfe0\ufe0f",
-      "tags": ["Agents", "GUI"],
+      "tags": [
+        "Agents",
+        "GUI"
+      ],
       "url": "https://github.com/heznpc/villagent",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🏠️"
     },
     {
       "id": "code-sense",
@@ -144,11 +155,13 @@
       "repo": "heznpc/code-sense",
       "category": "tools",
       "tier": 3,
-      "icon": null,
-      "iconEmoji": "\ud83e\udde0",
-      "tags": ["Education", "Node.js"],
+      "tags": [
+        "Education",
+        "Node.js"
+      ],
       "url": "https://github.com/heznpc/code-sense",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🧠"
     },
     {
       "id": "followprint",
@@ -157,38 +170,45 @@
       "repo": "heznpc/FollowPrint",
       "category": "tools",
       "tier": 3,
-      "icon": null,
-      "iconEmoji": "\ud83d\udda8\ufe0f",
-      "tags": ["Next.js", "Utility"],
+      "tags": [
+        "Next.js",
+        "Utility"
+      ],
       "url": "https://github.com/heznpc/FollowPrint",
-      "status": "active"
+      "status": "active",
+      "iconEmoji": "🖨️"
     },
     {
       "id": "z-gap",
       "name": "z-gap",
-      "description": "Convergence \u2260 Communicability — Platonic Representations at the NL-Code Interface.",
+      "description": "Convergence ≠ Communicability — Platonic Representations at the NL-Code Interface.",
       "repo": "heznpc/z-gap",
       "category": "research",
       "tier": 1,
-      "icon": null,
-      "iconEmoji": "\ud83d\udcd0",
-      "tags": ["EMNLP'26", "NLP"],
+      "tags": [
+        "NLP",
+        "Representations"
+      ],
       "url": "https://github.com/heznpc/z-gap",
       "status": "active",
+      "iconEmoji": "📐",
       "venue": "EMNLP 2026"
     },
     {
       "id": "eddy",
       "name": "eddy",
-      "description": "ADHD \u00d7 AI — position paper on neurodivergent workflows as competitive advantage.",
+      "description": "ADHD × AI — position paper on neurodivergent workflows as competitive advantage.",
       "repo": "heznpc/eddy",
       "category": "research",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83c\udf00",
-      "tags": ["CHI'27", "HCI"],
+      "tags": [
+        "HCI",
+        "ADHD",
+        "Neurodiversity"
+      ],
       "url": "https://github.com/heznpc/eddy",
       "status": "active",
+      "iconEmoji": "🌀",
       "venue": "CHI 2027"
     },
     {
@@ -198,39 +218,265 @@
       "repo": "heznpc/emergence-paradox",
       "category": "research",
       "tier": 2,
-      "icon": null,
-      "iconEmoji": "\ud83e\ude9e",
-      "tags": ["Inquiry SI", "Philosophy"],
+      "tags": [
+        "Philosophy",
+        "AI Ethics"
+      ],
       "url": "https://github.com/heznpc/emergence-paradox",
       "status": "active",
-      "venue": "Inquiry SI"
+      "iconEmoji": "🪞",
+      "venue": "Inquiry"
     },
     {
       "id": "analogic-appropriation",
       "name": "analogic-appropriation",
-      "description": "Cross-cultural media study on children\u2019s play and combat narratives across media eras.",
+      "description": "Cross-cultural media study on children’s play and combat narratives across media eras.",
       "repo": "heznpc/analogic-appropriation",
       "category": "research",
       "tier": 3,
-      "icon": null,
-      "iconEmoji": "\ud83d\udcda",
-      "tags": ["Media", "Culture"],
+      "tags": [
+        "Media",
+        "Culture",
+        "Play"
+      ],
       "url": "https://github.com/heznpc/analogic-appropriation",
       "status": "active",
-      "venue": "New Media & Society"
+      "iconEmoji": "📚",
+      "venue": "NMS"
+    },
+    {
+      "id": "ai-slop-paper",
+      "name": "ai-slop-paper",
+      "description": "Production-Detection Asymmetry — multi-format AI content pollution beyond video.",
+      "repo": "heznpc/ai-slop-paper",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "AI Slop",
+        "Content Quality"
+      ],
+      "url": "https://github.com/heznpc/ai-slop-paper",
+      "status": "active",
+      "iconEmoji": "🫠",
+      "venue": "CACM"
+    },
+    {
+      "id": "aichemist",
+      "name": "aichemist",
+      "description": "Burning Lead for Gold — structural homology between alchemy and the AGI paradigm.",
+      "repo": "heznpc/aichemist",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "AGI",
+        "Philosophy"
+      ],
+      "url": "https://github.com/heznpc/aichemist",
+      "status": "active",
+      "iconEmoji": "⚗️"
+    },
+    {
+      "id": "caching",
+      "name": "caching",
+      "description": "Scatter-caching — cross-platform information distribution as unmeasured hoarding dimension.",
+      "repo": "heznpc/caching",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "Digital Hoarding",
+        "HCI"
+      ],
+      "url": "https://github.com/heznpc/caching",
+      "status": "active",
+      "iconEmoji": "🐿️",
+      "venue": "BIT"
+    },
+    {
+      "id": "elixir",
+      "name": "elixir",
+      "description": "The Last Elixir — PRISMA review of hoarding-related behaviors in digital games.",
+      "repo": "heznpc/elixir",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "Games",
+        "PRISMA",
+        "Hoarding"
+      ],
+      "url": "https://github.com/heznpc/elixir",
+      "status": "active",
+      "iconEmoji": "🧪",
+      "venue": "Games & Culture"
+    },
+    {
+      "id": "silo",
+      "name": "silo",
+      "description": "How AI-mediated information search creates confirmation-biased digital hoards.",
+      "repo": "heznpc/silo",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "Information Bias",
+        "Search"
+      ],
+      "url": "https://github.com/heznpc/silo",
+      "status": "active",
+      "iconEmoji": "🏗️",
+      "venue": "SM+S"
+    },
+    {
+      "id": "tidal",
+      "name": "tidal",
+      "description": "The Asymmetric Tide — how AI amplifies digital hoarding through structural default bias.",
+      "repo": "heznpc/tidal",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "Digital Hoarding",
+        "ABM"
+      ],
+      "url": "https://github.com/heznpc/tidal",
+      "status": "active",
+      "iconEmoji": "🌊",
+      "venue": "CHI 2027"
+    },
+    {
+      "id": "narcissus",
+      "name": "narcissus",
+      "description": "How AI mirrors amplify researcher confirmation bias through collaborative entrenchment.",
+      "repo": "heznpc/narcissus",
+      "category": "research",
+      "tier": 2,
+      "tags": [
+        "Confirmation Bias",
+        "HCI"
+      ],
+      "url": "https://github.com/heznpc/narcissus",
+      "status": "active",
+      "iconEmoji": "🌸",
+      "venue": "FAccT 2027"
+    },
+    {
+      "id": "meta-paper",
+      "name": "meta",
+      "description": "LLM-as-research-infrastructure — reflexive practice of using Claude Code to study Claude Code.",
+      "repo": "heznpc/meta",
+      "category": "research",
+      "tier": 3,
+      "tags": [
+        "Reflexive",
+        "Methodology"
+      ],
+      "url": "https://github.com/heznpc/meta",
+      "status": "active",
+      "iconEmoji": "🔄",
+      "venue": "alt.CHI 2027"
+    },
+    {
+      "id": "pythia",
+      "name": "pythia",
+      "description": "Divination systems as non-formal inference engines and their functional convergence with LLMs.",
+      "repo": "heznpc/pythia",
+      "category": "research",
+      "tier": 3,
+      "tags": [
+        "Divination",
+        "LLM"
+      ],
+      "url": "https://github.com/heznpc/pythia",
+      "status": "active",
+      "iconEmoji": "🔮",
+      "venue": "Phil. & Tech."
+    },
+    {
+      "id": "sediment",
+      "name": "sediment",
+      "description": "How streak mechanics drive compelled production of low-quality digital content.",
+      "repo": "heznpc/sediment",
+      "category": "research",
+      "tier": 3,
+      "tags": [
+        "Streaks",
+        "Content Quality"
+      ],
+      "url": "https://github.com/heznpc/sediment",
+      "status": "active",
+      "iconEmoji": "🪨",
+      "venue": "CSCW 2027"
+    },
+    {
+      "id": "statute-of-limitations",
+      "name": "statute-of-limitations",
+      "description": "Designing institutional forgetting for AI agent memory — authority expiry vs deletion.",
+      "repo": "heznpc/statute-of-limitations",
+      "category": "research",
+      "tier": 3,
+      "tags": [
+        "Memory",
+        "AI Ethics",
+        "Forgetting"
+      ],
+      "url": "https://github.com/heznpc/statute-of-limitations",
+      "status": "active",
+      "iconEmoji": "⏳",
+      "venue": "FAccT 2027"
     }
   ],
   "starters": [
-    { "name": "docker-deploy-starter", "deployTo": "Any VPS", "repo": "heznpc/docker-deploy-starter" },
-    { "name": "browser-extension-starter", "deployTo": "Chrome + AMO", "repo": "heznpc/browser-extension-starter" },
-    { "name": "discord-bot-starter", "deployTo": "Railway / Fly.io", "repo": "heznpc/discord-bot-starter" },
-    { "name": "telegram-bot-starter", "deployTo": "Railway / Fly.io", "repo": "heznpc/telegram-bot-starter" },
-    { "name": "react-native-starter", "deployTo": "App / Play Store", "repo": "heznpc/react-native-starter" },
-    { "name": "electron-app-starter", "deployTo": "Cross-platform", "repo": "heznpc/electron-app-starter" },
-    { "name": "vscode-extension-starter", "deployTo": "VS Marketplace", "repo": "heznpc/vscode-extension-starter" },
-    { "name": "npm-package-starter", "deployTo": "npm registry", "repo": "heznpc/npm-package-starter" },
-    { "name": "mcp-server-starter", "deployTo": "npm registry", "repo": "heznpc/mcp-server-starter" },
-    { "name": "python-mcp-server-starter", "deployTo": "PyPI", "repo": "heznpc/python-mcp-server-starter" },
-    { "name": "cloudflare-pages-starter", "deployTo": "Cloudflare", "repo": "heznpc/cloudflare-pages-starter" }
+    {
+      "name": "docker-deploy-starter",
+      "repo": "heznpc/docker-deploy-starter",
+      "deployTo": "Any VPS"
+    },
+    {
+      "name": "browser-extension-starter",
+      "repo": "heznpc/browser-extension-starter",
+      "deployTo": "Chrome + AMO"
+    },
+    {
+      "name": "discord-bot-starter",
+      "repo": "heznpc/discord-bot-starter",
+      "deployTo": "Railway / Fly.io"
+    },
+    {
+      "name": "telegram-bot-starter",
+      "repo": "heznpc/telegram-bot-starter",
+      "deployTo": "Railway / Fly.io"
+    },
+    {
+      "name": "react-native-starter",
+      "repo": "heznpc/react-native-starter",
+      "deployTo": "App / Play Store"
+    },
+    {
+      "name": "electron-app-starter",
+      "repo": "heznpc/electron-app-starter",
+      "deployTo": "Cross-platform"
+    },
+    {
+      "name": "vscode-extension-starter",
+      "repo": "heznpc/vscode-extension-starter",
+      "deployTo": "VS Marketplace"
+    },
+    {
+      "name": "npm-package-starter",
+      "repo": "heznpc/npm-package-starter",
+      "deployTo": "npm registry"
+    },
+    {
+      "name": "mcp-server-starter",
+      "repo": "heznpc/mcp-server-starter",
+      "deployTo": "npm registry"
+    },
+    {
+      "name": "python-mcp-server-starter",
+      "repo": "heznpc/python-mcp-server-starter",
+      "deployTo": "PyPI"
+    },
+    {
+      "name": "cloudflare-pages-starter",
+      "repo": "heznpc/cloudflare-pages-starter",
+      "deployTo": "Cloudflare"
+    }
   ]
 }

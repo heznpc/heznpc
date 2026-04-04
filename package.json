@@ -5,8 +5,9 @@
   "description": "Developer portfolio — Astro static site with blog",
   "type": "module",
   "scripts": {
+    "generate": "node scripts/generate.mjs",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/generate.mjs && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
