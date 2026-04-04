@@ -6,24 +6,6 @@
 
 ---
 
-## Structure
-
-```
-heznpc/
-├── heznpc.config.mjs   # shared brand config
-├── apps/
-│   ├── web/            # landing + blog (GitHub Pages)
-│   └── gallery/        # illustration gallery + commission (Vercel)
-```
-
-```bash
-npm run dev:web        # dev — landing site
-npm run dev:gallery    # dev — gallery site
-npm run build          # build both
-```
-
----
-
 ### Foundation
 
 | Project | Description |
