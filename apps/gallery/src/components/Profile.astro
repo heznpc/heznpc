@@ -1,0 +1,15 @@
+---
+import brand from '../../../../heznpc.config.mjs';
+---
+
+<div class="profile">
+  <img class="profile-avatar" src="/img/avatar.png" alt="avatar">
+  <div class="profile-text">
+    <div class="profile-name">{brand.name}</div>
+    <div class="profile-bio">{brand.bio}</div>
+    <div class="profile-links">
+      {brand.links.x && <a href={brand.links.x} target="_blank" rel="noopener">X</a>}
+      {brand.links.pixiv && <a href={brand.links.pixiv} target="_blank" rel="noopener">pixiv</a>}
+    </div>
+  </div>
+</div>

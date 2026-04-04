@@ -26,13 +26,13 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
+      - run: npm run build:web
         env:
           GH_TOKEN: ${{ github.token }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: apps/web/dist
 
   deploy:
     needs: build

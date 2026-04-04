@@ -2,15 +2,16 @@
   "name": "heznpc",
   "version": "2.0.0",
   "private": true,
-  "description": "Developer portfolio — Astro static site with blog",
+  "description": "heznpc monorepo — landing site + illustration gallery",
   "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "generate": "node scripts/generate.mjs",
-    "dev": "astro dev",
-    "build": "node scripts/generate.mjs && astro build",
-    "preview": "astro preview"
-  },
-  "dependencies": {
-    "astro": "^5.7.10"
+    "dev:web": "npm -w @heznpc/web run dev",
+    "dev:gallery": "npm -w @heznpc/gallery run dev",
+    "build:web": "npm -w @heznpc/web run build",
+    "build:gallery": "npm -w @heznpc/gallery run build",
+    "build": "npm -w @heznpc/web run build && npm -w @heznpc/gallery run build"
   }
 }
