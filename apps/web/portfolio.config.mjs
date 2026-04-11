@@ -31,104 +31,104 @@ export default {
       icon: 'https://heznpc.github.io/AirMCP/airmcp-icon-128.png',
       tags: ['262 tools', '25 modules', 'macOS'] },
 
-    { repo: 'PLOIDY', category: 'foundation', tier: 2, emoji: '\ud83e\uddec',
+    { repo: 'PLOIDY', category: 'foundation', tier: 2, emoji: '🧬',
       tags: ['MCP', 'Protocol'], venue: 'COLM 2026' },
 
-    { repo: 'Canary', category: 'foundation', tier: 2, emoji: '\ud83d\udc24',
+    { repo: 'Canary', category: 'foundation', tier: 2, emoji: '🐤',
       tags: ['Dashboard', 'Health'] },
 
     // ── Products ───────────────────────────
-    { repo: 'TrashMonster', category: 'products', tier: 1, emoji: '\ud83d\uddd1\ufe0f',
+    { repo: 'TrashMonster', category: 'products', tier: 1, emoji: '🗑️',
       tags: ['Kids', 'AI', 'EdTech'],
-      description: 'AI-powered waste classification game for kids \u2014 learn recycling through play.' },
+      description: 'AI-powered waste classification game for kids — learn recycling through play.' },
 
-    { repo: 'dol-pin', category: 'products', tier: 2, emoji: '\ud83d\udc2c',
+    { repo: 'dol-pin', category: 'products', tier: 2, emoji: '🐬',
       tags: ['K-pop', 'Marketplace', 'Flutter'],
-      description: 'K-pop concert merch C2C rental marketplace \u2014 rent lightsticks, not buy.' },
+      description: 'K-pop concert merch C2C rental marketplace — rent lightsticks, not buy.' },
 
-    { repo: 'PlantMonster', category: 'products', tier: 3, emoji: '\ud83c\udf31',
+    { repo: 'PlantMonster', category: 'products', tier: 3, emoji: '🌱',
       tags: ['Kids', 'AI'],
-      description: 'Plant identification app for kids \u2014 discover plants, collect spirits.' },
+      description: 'Plant identification app for kids — discover plants, collect spirits.' },
 
     // ── Tools ──────────────────────────────
-    { repo: 'skillbridge', category: 'tools', tier: 2, emoji: '\ud83c\udf10',
+    { repo: 'skillbridge', category: 'tools', tier: 2, emoji: '🌐',
       tags: ['Chrome', 'AI', 'Education'] },
 
-    { repo: 'ProfileKit', category: 'tools', tier: 3, emoji: '\ud83e\udeaa',
+    { repo: 'ProfileKit', category: 'tools', tier: 3, emoji: '🪪',
       tags: ['GitHub', 'API'],
       description: 'All-in-one GitHub profile cards. No ratings, no rankings.' },
 
-    { repo: 'villagent', category: 'tools', tier: 2, emoji: '\ud83c\udfe0\ufe0f',
+    { repo: 'villagent', category: 'tools', tier: 2, emoji: '🏠',
       tags: ['Agents', 'GUI'] },
 
-    { repo: 'code-sense', category: 'tools', tier: 3, emoji: '\ud83e\udde0',
+    { repo: 'code-sense', category: 'tools', tier: 3, emoji: '🧠',
       tags: ['Education', 'Node.js'],
-      description: 'Developer intuition guide \u2014 learn from real-world production bugs.' },
+      description: 'Developer intuition guide — learn from real-world production bugs.' },
 
-    { repo: 'FollowPrint', category: 'tools', tier: 3, emoji: '\ud83d\udda8\ufe0f',
+    { repo: 'FollowPrint', category: 'tools', tier: 3, emoji: '🖨️',
       tags: ['Next.js', 'Utility'],
       description: 'Print & screenshot tracking utility built with Next.js.' },
 
     // ── Research ───────────────────────────
-    { repo: 'z-gap', category: 'research', tier: 1, emoji: '\ud83d\udcd0',
+    { repo: 'z-gap', category: 'research', tier: 1, emoji: '📐',
       venue: 'EMNLP 2026', tags: ['NLP', 'Representations'],
-      description: 'Convergence \u2260 Communicability \u2014 Platonic Representations at the NL-Code Interface.' },
+      description: 'Convergence ≠ Communicability — Platonic Representations at the NL-Code Interface.' },
 
-    { repo: 'eddy', category: 'research', tier: 2, emoji: '\ud83c\udf00',
+    { repo: 'eddy', category: 'research', tier: 2, emoji: '🌀',
       venue: 'CHI 2027', tags: ['HCI', 'ADHD', 'Neurodiversity'],
-      description: 'ADHD \u00d7 AI \u2014 position paper on neurodivergent workflows as competitive advantage.' },
+      description: 'ADHD × AI — position paper on neurodivergent workflows as competitive advantage.' },
 
-    { repo: 'emergence-paradox', category: 'research', tier: 2, emoji: '\ud83e\ude9e',
+    { repo: 'emergence-paradox', category: 'research', tier: 2, emoji: '🪞',
       venue: 'Inquiry', tags: ['Philosophy', 'AI Ethics'],
-      description: 'Substrate chauvinism as mediator \u2014 why we reject creative-AI but accept analytical-AI.' },
+      description: 'Substrate chauvinism as mediator — why we reject creative-AI but accept analytical-AI.' },
 
-    { repo: 'analogic-appropriation', category: 'research', tier: 3, emoji: '\ud83d\udcda',
+    { repo: 'analogic-appropriation', category: 'research', tier: 3, emoji: '📚',
       venue: 'NMS', tags: ['Media', 'Culture', 'Play'],
-      description: 'Cross-cultural media study on children\u2019s play and combat narratives across media eras.' },
+      description: 'Cross-cultural media study on children’s play and combat narratives across media eras.' },
 
-    { repo: 'ai-slop-paper', category: 'research', tier: 2, emoji: '\ud83e\udee0',
+    { repo: 'ai-slop-paper', category: 'research', tier: 2, emoji: '🫠',
       venue: 'CACM', tags: ['AI Slop', 'Content Quality'],
-      description: 'Production-Detection Asymmetry \u2014 multi-format AI content pollution beyond video.' },
+      description: 'Production-Detection Asymmetry — multi-format AI content pollution beyond video.' },
 
-    { repo: 'aichemist', category: 'research', tier: 2, emoji: '\u2697\ufe0f',
+    { repo: 'aichemist', category: 'research', tier: 2, emoji: '⚗️',
       tags: ['AGI', 'Philosophy'],
-      description: 'Burning Lead for Gold \u2014 structural homology between alchemy and the AGI paradigm.' },
+      description: 'Burning Lead for Gold — structural homology between alchemy and the AGI paradigm.' },
 
-    { repo: 'caching', category: 'research', tier: 2, emoji: '\ud83d\udc3f\ufe0f',
+    { repo: 'caching', category: 'research', tier: 2, emoji: '🐿️',
       venue: 'BIT', tags: ['Digital Hoarding', 'HCI'],
-      description: 'Scatter-caching \u2014 cross-platform information distribution as unmeasured hoarding dimension.' },
+      description: 'Scatter-caching — cross-platform information distribution as unmeasured hoarding dimension.' },
 
-    { repo: 'elixir', category: 'research', tier: 2, emoji: '\ud83e\uddea',
+    { repo: 'elixir', category: 'research', tier: 2, emoji: '🧪',
       venue: 'Games & Culture', tags: ['Games', 'PRISMA', 'Hoarding'],
-      description: 'The Last Elixir \u2014 PRISMA review of hoarding-related behaviors in digital games.' },
+      description: 'The Last Elixir — PRISMA review of hoarding-related behaviors in digital games.' },
 
-    { repo: 'silo', category: 'research', tier: 2, emoji: '\ud83c\udfd7\ufe0f',
+    { repo: 'silo', category: 'research', tier: 2, emoji: '🏗️',
       venue: 'SM+S', tags: ['Information Bias', 'Search'],
       description: 'How AI-mediated information search creates confirmation-biased digital hoards.' },
 
-    { repo: 'tidal', category: 'research', tier: 2, emoji: '\ud83c\udf0a',
+    { repo: 'tidal', category: 'research', tier: 2, emoji: '🌊',
       venue: 'CHI 2027', tags: ['Digital Hoarding', 'ABM'],
-      description: 'The Asymmetric Tide \u2014 how AI amplifies digital hoarding through structural default bias.' },
+      description: 'The Asymmetric Tide — how AI amplifies digital hoarding through structural default bias.' },
 
-    { repo: 'narcissus', category: 'research', tier: 2, emoji: '\ud83c\udf38',
+    { repo: 'narcissus', category: 'research', tier: 2, emoji: '🌸',
       venue: 'FAccT 2027', tags: ['Confirmation Bias', 'HCI'],
       description: 'How AI mirrors amplify researcher confirmation bias through collaborative entrenchment.' },
 
-    { repo: 'meta', category: 'research', tier: 3, emoji: '\ud83d\udd04',
+    { repo: 'meta', category: 'research', tier: 3, emoji: '🔄',
       id: 'meta-paper', venue: 'alt.CHI 2027', tags: ['Reflexive', 'Methodology'],
-      description: 'LLM-as-research-infrastructure \u2014 reflexive practice of using Claude Code to study Claude Code.' },
+      description: 'LLM-as-research-infrastructure — reflexive practice of using Claude Code to study Claude Code.' },
 
-    { repo: 'pythia', category: 'research', tier: 3, emoji: '\ud83d\udd2e',
+    { repo: 'pythia', category: 'research', tier: 3, emoji: '🔮',
       venue: 'Phil. & Tech.', tags: ['Divination', 'LLM'],
       description: 'Divination systems as non-formal inference engines and their functional convergence with LLMs.' },
 
-    { repo: 'sediment', category: 'research', tier: 3, emoji: '\ud83e\udea8',
+    { repo: 'sediment', category: 'research', tier: 3, emoji: '🪨',
       venue: 'CSCW 2027', tags: ['Streaks', 'Content Quality'],
       description: 'How streak mechanics drive compelled production of low-quality digital content.' },
 
-    { repo: 'statute-of-limitations', category: 'research', tier: 3, emoji: '\u23f3',
+    { repo: 'statute-of-limitations', category: 'research', tier: 3, emoji: '⏳',
       venue: 'FAccT 2027', tags: ['Memory', 'AI Ethics', 'Forgetting'],
-      description: 'Designing institutional forgetting for AI agent memory \u2014 authority expiry vs deletion.' },
+      description: 'Designing institutional forgetting for AI agent memory — authority expiry vs deletion.' },
   ],
 
   // ────────────────────────────────────────

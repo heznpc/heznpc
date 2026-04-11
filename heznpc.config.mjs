@@ -13,6 +13,9 @@ export default {
     github: 'https://github.com/heznpc',
     x: 'https://x.com/heznpc',
     pixiv: 'https://www.pixiv.net/users/heznpc',
-    gallery: '', // TODO: Vercel deployment URL
+    // Gallery hasn't been deployed publicly yet — fall back to the source so
+    // that consumers of this config never see an empty href. Update once the
+    // Vercel deployment is live.
+    gallery: 'https://github.com/newtria/gallery',
   },
 };

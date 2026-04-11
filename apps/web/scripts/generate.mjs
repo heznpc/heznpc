@@ -38,7 +38,15 @@ try {
     });
   }
   process.stderr.write(`  fetched ${repoMap.size} repos from github.com/${owner}\n`);
-} catch {
+} catch (err) {
+  // CI must fail loudly on a missing description fetch — silently shipping
+  // a portfolio that uses stale config-only descriptions defeats the purpose
+  // of generate.mjs. Local dev (no CI=true) is allowed to fall back so that
+  // network-flaky environments still build.
+  if (process.env.CI === 'true') {
+    process.stderr.write(`  github fetch failed in CI: ${err.message}\n`);
+    process.exit(1);
+  }
   process.stderr.write('  github fetch failed — using config values only\n');
 }
 
