@@ -6,6 +6,6 @@ interface Props {
 const { tags } = Astro.props;
 ---
 
-<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
-  {tags.map(t => <span class="proj-tag">{t}</span>)}
+<div class="tags">
+  {tags.map((t) => <span class="tag">{t}</span>)}
 </div>
