@@ -66,7 +66,6 @@ const projects = config.projects.map((p) => {
     status: 'active',
     ...(p.icon && { icon: p.icon }),
     ...(p.emoji && { iconEmoji: p.emoji }),
-    ...(p.venue && { venue: p.venue }),
   };
 });
 

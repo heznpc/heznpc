@@ -32,7 +32,7 @@ export default {
       tags: ['262 tools', '25 modules', 'macOS'] },
 
     { repo: 'PLOIDY', category: 'foundation', tier: 2, emoji: '🧬',
-      tags: ['MCP', 'Protocol'], venue: 'COLM 2026' },
+      tags: ['MCP', 'Protocol'] },
 
     { repo: 'Canary', category: 'foundation', tier: 2, emoji: '🐤',
       tags: ['Dashboard', 'Health'] },
@@ -71,23 +71,23 @@ export default {
 
     // ── Research ───────────────────────────
     { repo: 'z-gap', category: 'research', tier: 1, emoji: '📐',
-      venue: 'EMNLP 2026', tags: ['NLP', 'Representations'],
+      tags: ['NLP', 'Representations'],
       description: 'Convergence ≠ Communicability — Platonic Representations at the NL-Code Interface.' },
 
     { repo: 'eddy', category: 'research', tier: 2, emoji: '🌀',
-      venue: 'CHI 2027', tags: ['HCI', 'ADHD', 'Neurodiversity'],
+      tags: ['HCI', 'ADHD', 'Neurodiversity'],
       description: 'ADHD × AI — position paper on neurodivergent workflows as competitive advantage.' },
 
     { repo: 'emergence-paradox', category: 'research', tier: 2, emoji: '🪞',
-      venue: 'Inquiry', tags: ['Philosophy', 'AI Ethics'],
+      tags: ['Philosophy', 'AI Ethics'],
       description: 'Substrate chauvinism as mediator — why we reject creative-AI but accept analytical-AI.' },
 
     { repo: 'analogic-appropriation', category: 'research', tier: 3, emoji: '📚',
-      venue: 'NMS', tags: ['Media', 'Culture', 'Play'],
+      tags: ['Media', 'Culture', 'Play'],
       description: 'Cross-cultural media study on children’s play and combat narratives across media eras.' },
 
     { repo: 'ai-slop-paper', category: 'research', tier: 2, emoji: '🫠',
-      venue: 'CACM', tags: ['AI Slop', 'Content Quality'],
+      tags: ['AI Slop', 'Content Quality'],
       description: 'Production-Detection Asymmetry — multi-format AI content pollution beyond video.' },
 
     { repo: 'aichemist', category: 'research', tier: 2, emoji: '⚗️',
@@ -95,39 +95,39 @@ export default {
       description: 'Burning Lead for Gold — structural homology between alchemy and the AGI paradigm.' },
 
     { repo: 'caching', category: 'research', tier: 2, emoji: '🐿️',
-      venue: 'BIT', tags: ['Digital Hoarding', 'HCI'],
+      tags: ['Digital Hoarding', 'HCI'],
       description: 'Scatter-caching — cross-platform information distribution as unmeasured hoarding dimension.' },
 
     { repo: 'elixir', category: 'research', tier: 2, emoji: '🧪',
-      venue: 'Games & Culture', tags: ['Games', 'PRISMA', 'Hoarding'],
+      tags: ['Games', 'PRISMA', 'Hoarding'],
       description: 'The Last Elixir — PRISMA review of hoarding-related behaviors in digital games.' },
 
     { repo: 'silo', category: 'research', tier: 2, emoji: '🏗️',
-      venue: 'SM+S', tags: ['Information Bias', 'Search'],
+      tags: ['Information Bias', 'Search'],
       description: 'How AI-mediated information search creates confirmation-biased digital hoards.' },
 
     { repo: 'tidal', category: 'research', tier: 2, emoji: '🌊',
-      venue: 'CHI 2027', tags: ['Digital Hoarding', 'ABM'],
+      tags: ['Digital Hoarding', 'ABM'],
       description: 'The Asymmetric Tide — how AI amplifies digital hoarding through structural default bias.' },
 
     { repo: 'narcissus', category: 'research', tier: 2, emoji: '🌸',
-      venue: 'FAccT 2027', tags: ['Confirmation Bias', 'HCI'],
+      tags: ['Confirmation Bias', 'HCI'],
       description: 'How AI mirrors amplify researcher confirmation bias through collaborative entrenchment.' },
 
     { repo: 'meta', category: 'research', tier: 3, emoji: '🔄',
-      id: 'meta-paper', venue: 'alt.CHI 2027', tags: ['Reflexive', 'Methodology'],
+      id: 'meta-paper', tags: ['Reflexive', 'Methodology'],
       description: 'LLM-as-research-infrastructure — reflexive practice of using Claude Code to study Claude Code.' },
 
     { repo: 'pythia', category: 'research', tier: 3, emoji: '🔮',
-      venue: 'Phil. & Tech.', tags: ['Divination', 'LLM'],
+      tags: ['Divination', 'LLM'],
       description: 'Divination systems as non-formal inference engines and their functional convergence with LLMs.' },
 
     { repo: 'sediment', category: 'research', tier: 3, emoji: '🪨',
-      venue: 'CSCW 2027', tags: ['Streaks', 'Content Quality'],
+      tags: ['Streaks', 'Content Quality'],
       description: 'How streak mechanics drive compelled production of low-quality digital content.' },
 
     { repo: 'statute-of-limitations', category: 'research', tier: 3, emoji: '⏳',
-      venue: 'FAccT 2027', tags: ['Memory', 'AI Ethics', 'Forgetting'],
+      tags: ['Memory', 'AI Ethics', 'Forgetting'],
       description: 'Designing institutional forgetting for AI agent memory — authority expiry vs deletion.' },
   ],
 
