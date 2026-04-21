@@ -2,16 +2,15 @@
   "name": "heznpc",
   "version": "2.0.0",
   "private": true,
-  "description": "heznpc monorepo — landing site + illustration gallery",
+  "description": "heznpc — personal landing site",
   "type": "module",
   "workspaces": [
     "apps/*"
   ],
   "scripts": {
+    "dev": "npm -w @heznpc/web run dev",
     "dev:web": "npm -w @heznpc/web run dev",
-    "dev:gallery": "npm -w @heznpc/gallery run dev",
-    "build:web": "npm -w @heznpc/web run build",
-    "build:gallery": "npm -w @heznpc/gallery run build",
-    "build": "npm -w @heznpc/web run build && npm -w @heznpc/gallery run build"
+    "build": "npm -w @heznpc/web run build",
+    "build:web": "npm -w @heznpc/web run build"
   }
 }
