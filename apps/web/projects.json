@@ -37,8 +37,7 @@
       ],
       "url": "https://github.com/heznpc/PLOIDY",
       "status": "active",
-      "iconEmoji": "🧬",
-      "venue": "COLM 2026"
+      "iconEmoji": "🧬"
     },
     {
       "id": "canary",
@@ -146,7 +145,7 @@
       ],
       "url": "https://github.com/heznpc/villagent",
       "status": "active",
-      "iconEmoji": "🏠️"
+      "iconEmoji": "🏠"
     },
     {
       "id": "code-sense",
@@ -191,8 +190,7 @@
       ],
       "url": "https://github.com/heznpc/z-gap",
       "status": "active",
-      "iconEmoji": "📐",
-      "venue": "EMNLP 2026"
+      "iconEmoji": "📐"
     },
     {
       "id": "eddy",
@@ -208,8 +206,7 @@
       ],
       "url": "https://github.com/heznpc/eddy",
       "status": "active",
-      "iconEmoji": "🌀",
-      "venue": "CHI 2027"
+      "iconEmoji": "🌀"
     },
     {
       "id": "emergence-paradox",
@@ -224,8 +221,7 @@
       ],
       "url": "https://github.com/heznpc/emergence-paradox",
       "status": "active",
-      "iconEmoji": "🪞",
-      "venue": "Inquiry"
+      "iconEmoji": "🪞"
     },
     {
       "id": "analogic-appropriation",
@@ -241,8 +237,7 @@
       ],
       "url": "https://github.com/heznpc/analogic-appropriation",
       "status": "active",
-      "iconEmoji": "📚",
-      "venue": "NMS"
+      "iconEmoji": "📚"
     },
     {
       "id": "ai-slop-paper",
@@ -257,8 +252,7 @@
       ],
       "url": "https://github.com/heznpc/ai-slop-paper",
       "status": "active",
-      "iconEmoji": "🫠",
-      "venue": "CACM"
+      "iconEmoji": "🫠"
     },
     {
       "id": "aichemist",
@@ -288,8 +282,7 @@
       ],
       "url": "https://github.com/heznpc/caching",
       "status": "active",
-      "iconEmoji": "🐿️",
-      "venue": "BIT"
+      "iconEmoji": "🐿️"
     },
     {
       "id": "elixir",
@@ -305,8 +298,7 @@
       ],
       "url": "https://github.com/heznpc/elixir",
       "status": "active",
-      "iconEmoji": "🧪",
-      "venue": "Games & Culture"
+      "iconEmoji": "🧪"
     },
     {
       "id": "silo",
@@ -321,8 +313,7 @@
       ],
       "url": "https://github.com/heznpc/silo",
       "status": "active",
-      "iconEmoji": "🏗️",
-      "venue": "SM+S"
+      "iconEmoji": "🏗️"
     },
     {
       "id": "tidal",
@@ -337,8 +328,7 @@
       ],
       "url": "https://github.com/heznpc/tidal",
       "status": "active",
-      "iconEmoji": "🌊",
-      "venue": "CHI 2027"
+      "iconEmoji": "🌊"
     },
     {
       "id": "narcissus",
@@ -353,8 +343,7 @@
       ],
       "url": "https://github.com/heznpc/narcissus",
       "status": "active",
-      "iconEmoji": "🌸",
-      "venue": "FAccT 2027"
+      "iconEmoji": "🌸"
     },
     {
       "id": "meta-paper",
@@ -369,8 +358,7 @@
       ],
       "url": "https://github.com/heznpc/meta",
       "status": "active",
-      "iconEmoji": "🔄",
-      "venue": "alt.CHI 2027"
+      "iconEmoji": "🔄"
     },
     {
       "id": "pythia",
@@ -385,8 +373,7 @@
       ],
       "url": "https://github.com/heznpc/pythia",
       "status": "active",
-      "iconEmoji": "🔮",
-      "venue": "Phil. & Tech."
+      "iconEmoji": "🔮"
     },
     {
       "id": "sediment",
@@ -401,8 +388,7 @@
       ],
       "url": "https://github.com/heznpc/sediment",
       "status": "active",
-      "iconEmoji": "🪨",
-      "venue": "CSCW 2027"
+      "iconEmoji": "🪨"
     },
     {
       "id": "statute-of-limitations",
@@ -418,8 +404,7 @@
       ],
       "url": "https://github.com/heznpc/statute-of-limitations",
       "status": "active",
-      "iconEmoji": "⏳",
-      "venue": "FAccT 2027"
+      "iconEmoji": "⏳"
     }
   ],
   "starters": [

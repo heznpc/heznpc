@@ -10,7 +10,6 @@ export interface Project {
   status: string;
   icon?: string;
   iconEmoji?: string;
-  venue?: string;
 }
 
 export interface Starter {
