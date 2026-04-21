@@ -12,7 +12,7 @@ const description = 'An ecosystem, in three views.';
 <meta name="theme-color" content="#07080c" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   @property --tx { syntax: '<length>'; inherits: false; initial-value: 0px; }
   @property --ty { syntax: '<length>'; inherits: false; initial-value: 0px; }
@@ -31,7 +31,7 @@ const description = 'An ecosystem, in three views.';
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; background: var(--bg); color: var(--ink); font-family: 'Instrument Serif', serif; overflow: hidden; }
+  html, body { height: 100%; background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; overflow: hidden; }
   body { position: fixed; inset: 0; }
 
   /* film grain overlay */
@@ -85,9 +85,9 @@ const description = 'An ecosystem, in three views.';
   .cell.seed {
     --hue: var(--c-seed);
     animation:
-      seedBirth 1.4s cubic-bezier(.2,.9,.3,1.4) .3s forwards,
-      seedPulse 2.2s ease-in-out 1.7s 2,
-      seedFade 1.2s ease-out 5.5s forwards;
+      seedBirth 0.9s cubic-bezier(.2,.9,.3,1.4) .1s forwards,
+      seedPulse 1.0s ease-in-out 1.0s 1,
+      seedFade 0.7s ease-out 2.0s forwards;
   }
   @keyframes seedBirth {
     0%   { --s: 0;    opacity: 0; }
@@ -107,8 +107,8 @@ const description = 'An ecosystem, in three views.';
   /* division cells: spawn at center then drift to --fx,--fy */
   .cell.d {
     animation:
-      divide 1.6s cubic-bezier(.2,.7,.3,1.05) var(--delay, 4s) forwards,
-      breathe 4.8s ease-in-out calc(var(--delay, 4s) + 2.2s) infinite;
+      divide 1.0s cubic-bezier(.2,.7,.3,1.05) var(--delay, 1.8s) forwards,
+      breathe 4.8s ease-in-out calc(var(--delay, 1.8s) + 1.2s) infinite;
   }
   @keyframes divide {
     0%   { --s: 0;   --tx: 0px; --ty: 0px; opacity: 0; }
@@ -125,9 +125,11 @@ const description = 'An ecosystem, in three views.';
     position: absolute;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
     font-size: clamp(56px, 9vw, 108px);
     line-height: 1;
-    letter-spacing: -.02em;
+    letter-spacing: -.015em;
     color: var(--ink);
     pointer-events: none;
     display: flex;
@@ -136,19 +138,19 @@ const description = 'An ecosystem, in three views.';
   .name span {
     display: inline-block;
     opacity: 0;
-    transform: translateY(28px) scale(.88);
-    filter: blur(14px);
-    animation: nameIn 1s cubic-bezier(.2,.8,.3,1.1) forwards;
+    transform: translateY(22px) scale(.9);
+    filter: blur(10px);
+    animation: nameIn 0.75s cubic-bezier(.2,.8,.3,1.1) forwards;
   }
   @keyframes nameIn {
     to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
-  .name span:nth-child(1){ animation-delay: 6.2s; }
-  .name span:nth-child(2){ animation-delay: 6.35s; }
-  .name span:nth-child(3){ animation-delay: 6.5s; }
-  .name span:nth-child(4){ animation-delay: 6.65s; }
-  .name span:nth-child(5){ animation-delay: 6.8s; }
-  .name span:nth-child(6){ animation-delay: 6.95s; }
+  .name span:nth-child(1){ animation-delay: 2.90s; }
+  .name span:nth-child(2){ animation-delay: 2.98s; }
+  .name span:nth-child(3){ animation-delay: 3.06s; }
+  .name span:nth-child(4){ animation-delay: 3.14s; }
+  .name span:nth-child(5){ animation-delay: 3.22s; }
+  .name span:nth-child(6){ animation-delay: 3.30s; }
 
   /* ========= TAGLINE ========= */
   .tagline {
@@ -163,7 +165,7 @@ const description = 'An ecosystem, in three views.';
     color: var(--ink-dim);
     opacity: 0;
     white-space: nowrap;
-    animation: fadeIn 1.2s ease-out 8.6s forwards;
+    animation: fadeIn 0.7s ease-out 4.4s forwards;
     z-index: 3;
   }
   @keyframes fadeIn { to { opacity: 1; } }
@@ -186,7 +188,7 @@ const description = 'An ecosystem, in three views.';
     text-decoration: none;
     opacity: 0;
     transition: background .3s ease, border-color .3s ease, transform .3s ease;
-    animation: fadeIn 1.2s ease-out 10.2s forwards;
+    animation: fadeIn 0.7s ease-out 5.2s forwards;
     z-index: 10;
     backdrop-filter: blur(4px);
   }
