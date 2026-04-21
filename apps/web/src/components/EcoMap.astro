@@ -7,45 +7,64 @@ interface Props {
 
 const { categories } = Astro.props;
 
+const HUES: Record<string, string> = {
+  research:   '#8ab4ff',
+  tools:      '#9de3c4',
+  products:   '#f6b3c8',
+  foundation: '#c9b3f6',
+};
+
 const layers = [
-  { key: 'research', label: 'Research', color: '#a855f7', bgDark: 'rgba(168,85,247,.12)', bgLight: 'rgba(168,85,247,.10)' },
-  { key: 'tools', label: 'Tools', color: '#2dd4bf', bgDark: 'rgba(45,212,191,.12)', bgLight: 'rgba(45,212,191,.10)' },
-  { key: 'products', label: 'Products', color: '#f472b6', bgDark: 'rgba(244,114,182,.12)', bgLight: 'rgba(244,114,182,.10)' },
-  { key: 'foundation', label: 'Foundation', color: '#38bdf8', bgDark: 'rgba(56,189,248,.12)', bgLight: 'rgba(56,189,248,.10)' },
+  { key: 'research',   label: 'Research' },
+  { key: 'tools',      label: 'Tools' },
+  { key: 'products',   label: 'Products' },
+  { key: 'foundation', label: 'Foundation' },
 ];
 
-const rowH = 52;
-const gap = 8;
-const totalH = layers.length * rowH + (layers.length - 1) * gap + 32;
+const rowH = 58;
+const gap = 10;
+const padV = 16;
+const totalH = layers.length * rowH + (layers.length - 1) * gap + padV * 2;
 const w = 680;
 ---
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${w} ${totalH}`} width="100%" style={`max-width:${w}px;display:block;margin:0 auto`} role="img" aria-label="Ecosystem map showing four layers: Research, Tools, Products, Foundation">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${w} ${totalH}`}
+  width="100%"
+  style={`max-width:${w}px;display:block;margin:0 auto`}
+  role="img"
+  aria-label="Ecosystem map: Research, Tools, Products, Foundation"
+>
   {layers.map((layer, i) => {
-    const y = 16 + i * (rowH + gap);
-    const names = (categories[layer.key] || []).map(p => p.name).join('  \u00b7  ');
+    const color = HUES[layer.key];
+    const y = padV + i * (rowH + gap);
+    const names = (categories[layer.key] || []).map((p) => p.name).join('  ·  ');
     return (
       <>
-        <rect x="8" y={y} width={w - 16} height={rowH} rx="12" ry="12"
-              stroke={layer.color} stroke-width="1" stroke-opacity="0.3"
-              class={`eco-rect eco-rect-${layer.key}`} />
-        <text x="24" y={y + 22} fill={layer.color} font-size="11" font-weight="700"
-              font-family="'JetBrains Mono',monospace" letter-spacing="0.08em"
-              text-transform="uppercase">{layer.label}</text>
-        <text x="24" y={y + 40} fill="currentColor" font-size="12" font-family="-apple-system,BlinkMacSystemFont,sans-serif"
-              opacity="0.5">{names}</text>
+        <rect
+          x="6" y={y}
+          width={w - 12} height={rowH}
+          rx="14" ry="14"
+          fill="transparent"
+          stroke={color}
+          stroke-width="1"
+          stroke-opacity=".35"
+        />
+        <text
+          x="22" y={y + 21}
+          fill={color}
+          font-size="10"
+          font-family="JetBrains Mono, monospace"
+          letter-spacing="2.2"
+        >{layer.label.toUpperCase()}</text>
+        <text
+          x="22" y={y + 42}
+          fill="rgba(244,238,227,.72)"
+          font-size="13"
+          font-family="Instrument Serif, Georgia, serif"
+        >{names}</text>
       </>
     );
   })}
 </svg>
-
-<style>
-  .eco-rect-research { fill: rgba(168,85,247,.12) }
-  .eco-rect-tools { fill: rgba(45,212,191,.12) }
-  .eco-rect-products { fill: rgba(244,114,182,.12) }
-  .eco-rect-foundation { fill: rgba(56,189,248,.12) }
-  :global([data-theme="light"]) .eco-rect-research { fill: rgba(168,85,247,.10) }
-  :global([data-theme="light"]) .eco-rect-tools { fill: rgba(45,212,191,.10) }
-  :global([data-theme="light"]) .eco-rect-products { fill: rgba(244,114,182,.10) }
-  :global([data-theme="light"]) .eco-rect-foundation { fill: rgba(56,189,248,.10) }
-</style>

@@ -1,0 +1,48 @@
+/* Design tokens — single source of visual truth.
+   Shared with intro.astro aesthetic. */
+
+@property --tx { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --ty { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --s  { syntax: '<number>'; inherits: false; initial-value: 0; }
+
+:root {
+  /* Surfaces */
+  --bg:         #07080c;
+  --bg-elev:    #0d0f16;
+  --bg-card:    rgba(244, 238, 227, .04);
+  --border:     rgba(244, 238, 227, .08);
+  --border-hi:  rgba(244, 238, 227, .18);
+
+  /* Ink */
+  --ink:        #f4eee3;
+  --ink-mid:    rgba(244, 238, 227, .72);
+  --ink-dim:    rgba(244, 238, 227, .5);
+  --ink-ghost:  rgba(244, 238, 227, .3);
+
+  /* Category hues */
+  --c-foundation: #c9b3f6;
+  --c-products:   #f6b3c8;
+  --c-tools:      #9de3c4;
+  --c-research:   #8ab4ff;
+  --c-seed:       #f4eee3;
+
+  /* Typography */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Motion */
+  --ease-out:    cubic-bezier(.2, .8, .2, 1);
+  --ease-smooth: cubic-bezier(.2, .7, .3, 1.05);
+  --ease-pop:    cubic-bezier(.2, .9, .3, 1.2);
+
+  /* Layout */
+  --nav-h: 64px;
+  --max-w: 760px;
+}
+
+/* Apply hue variable based on data-category */
+[data-category="foundation"] { --hue: var(--c-foundation); }
+[data-category="products"]   { --hue: var(--c-products); }
+[data-category="tools"]      { --hue: var(--c-tools); }
+[data-category="research"]   { --hue: var(--c-research); }

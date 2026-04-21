@@ -1,31 +1,30 @@
 ---
 import '../styles/global.css';
 import { base } from '../utils/base';
+import brand from '../../../../heznpc.config.mjs';
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
   footerExtra?: string;
+  showNav?: boolean;
 }
 
-const { title, description, ogImage, footerExtra } = Astro.props;
-import brand from '../../../../heznpc.config.mjs';
-const meta = {
-  name: brand.name,
-  github: brand.links.github,
-};
-const desc = description || 'Building the ecosystem AI lives in — Open-source infrastructure, products, tools, and research for the AI era.';
+const { title, description, ogImage, footerExtra, showNav = true } = Astro.props;
+const desc =
+  description ||
+  'Building the ecosystem AI lives in — Open-source infrastructure, products, tools, and research.';
 const image = ogImage || 'https://github.com/heznpc.png';
 ---
 
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <meta name="description" content={desc} />
-  <meta name="theme-color" content="#0e1117" />
+  <meta name="theme-color" content="#07080c" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={desc} />
   <meta property="og:image" content={image} />
@@ -35,74 +34,51 @@ const image = ogImage || 'https://github.com/heznpc.png';
   <meta name="twitter:image" content={image} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <!-- Ambient orbs -->
-  <div class="scene" aria-hidden="true">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
-  </div>
-
-  <!-- Nav -->
-  <nav class="glass-nav">
-    <div class="nav-inner">
-      <a href={base} class="nav-brand">{meta.name}</a>
-      <div style="display:flex;align-items:center;gap:16px">
-        <a href={`${base}blog/`} class="nav-link">Blog</a>
-        <a href={meta.github} target="_blank" rel="noopener" class="nav-link">GitHub</a>
-        <button class="pill-btn" id="themeToggle" role="switch" aria-label="Toggle dark and light theme" aria-checked="false">
-          <span id="themeIcon"></span>
-        </button>
+  {showNav && (
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href={base} class="nav-brand">heznpc</a>
+        <div class="nav-links">
+          <a href={`${base}gallery/`} class="nav-link">Gallery</a>
+          <a href={`${base}commission/`} class="nav-link">Commission</a>
+          <a href={brand.links.github} target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  )}
 
   <slot />
 
-  <!-- Footer -->
-  <footer style="position:relative;z-index:1;padding:32px 0;border-top:1px solid rgba(255,255,255,.04);text-align:center">
-    <div style="max-width:720px;margin:0 auto;padding:0 20px">
-      <a href={meta.github} target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;opacity:.4;font-weight:500;transition:opacity .2s">{meta.name}</a>
-      {footerExtra && <p style="font-size:.72rem;opacity:.25;margin-top:8px" set:html={footerExtra} />}
-    </div>
+  <footer class="footer">
+    <a href={brand.links.github} target="_blank" rel="noopener">heznpc</a>
+    {footerExtra && <p class="footer-extra" set:html={footerExtra} />}
   </footer>
 
   <script is:inline>
-    // Theme toggle with ARIA
-    (function(){
-      var root=document.documentElement,toggle=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
-      function u(){
-        var dark=root.dataset.theme==='dark';
-        icon.textContent=dark?'\u2600':'\u263E';
-        toggle.setAttribute('aria-checked',dark?'true':'false');
-      }
-      try{var s=localStorage.getItem('heznpc-theme');if(s)root.dataset.theme=s;}catch(e){}
-      u();
-      toggle.addEventListener('click',function(){
-        root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
-        try{localStorage.setItem('heznpc-theme',root.dataset.theme);}catch(e){}
-        u();
-      });
-    })();
-
-    // Scroll reveal with prefers-reduced-motion check
-    (function(){
-      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible');});
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
         return;
       }
-      var obs=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var d=parseInt(e.target.dataset.delay||0);
-            setTimeout(function(){e.target.classList.add('visible');},d);
-            obs.unobserve(e.target);
-          }
-        });
-      },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-      document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              var d = parseInt(e.target.dataset.delay || 0);
+              setTimeout(function () { e.target.classList.add('visible'); }, d);
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+      );
+      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
     })();
   </script>
 </body>
