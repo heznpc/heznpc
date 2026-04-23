@@ -6,18 +6,24 @@
 @property --s  { syntax: '<number>'; inherits: false; initial-value: 0; }
 
 :root {
-  /* Surfaces */
-  --bg:         #07080c;
-  --bg-elev:    #0d0f16;
-  --bg-card:    rgba(244, 238, 227, .04);
-  --border:     rgba(244, 238, 227, .08);
-  --border-hi:  rgba(244, 238, 227, .18);
+  /* Surfaces — warm near-black, paper feel */
+  --bg:         #0B0A08;
+  --bg-elev:    #141210;
+  --bg-card:    rgba(239, 230, 210, .04);
+  --border:     rgba(239, 230, 210, .12);
+  --border-hi:  rgba(239, 230, 210, .22);
+  --rule:       rgba(239, 230, 210, .14);
+  --rule-soft:  rgba(239, 230, 210, .06);
 
-  /* Ink */
-  --ink:        #f4eee3;
-  --ink-mid:    rgba(244, 238, 227, .72);
-  --ink-dim:    rgba(244, 238, 227, .5);
-  --ink-ghost:  rgba(244, 238, 227, .3);
+  /* Ink — warm cream */
+  --ink:        #EFE6D2;
+  --ink-mid:    rgba(239, 230, 210, .72);
+  --ink-dim:    rgba(239, 230, 210, .55);
+  --ink-ghost:  rgba(239, 230, 210, .32);
+
+  /* Accent — single warm amber (editorial focus) */
+  --accent:     oklch(0.78 0.11 60);
+  --accent-fb:  #d4a574;
 
   /* Category hues */
   --c-foundation: #c9b3f6;
