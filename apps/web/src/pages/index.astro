@@ -1,9 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GlassCard from '../components/GlassCard.astro';
 import EcoMap from '../components/EcoMap.astro';
-import ProjectIcon from '../components/ProjectIcon.astro';
-import ProjectTags from '../components/ProjectTags.astro';
 import { groupByCategory, type Project, type Starter } from '../utils/types';
 import { base } from '../utils/base';
 
@@ -13,13 +10,27 @@ const meta = projectsData.meta;
 const projects = projectsData.projects as Project[];
 const starters = projectsData.starters as Starter[];
 
-const flagships = projects.filter((p) => p.tier === 1);
-const catalogProjects = projects.filter((p) => p.tier !== 1);
-
-const airmcp = flagships.find((p) => p.id === 'airmcp');
-const otherFlagships = flagships.filter((p) => p.id !== 'airmcp');
-
+const airmcp = projects.find((p) => p.id === 'airmcp');
+const catalogProjects = projects.filter((p) => p.id !== 'airmcp');
 const categories = groupByCategory(projects);
+
+const chapterOrder: Array<keyof typeof categories> = ['foundation', 'products', 'tools', 'research'];
+const chapters = chapterOrder.map((key, i) => ({
+  key: key as string,
+  num: String(i + 1).padStart(2, '0'),
+  label: (key as string).charAt(0).toUpperCase() + (key as string).slice(1),
+  items: (categories[key] ?? []).filter((p) => p.id !== 'airmcp'),
+  total: (categories[key] ?? []).length,
+})).filter((c) => c.items.length > 0);
+
+let runningIdx = 0;
+const numberedChapters = chapters.map((c) => ({
+  ...c,
+  items: c.items.map((p) => {
+    runningIdx += 1;
+    return { ...p, n: String(runningIdx).padStart(2, '0') };
+  }),
+}));
 
 const footerExtra = `${projects.length} projects &middot; ${categories.research.length} research &middot; ${starters.length} templates`;
 ---
@@ -48,51 +59,38 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     </div>
   </section>
 
-  <!-- 3. FLAGSHIP -->
-  <section style="padding: 48px 0">
-    <div class="container">
-      <p class="section-label reveal">Flagship</p>
-
-      {airmcp && (
-        <a href={airmcp.url} target="_blank" rel="noopener" class="card-link">
-          <GlassCard class="flagship-large reveal" hue={airmcp.category as any}>
-            <ProjectIcon
-              icon={airmcp.icon}
-              iconEmoji={airmcp.iconEmoji}
-              name={airmcp.name}
-              size={64}
-              fontSize="2rem"
-            />
-            <div style="flex:1; min-width:200px">
-              <div class="card-title">{airmcp.name}</div>
-              <p class="card-desc">{airmcp.description}</p>
-              <ProjectTags tags={airmcp.tags} />
-            </div>
-          </GlassCard>
-        </a>
-      )}
-
-      {otherFlagships.length > 0 && (
-        <div class="flagship-grid">
-          {otherFlagships.map((p, i) => (
-            <a href={p.url} target="_blank" rel="noopener" class="card-link">
-              <GlassCard class="flagship-medium reveal" hue={p.category as any} extraAttrs={{ 'data-delay': String(60 + i * 40) }}>
-                <ProjectIcon icon={p.icon} iconEmoji={p.iconEmoji} name={p.name} size={48} fontSize="1.6rem" />
-                <div style="flex:1; min-width:0">
-                  <div class="card-title" style="font-size:1.15rem">{p.name}</div>
-                  <p class="card-desc">{p.description}</p>
-                  <ProjectTags tags={p.tags} />
-                </div>
-              </GlassCard>
+  <!-- 3. FLAGSHIP — editorial spread -->
+  {airmcp && (
+    <section style="padding: 32px 0 56px">
+      <div class="container" data-category={airmcp.category}>
+        <article class="editorial-spread reveal">
+          <div>
+            <div class="editorial-spread-eyebrow">Flagship · {airmcp.category}</div>
+            <a href={airmcp.url} target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+              <h2 class="editorial-spread-title">{airmcp.name}</h2>
             </a>
-          ))}
-        </div>
-      )}
-    </div>
-  </section>
+            <p class="editorial-spread-body">{airmcp.description}</p>
+          </div>
+          <aside class="editorial-spread-aside">
+            <div class="editorial-spread-aside-row">
+              <span class="editorial-spread-meta">Tags</span>
+              <span class="editorial-spread-meta-value">{airmcp.tags.slice(0, 3).join(' · ')}</span>
+            </div>
+            <div class="editorial-spread-aside-row">
+              <span class="editorial-spread-meta">Status</span>
+              <span class="editorial-spread-meta-value">{airmcp.status}</span>
+            </div>
+            <a href={airmcp.url} target="_blank" rel="noopener" class="editorial-spread-link">
+              Read on GitHub <span>→</span>
+            </a>
+          </aside>
+        </article>
+      </div>
+    </section>
+  )}
 
   <!-- 4. ECOSYSTEM MAP -->
-  <section style="padding: 48px 0">
+  <section style="padding: 32px 0 48px">
     <div class="container">
       <p class="section-label reveal">Ecosystem</p>
       <div class="reveal" data-delay="40">
@@ -101,38 +99,43 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     </div>
   </section>
 
-  <!-- 5. CATALOG -->
-  <section style="padding: 48px 0">
+  <!-- 5. CATALOG — chaptered editorial list -->
+  <section style="padding: 24px 0 64px">
     <div class="container">
-      <p class="section-label reveal">Catalog</p>
-      <div class="tabs reveal" role="tablist" aria-label="Filter projects by category">
-        <button class="tab active" role="tab" aria-selected="true" data-filter="all">All</button>
-        <button class="tab" role="tab" aria-selected="false" data-filter="foundation">Foundation</button>
-        <button class="tab" role="tab" aria-selected="false" data-filter="products">Products</button>
-        <button class="tab" role="tab" aria-selected="false" data-filter="tools">Tools</button>
-        <button class="tab" role="tab" aria-selected="false" data-filter="research">Research</button>
-      </div>
-      <div class="catalog-grid" role="tabpanel">
-        {catalogProjects.map((p, i) => (
-          <a href={p.url} target="_blank" rel="noopener" class="card-link">
-            <GlassCard
-              class="catalog-card reveal"
-              hue={p.category as any}
-              extraAttrs={{
-                'data-delay': String(Math.min(i * 28, 180)),
-                'data-category': p.category,
-              }}
-            >
-              <ProjectIcon icon={p.icon} iconEmoji={p.iconEmoji} name={p.name} size={36} fontSize="1.2rem" />
-              <div style="flex:1; min-width:0">
-                <div class="card-title" style="font-size:1.05rem">{p.name}</div>
-                <p class="card-desc" style="font-size:.85rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden">{p.description}</p>
-                <ProjectTags tags={p.tags} />
-              </div>
-            </GlassCard>
-          </a>
-        ))}
-      </div>
+      {numberedChapters.map((chapter, gi) => (
+        <section class="reveal" data-delay={String(gi * 60)} style="margin-top: 48px" data-category={chapter.key}>
+          <header class="chapter-header">
+            <div class="chapter-num">§ {chapter.num}</div>
+            <div class="chapter-title">{chapter.label}</div>
+            <div class="chapter-count">{chapter.total} works</div>
+          </header>
+          <ul class="editorial-list">
+            {chapter.items.map((p) => (
+              <li>
+                <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                  <div class="editorial-index">{p.n}</div>
+                  <div class="editorial-content">
+                    <div class="editorial-name">
+                      {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                      <span>{p.name}</span>
+                    </div>
+                    {p.description && <div class="editorial-desc">{p.description}</div>}
+                    {p.tags.length > 0 && (
+                      <div class="editorial-tags">
+                        {p.tags.slice(0, 4).map((t) => <span class="editorial-tag">{t}</span>)}
+                      </div>
+                    )}
+                  </div>
+                  <div class="editorial-meta">
+                    <span>{p.status}</span>
+                    <span class="editorial-arrow">→</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   </section>
 
@@ -164,29 +167,6 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
   </section>
 
   <script is:inline>
-    // Tab filtering
-    (function () {
-      var tabs = document.querySelectorAll('.tab');
-      var cards = document.querySelectorAll('.catalog-card');
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          tabs.forEach(function (t) {
-            t.classList.remove('active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          tab.classList.add('active');
-          tab.setAttribute('aria-selected', 'true');
-          var filter = tab.dataset.filter;
-          cards.forEach(function (card) {
-            var link = card.closest('.card-link');
-            if (!link) return;
-            link.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
-          });
-        });
-      });
-    })();
-
-    // Accordion
     (function () {
       var toggle = document.getElementById('starterToggle');
       var content = document.getElementById('starterContent');
