@@ -11,19 +11,17 @@ const projects = projectsData.projects as Project[];
 const starters = projectsData.starters as Starter[];
 
 const airmcp = projects.find((p) => p.id === 'airmcp');
-
-// Catalog = everything except airmcp (so PLOIDY, Canary etc. appear in their natural Foundation chapter).
 const catalogProjects = projects.filter((p) => p.id !== 'airmcp');
 const categories = groupByCategory(projects);
 
-// Order chapters explicitly + give catalog a stable global index so each entry has its own number.
 const chapterOrder: Array<keyof typeof categories> = ['foundation', 'products', 'tools', 'research'];
-const chapters = chapterOrder.map((key) => ({
+const chapters = chapterOrder.map((key, i) => ({
   key: key as string,
+  num: String(i + 1).padStart(2, '0'),
   label: (key as string).charAt(0).toUpperCase() + (key as string).slice(1),
   items: (categories[key] ?? []).filter((p) => p.id !== 'airmcp'),
   total: (categories[key] ?? []).length,
-}));
+})).filter((c) => c.items.length > 0);
 
 let runningIdx = 0;
 const numberedChapters = chapters.map((c) => ({
@@ -34,7 +32,6 @@ const numberedChapters = chapters.map((c) => ({
   }),
 }));
 
-const totalCount = catalogProjects.length;
 const footerExtra = `${projects.length} projects &middot; ${categories.research.length} research &middot; ${starters.length} templates`;
 ---
 
@@ -62,8 +59,38 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     </div>
   </section>
 
-  <!-- 3. ECOSYSTEM MAP -->
-  <section style="padding: 24px 0 32px">
+  <!-- 3. FLAGSHIP — editorial spread -->
+  {airmcp && (
+    <section style="padding: 32px 0 56px">
+      <div class="container" data-category={airmcp.category}>
+        <article class="editorial-spread reveal">
+          <div>
+            <div class="editorial-spread-eyebrow">Flagship · {airmcp.category}</div>
+            <a href={airmcp.url} target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+              <h2 class="editorial-spread-title">{airmcp.name}</h2>
+            </a>
+            <p class="editorial-spread-body">{airmcp.description}</p>
+          </div>
+          <aside class="editorial-spread-aside">
+            <div class="editorial-spread-aside-row">
+              <span class="editorial-spread-meta">Tags</span>
+              <span class="editorial-spread-meta-value">{airmcp.tags.slice(0, 3).join(' · ')}</span>
+            </div>
+            <div class="editorial-spread-aside-row">
+              <span class="editorial-spread-meta">Status</span>
+              <span class="editorial-spread-meta-value">{airmcp.status}</span>
+            </div>
+            <a href={airmcp.url} target="_blank" rel="noopener" class="editorial-spread-link">
+              Read on GitHub <span>→</span>
+            </a>
+          </aside>
+        </article>
+      </div>
+    </section>
+  )}
+
+  <!-- 4. ECOSYSTEM MAP -->
+  <section style="padding: 32px 0 48px">
     <div class="container">
       <p class="section-label reveal">Ecosystem</p>
       <div class="reveal" data-delay="40">
@@ -72,84 +99,48 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     </div>
   </section>
 
-  <!-- 4. FLAGSHIP — type-driven hero (AirMCP) -->
-  {airmcp && (
-    <section class="flagship-display">
-      <div class="container">
-        <div class="flagship-display-meta reveal">
-          <span class="flagship-display-num">— 00</span>
-          <span>Foundation</span>
-          <span>{airmcp.tags.join(' · ')}</span>
-          <span class="flagship-display-marker">◆ Flagship</span>
-        </div>
-        <a href={airmcp.url} target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block">
-          <h2 class="flagship-display-title reveal" data-delay="60">
-            <span class="italic">Air</span>MCP
-            <span class="super">v1</span>
-          </h2>
-        </a>
-        <p class="flagship-display-whisper reveal" data-delay="160">
-          {airmcp.description}
-        </p>
-        <a href={airmcp.url} target="_blank" rel="noopener" class="flagship-display-cta reveal" data-delay="240">
-          Read on GitHub <span>→</span>
-        </a>
-      </div>
-    </section>
-  )}
-
-  <!-- 5. EDITORIAL CATALOG -->
-  <section class="editorial">
+  <!-- 5. CATALOG — chaptered editorial list -->
+  <section style="padding: 24px 0 64px">
     <div class="container">
-      <div class="editorial-masthead reveal">
-        <div>
-          <div class="editorial-eyebrow">Index — Selected Works</div>
-          <div class="editorial-mainhead">In the catalog</div>
-        </div>
-        <div class="editorial-volume">
-          <div>Vol. I</div>
-          <div>{totalCount} entries</div>
-          <div>4 categories</div>
-        </div>
-      </div>
-
       {numberedChapters.map((chapter, gi) => (
-        <section class="editorial-group reveal" data-delay={String(gi * 60)}>
-          <div class="editorial-group-header">
-            <div class="editorial-group-num">§ {String(gi + 1).padStart(2, '0')}</div>
-            <div class="editorial-group-name">{chapter.label}</div>
-            <div class="editorial-group-count">{chapter.total} works</div>
-          </div>
-
-          {chapter.items.map((p) => (
-            <a href={p.url} target="_blank" rel="noopener" class="editorial-entry">
-              <div class="editorial-entry-num">{p.n}</div>
-              <div class="editorial-entry-content">
-                <div class="editorial-entry-title">
-                  {p.iconEmoji && <span class="editorial-entry-title-emoji">{p.iconEmoji}</span>}
-                  <span>{p.name}</span>
-                </div>
-                {p.description && <div class="editorial-entry-blurb">{p.description}</div>}
-              </div>
-              <div class="editorial-entry-meta">
-                <div class="editorial-entry-meta-cat">{chapter.label}</div>
-                <div class="editorial-entry-meta-tags">{p.tags.slice(0, 3).join(' / ')}</div>
-                <div class="editorial-entry-meta-arrow">→ github</div>
-              </div>
-            </a>
-          ))}
+        <section class="reveal" data-delay={String(gi * 60)} style="margin-top: 48px" data-category={chapter.key}>
+          <header class="chapter-header">
+            <div class="chapter-num">§ {chapter.num}</div>
+            <div class="chapter-title">{chapter.label}</div>
+            <div class="chapter-count">{chapter.total} works</div>
+          </header>
+          <ul class="editorial-list">
+            {chapter.items.map((p) => (
+              <li>
+                <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                  <div class="editorial-index">{p.n}</div>
+                  <div class="editorial-content">
+                    <div class="editorial-name">
+                      {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                      <span>{p.name}</span>
+                    </div>
+                    {p.description && <div class="editorial-desc">{p.description}</div>}
+                    {p.tags.length > 0 && (
+                      <div class="editorial-tags">
+                        {p.tags.slice(0, 4).map((t) => <span class="editorial-tag">{t}</span>)}
+                      </div>
+                    )}
+                  </div>
+                  <div class="editorial-meta">
+                    <span>{p.status}</span>
+                    <span class="editorial-arrow">→</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       ))}
-
-      <div class="editorial-folio">
-        <span>p. 04 — works</span>
-        <span>{meta.name} · portfolio</span>
-      </div>
     </div>
   </section>
 
   <!-- 6. STARTERS -->
-  <section style="padding: 56px 0 96px">
+  <section style="padding: 48px 0 80px">
     <div class="container">
       <div class="reveal">
         <button class="accordion" id="starterToggle" aria-expanded="false" aria-controls="starterContent">
@@ -176,7 +167,6 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
   </section>
 
   <script is:inline>
-    // Accordion only — tabs/catalog filter retired with the editorial layout.
     (function () {
       var toggle = document.getElementById('starterToggle');
       var content = document.getElementById('starterContent');
