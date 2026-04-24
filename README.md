@@ -6,9 +6,11 @@
 
 ## Foundation
 
-- **[AirMCP](https://github.com/heznpc/AirMCP)** — One MCP server for your entire Apple ecosystem.
-- **[PLOIDY](https://github.com/heznpc/PLOIDY)** — Cross-session debate protocol. Same model, different context depths, better decisions.
-- **[Canary](https://github.com/heznpc/Canary)** — Project health dashboard. Stack freshness, deploy status, code quality across all repos.
+<p align="center">
+  <a href="https://github.com/heznpc/AirMCP"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=tokyo_night&hide_border=true&card_width=280" /></a>
+  <a href="https://github.com/heznpc/PLOIDY"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=tokyo_night&hide_border=true&card_width=280" /></a>
+  <a href="https://github.com/heznpc/Canary"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=tokyo_night&hide_border=true&card_width=280" /></a>
+</p>
 
 ## Products
 
