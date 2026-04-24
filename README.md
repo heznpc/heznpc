@@ -1,15 +1,28 @@
-<div align="center">
+# heznpc
 
-<img src="https://profilekit.vercel.app/api/hero?name=heznpc&subtitle=Building+the+ecosystem+AI+lives+in&bg=particles&theme=tokyo_night&width=900&height=220&font=space-grotesk" alt="heznpc" />
-
-</div>
+**Building the ecosystem AI lives in.**
 
 ## Foundation
 
 <p align="center">
-  <a href="https://github.com/heznpc/AirMCP"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=tokyo_night&hide_border=true&card_width=280" /></a>
-  <a href="https://github.com/heznpc/PLOIDY"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=tokyo_night&hide_border=true&card_width=280" /></a>
-  <a href="https://github.com/heznpc/Canary"><img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=tokyo_night&hide_border=true&card_width=280" /></a>
+  <a href="https://github.com/heznpc/AirMCP">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
+      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="AirMCP" />
+    </picture>
+  </a>
+  <a href="https://github.com/heznpc/PLOIDY">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
+      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="PLOIDY" />
+    </picture>
+  </a>
+  <a href="https://github.com/heznpc/Canary">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
+      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="Canary" />
+    </picture>
+  </a>
 </p>
 
 ## Products
