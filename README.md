@@ -35,7 +35,7 @@
 
 - **[anvil](https://github.com/heznpc/anvil)** — MCP tool that runs commit → PR → CI → merge as one atomic call. Fixes Claude's per-step confirmation fatigue.
 - **[profilekit-mcp](https://github.com/heznpc/profilekit-mcp)** — MCP server for ProfileKit. Render profile cards by conversation from Claude Code, Codex CLI, or ChatGPT.
-- **[ProfileKit](https://github.com/newtria/ProfileKit)** — Craft your GitHub profile. The human layer on top of AI-generated defaults. _(this README is powered by it)_
+- **[ProfileKit](https://github.com/newtria/ProfileKit)** — Cards for your GitHub README. Customize, share, adopt. _(this README is powered by it)_
 - **[SkillBridge](https://github.com/heznpc/skillbridge)** — Chrome extension. Translates Anthropic Academy into 26+ languages.
 - **[villagent](https://github.com/heznpc/villagent)** — GUI platform for AI agent ecosystems.
 - **[code-sense](https://github.com/heznpc/code-sense)** — Developer intuition from real production bugs.
