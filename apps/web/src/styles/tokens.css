@@ -25,12 +25,21 @@
   --accent:     oklch(0.78 0.11 60);
   --accent-fb:  #d4a574;
 
-  /* Category hues */
-  --c-foundation: #c9b3f6;
-  --c-products:   #f6b3c8;
-  --c-tools:      #9de3c4;
-  --c-research:   #8ab4ff;
+  /* Band hues (Hub 5-band structure) */
+  --c-brand5:     #c9b3f6;
+  --c-programs:   #8ab4ff;
+  --c-supporting: #9de3c4;
+  --c-lab:        #f6b3c8;
+  --c-archive:    rgba(239, 230, 210, .35);
   --c-seed:       #f4eee3;
+
+  /* Legacy aliases — kept so intro.astro and existing CSS keep working */
+  --c-foundation: var(--c-brand5);
+  --c-research:   var(--c-programs);
+  --c-tools:      var(--c-supporting);
+  --c-products:   var(--c-lab);
+  --c-writings:   var(--c-archive);
+  --c-illust:     var(--c-supporting);
 
   /* Typography */
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -48,7 +57,20 @@
 }
 
 /* Apply hue variable based on data-category */
-[data-category="foundation"] { --hue: var(--c-foundation); }
-[data-category="products"]   { --hue: var(--c-products); }
-[data-category="tools"]      { --hue: var(--c-tools); }
-[data-category="research"]   { --hue: var(--c-research); }
+[data-category="brand5"]     { --hue: var(--c-brand5); }
+[data-category="program-1"],
+[data-category="program-2"],
+[data-category="program-3"],
+[data-category="program-4"],
+[data-category="program-5"],
+[data-category="program-6"],
+[data-category="programs"]   { --hue: var(--c-programs); }
+[data-category="supporting"] { --hue: var(--c-supporting); }
+[data-category="lab"]        { --hue: var(--c-lab); }
+[data-category="archive"]    { --hue: var(--c-archive); }
+
+/* Legacy data-category values still used by intro.astro and ProjectIcon */
+[data-category="foundation"] { --hue: var(--c-brand5); }
+[data-category="research"]   { --hue: var(--c-programs); }
+[data-category="tools"]      { --hue: var(--c-supporting); }
+[data-category="products"]   { --hue: var(--c-lab); }

@@ -1,7 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EcoMap from '../components/EcoMap.astro';
-import { groupByCategory, type Project, type Starter } from '../utils/types';
+import {
+  groupByBand,
+  groupByProgram,
+  type Project,
+  type Starter,
+} from '../utils/types';
 import { base } from '../utils/base';
 
 import projectsData from '../../projects.json';
@@ -11,31 +16,25 @@ const projects = projectsData.projects as Project[];
 const starters = projectsData.starters as Starter[];
 
 const airmcp = projects.find((p) => p.id === 'airmcp');
-const catalogProjects = projects.filter((p) => p.id !== 'airmcp');
-const categories = groupByCategory(projects);
+const bands = groupByBand(projects);
+const brand5 = bands.brand5.filter((p) => p.id !== 'airmcp');
+const programGroups = groupByProgram(projects);
 
-const chapterOrder: Array<keyof typeof categories> = ['foundation', 'products', 'tools', 'research'];
-const chapters = chapterOrder.map((key, i) => ({
-  key: key as string,
-  num: String(i + 1).padStart(2, '0'),
-  label: (key as string).charAt(0).toUpperCase() + (key as string).slice(1),
-  items: (categories[key] ?? []).filter((p) => p.id !== 'airmcp'),
-  total: (categories[key] ?? []).length,
-})).filter((c) => c.items.length > 0);
+const programCount = programGroups.filter((g) => g.num <= 5).length;
+const footerExtra =
+  `${projects.length} projects · ${programCount} research programs · ` +
+  `${bands.supporting.length} supporting · ${bands.lab.length} lab · ${starters.length} templates`;
 
-let runningIdx = 0;
-const numberedChapters = chapters.map((c) => ({
-  ...c,
-  items: c.items.map((p) => {
-    runningIdx += 1;
-    return { ...p, n: String(runningIdx).padStart(2, '0') };
-  }),
-}));
-
-const footerExtra = `${projects.length} projects &middot; ${categories.research.length} research &middot; ${starters.length} templates`;
+const AXIS_LABEL: Record<string, string> = {
+  product: 'Product',
+  research: 'Research',
+  trust: 'Trust',
+  traction: 'Traction',
+  signal: 'Signal',
+};
 ---
 
-<BaseLayout title={`${meta.name} — AI / Software Engineer`} footerExtra={footerExtra}>
+<BaseLayout title={`${meta.name} — Curator of AI infrastructure, research, and tools`} footerExtra={footerExtra}>
 
   <!-- 1. HERO -->
   <header class="hero">
@@ -59,13 +58,13 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     </div>
   </section>
 
-  <!-- 3. FLAGSHIP — editorial spread -->
+  <!-- 3. FLAGSHIP — AirMCP editorial spread -->
   {airmcp && (
     <section style="padding: 32px 0 56px">
       <div class="container" data-category={airmcp.category}>
         <article class="editorial-spread reveal">
           <div>
-            <div class="editorial-spread-eyebrow">Flagship · {airmcp.category}</div>
+            <div class="editorial-spread-eyebrow">Brand 5 · Product flagship</div>
             <a href={airmcp.url} target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
               <h2 class="editorial-spread-title">{airmcp.name}</h2>
             </a>
@@ -94,26 +93,114 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
     <div class="container">
       <p class="section-label reveal">Ecosystem</p>
       <div class="reveal" data-delay="40">
-        <EcoMap categories={categories} />
+        <EcoMap bands={bands} />
       </div>
     </div>
   </section>
 
-  <!-- 5. CATALOG — chaptered editorial list -->
-  <section style="padding: 24px 0 64px">
-    <div class="container">
-      {numberedChapters.map((chapter, gi) => (
-        <section class="reveal" data-delay={String(gi * 60)} style="margin-top: 48px" data-category={chapter.key}>
+  <!-- 5. BRAND 5 — remaining four axes -->
+  {brand5.length > 0 && (
+    <section style="padding: 32px 0 48px">
+      <div class="container">
+        <header class="chapter-header">
+          <div class="chapter-num">§ 01</div>
+          <div class="chapter-title">Brand 5</div>
+          <div class="chapter-count">{bands.brand5.length} axes</div>
+        </header>
+        <ul class="editorial-list">
+          {brand5.map((p, i) => (
+            <li>
+              <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                <div class="editorial-index">{String(i + 1).padStart(2, '0')}</div>
+                <div class="editorial-content">
+                  <div class="editorial-name">
+                    {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                    <span>{p.name}</span>
+                    {p.axis && <span class="editorial-tag" style="margin-left: 8px">{AXIS_LABEL[p.axis] || p.axis}</span>}
+                  </div>
+                  {p.description && <div class="editorial-desc">{p.description}</div>}
+                  {p.tags.length > 0 && (
+                    <div class="editorial-tags">
+                      {p.tags.slice(0, 4).map((t) => <span class="editorial-tag">{t}</span>)}
+                    </div>
+                  )}
+                </div>
+                <div class="editorial-meta">
+                  <span>{p.status}</span>
+                  <span class="editorial-arrow">→</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- 6. RESEARCH PROGRAMS -->
+  {programGroups.length > 0 && (
+    <section style="padding: 24px 0 48px">
+      <div class="container">
+        <header class="chapter-header">
+          <div class="chapter-num">§ 02</div>
+          <div class="chapter-title">Research Programs</div>
+          <div class="chapter-count">{programCount} programs</div>
+        </header>
+        {programGroups.map((g) => (
+          <section style="margin-top: 28px" data-category={`program-${g.num}`}>
+            <div class="program-header">
+              <span class="program-num">P{g.num}</span>
+              <span class="program-label">{g.label}</span>
+              <span class="program-count">{g.projects.length} {g.projects.length === 1 ? 'paper' : 'papers'}</span>
+            </div>
+            {g.blurb && <p class="program-blurb">{g.blurb}</p>}
+            <ul class="editorial-list" style="margin-top: 12px">
+              {g.projects.map((p) => (
+                <li>
+                  <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                    <div class="editorial-index" style="font-size: .65rem">
+                      {p.role === 'anchor' ? '★' : '·'}
+                    </div>
+                    <div class="editorial-content">
+                      <div class="editorial-name">
+                        {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                        <span>{p.name}</span>
+                        {p.role === 'anchor' && <span class="editorial-tag" style="margin-left: 8px">Anchor</span>}
+                      </div>
+                      {p.description && <div class="editorial-desc">{p.description}</div>}
+                    </div>
+                    <div class="editorial-meta">
+                      <span class="editorial-arrow">→</span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- 7. SUPPORTING / LAB / ARCHIVE -->
+  {(['supporting', 'lab', 'archive'] as const).map((key, gi) => {
+    const items = bands[key];
+    if (!items || items.length === 0) return null;
+    const num = String(gi + 3).padStart(2, '0');
+    const label = key.charAt(0).toUpperCase() + key.slice(1);
+    return (
+      <section style="padding: 24px 0 48px" data-category={key}>
+        <div class="container">
           <header class="chapter-header">
-            <div class="chapter-num">§ {chapter.num}</div>
-            <div class="chapter-title">{chapter.label}</div>
-            <div class="chapter-count">{chapter.total} works</div>
+            <div class="chapter-num">§ {num}</div>
+            <div class="chapter-title">{label}</div>
+            <div class="chapter-count">{items.length} {items.length === 1 ? 'item' : 'items'}</div>
           </header>
           <ul class="editorial-list">
-            {chapter.items.map((p) => (
+            {items.map((p, i) => (
               <li>
                 <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
-                  <div class="editorial-index">{p.n}</div>
+                  <div class="editorial-index">{String(i + 1).padStart(2, '0')}</div>
                   <div class="editorial-content">
                     <div class="editorial-name">
                       {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
@@ -127,19 +214,18 @@ const footerExtra = `${projects.length} projects &middot; ${categories.research.
                     )}
                   </div>
                   <div class="editorial-meta">
-                    <span>{p.status}</span>
                     <span class="editorial-arrow">→</span>
                   </div>
                 </a>
               </li>
             ))}
           </ul>
-        </section>
-      ))}
-    </div>
-  </section>
+        </div>
+      </section>
+    );
+  })}
 
-  <!-- 6. STARTERS -->
+  <!-- 8. STARTERS -->
   <section style="padding: 48px 0 80px">
     <div class="container">
       <div class="reveal">

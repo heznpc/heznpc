@@ -1,86 +1,87 @@
 # heznpc
 
-**Building the ecosystem AI lives in.**
+**Curator of open-source infrastructure, research, and tools for the AI era.**
 
-## Foundation
+The site at [heznpc.github.io](https://heznpc.github.io) is the rendered hub.
+This README is the same map in text.
 
-<p align="center">
-  <a href="https://github.com/heznpc/AirMCP">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
-      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=AirMCP&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="AirMCP" />
-    </picture>
-  </a>
-  <a href="https://github.com/heznpc/PLOIDY">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
-      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=PLOIDY&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="PLOIDY" />
-    </picture>
-  </a>
-  <a href="https://github.com/heznpc/Canary">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=dark&hide_border=true&card_width=280&max_desc_lines=2" />
-      <img src="https://profilekit.vercel.app/api/pin?username=heznpc&repo=Canary&theme=light&hide_border=true&card_width=280&max_desc_lines=2" alt="Canary" />
-    </picture>
-  </a>
-</p>
+## Currently implemented
 
-## Products
+**Brand 5** — the five flagship axes:
 
-- **[TrashMonster](https://github.com/heznpc/TrashMonster)** — AI-powered waste classification game for kids.
-- **[dol-pin](https://github.com/heznpc/dol-pin)** — K-pop concert merch C2C rental marketplace.
-- **[PlantMonster](https://github.com/heznpc/PlantMonster)** — Plant identification app for kids.
+| Axis | Repo | What it is |
+|---|---|---|
+| Product | [AirMCP](https://github.com/heznpc/AirMCP) | One MCP server for the Apple ecosystem. Core infra (HITL, audit, rate-limit, HMAC) is the differentiated layer. |
+| Research | [PLOIDY](https://github.com/heznpc/PLOIDY) | Cross-session debate protocol — same model, different context depths. |
+| Trust | [canary](https://github.com/heznpc/canary) | Project health dashboard across the portfolio. |
+| Traction | [skillBridge](https://github.com/heznpc/skillbridge) | Translates Anthropic Academy into 26+ languages. |
+| Signal | [anvil](https://github.com/heznpc/anvil) | MCP tool that bundles commit → PR → CI → merge into one atomic call. |
 
-## Tools
+**5 Research Programs** — each with an anchor and companions:
 
-- **[anvil](https://github.com/heznpc/anvil)** — MCP tool that runs commit → PR → CI → merge as one atomic call. Fixes Claude's per-step confirmation fatigue.
-- **[profilekit-mcp](https://github.com/heznpc/profilekit-mcp)** — MCP server for ProfileKit. Render profile cards by conversation from Claude Code, Codex CLI, or ChatGPT.
-- **[ProfileKit](https://github.com/newtria/ProfileKit)** — Cards for your GitHub README. Customize, share, adopt. _(this README is powered by it)_
-- **[SkillBridge](https://github.com/heznpc/skillbridge)** — Chrome extension. Translates Anthropic Academy into 26+ languages.
-- **[villagent](https://github.com/heznpc/villagent)** — GUI platform for AI agent ecosystems.
-- **[code-sense](https://github.com/heznpc/code-sense)** — Developer intuition from real production bugs.
-- **[FollowPrint](https://github.com/heznpc/FollowPrint)** — Print & screenshot tracking utility.
+| # | Program | Anchor |
+|---|---|---|
+| P1 | Human-Controlled AI Systems | AirMCP infra → [statute-of-limitations](https://github.com/heznpc/statute-of-limitations) |
+| P2 | Reflexive AI Research | [meta](https://github.com/heznpc/meta) → narcissus, eddy |
+| P3 | NL-Code Communicability | [z-gap](https://github.com/heznpc/z-gap) |
+| P4 | AI-Driven Digital Hoarding | [tidal](https://github.com/heznpc/tidal) → silo, caching, elixir, sediment |
+| P5 | AI Slop / Production-Detection Asymmetry | [ai-slop-paper](https://github.com/heznpc/ai-slop-paper) → emergence-paradox, aichemist |
 
-## Research
+Adjacent research (off-core but coherent): [analogic-appropriation](https://github.com/heznpc/analogic-appropriation), [pythia](https://github.com/heznpc/pythia).
 
-15 papers across HCI, AI ethics, digital hoarding, and philosophy of technology.
+**Supporting** — tools that serve the brand axes:
+[ProfileKit](https://github.com/heznpc/ProfileKit) (this README is powered by it),
+[profilekit-mcp](https://github.com/heznpc/profilekit-mcp),
+[cairn](https://github.com/heznpc/cairn),
+[newtria-crossflow](https://github.com/heznpc/newtria-crossflow),
+[pc-health-check](https://github.com/heznpc/pc-health-check).
 
-<details>
-<summary>View all</summary>
+**Lab** — experiments and MVPs (explicitly not production):
+villagent, dol-pin, PlantMonster, mothball, gemma4-quiz, hello-project, code-sense, FollowPrint, cuk-sw-community.
 
-- **[z-gap](https://github.com/heznpc/z-gap)** — Convergence ≠ Communicability. Platonic Representations at the NL-Code Interface.
-- **[eddy](https://github.com/heznpc/eddy)** — ADHD × AI. Neurodivergent workflows as competitive advantage.
-- **[emergence-paradox](https://github.com/heznpc/emergence-paradox)** — Substrate chauvinism. Why we reject creative-AI but accept analytical-AI.
-- **[analogic-appropriation](https://github.com/heznpc/analogic-appropriation)** — Cross-cultural media study on children's play and combat narratives.
-- **[ai-slop-paper](https://github.com/heznpc/ai-slop-paper)** — Production-Detection Asymmetry. Multi-format AI content pollution.
-- **[aichemist](https://github.com/heznpc/aichemist)** — Structural homology between alchemy and the AGI paradigm.
-- **[caching](https://github.com/heznpc/caching)** — Scatter-caching. Cross-platform information distribution as hoarding dimension.
-- **[elixir](https://github.com/heznpc/elixir)** — The Last Elixir. PRISMA review of hoarding behaviors in digital games.
-- **[silo](https://github.com/heznpc/silo)** — AI-mediated information search creates confirmation-biased digital hoards.
-- **[tidal](https://github.com/heznpc/tidal)** — The Asymmetric Tide. AI amplifies digital hoarding through structural default bias.
-- **[narcissus](https://github.com/heznpc/narcissus)** — AI mirrors amplify researcher confirmation bias through collaborative entrenchment.
-- **[meta](https://github.com/heznpc/meta)** — LLM-as-research-infrastructure. Reflexive practice of using Claude Code to study Claude Code.
-- **[pythia](https://github.com/heznpc/pythia)** — Divination systems as non-formal inference engines and convergence with LLMs.
-- **[sediment](https://github.com/heznpc/sediment)** — Streak mechanics drive compelled production of low-quality digital content.
-- **[statute-of-limitations](https://github.com/heznpc/statute-of-limitations)** — Designing institutional forgetting for AI agent memory.
+**Archive** — frozen / abandoned:
+TrashMonster, ipod-gallery.
 
-</details>
+**11 starter templates** — clone → push → deployed. See the site for the full list.
 
-## Starters
+## Planned
 
-<details>
-<summary>11 templates — clone → replace code → push → deployed</summary>
+- skillBridge re-publication after icon redesign.
+- newtria-crossflow expansion from v0.1 (one verified tool) toward full Shortcuts ↔ Power Automate parity.
+- Program anchors landing in venues: alt.CHI 2027 (meta); EMNLP 2026 ARR May submission (z-gap); Inquiry SI (emergence-paradox).
+- Hub site continues to drop projects out of Lab into either Supporting or Archive as evidence accumulates.
 
-- **[docker-deploy-starter](https://github.com/heznpc/docker-deploy-starter)** → Any VPS
-- **[browser-extension-starter](https://github.com/heznpc/browser-extension-starter)** → Chrome + AMO
-- **[discord-bot-starter](https://github.com/heznpc/discord-bot-starter)** → Railway / Fly.io
-- **[telegram-bot-starter](https://github.com/heznpc/telegram-bot-starter)** → Railway / Fly.io
-- **[react-native-starter](https://github.com/heznpc/react-native-starter)** → App / Play Store
-- **[electron-app-starter](https://github.com/heznpc/electron-app-starter)** → Cross-platform
-- **[vscode-extension-starter](https://github.com/heznpc/vscode-extension-starter)** → VS Marketplace
-- **[npm-package-starter](https://github.com/heznpc/npm-package-starter)** → npm registry
-- **[mcp-server-starter](https://github.com/heznpc/mcp-server-starter)** → npm registry
-- **[python-mcp-server-starter](https://github.com/heznpc/python-mcp-server-starter)** → PyPI
-- **[cloudflare-pages-starter](https://github.com/heznpc/cloudflare-pages-starter)** → Cloudflare
+## Design intent
 
-</details>
+- The Hub is a **curator’s map**, not a manifesto. The five Brand axes name the layers that make the rest of the work legible — they are not "the five best products."
+- **A program needs an anchor + companions to count.** A single paper is not a program. Companions that don’t feed an anchor are tagged as adjacent research, not as a program of their own.
+- **Three buckets below the brand line** — Supporting, Lab, Archive — so that experiments can be shipped honestly without inflating them into products.
+- The site is deliberately editorial (text-led, ProfileKit cards, no rankings). Visual density follows the same composability rule as ProfileKit: no ratings, no leaderboards.
+
+## Non-goals
+
+- "Building every layer" maximalism. The Hub deliberately drops products that aren’t load-bearing for one of the five axes.
+- Rankings, ratings, leaderboards. The data model has no place for them.
+- Publishing soft metrics — install counts, star counts, "engagement."
+- Cross-promoting external orgs without their sign-off.
+
+## Redacted
+
+- External persons, accounts, and inquiry threads.
+- Soft metrics (intentionally not published).
+- Tokens, API keys, and internal cases.
+
+---
+
+## Running the site
+
+```sh
+npm install
+npm run dev       # local preview at http://localhost:4321
+npm run build     # generates projects.json + static build at apps/web/dist
+```
+
+`apps/web/portfolio.config.mjs` is the single source of truth.
+`scripts/generate.mjs` fetches repo descriptions from the GitHub API and
+writes `projects.json`. CI fails loudly if the fetch fails so the deployed
+site never ships stale config-only descriptions.

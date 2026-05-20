@@ -64,6 +64,9 @@ const projects = config.projects.map((p) => {
     tags: p.tags ?? (gh?.topics?.length ? gh.topics : []),
     url: p.url ?? gh?.url ?? `https://github.com/${owner}/${p.repo}`,
     status: 'active',
+    ...(p.axis && { axis: p.axis }),
+    ...(p.program && { program: p.program }),
+    ...(p.role && { role: p.role }),
     ...(p.icon && { icon: p.icon }),
     ...(p.emoji && { iconEmoji: p.emoji }),
   };
