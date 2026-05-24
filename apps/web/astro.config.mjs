@@ -6,5 +6,5 @@ export default defineConfig({
     format: 'directory',
   },
   site: 'https://heznpc.github.io',
-  base: '/heznpc',
+  base: '/',
 });

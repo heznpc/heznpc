@@ -1,4 +1,17 @@
-name: Deploy to GitHub Pages
+name: Notify heznpc.github.io to redeploy
+
+# This repo is the SOURCE for the hub site. Hosting lives at
+# https://heznpc.github.io/ and is served by the user-page repo
+# heznpc/heznpc.github.io, which has a scheduled + dispatchable build that
+# checks out THIS repo, runs `npm run build:web`, and deploys to Pages.
+#
+# When PAGES_DEPLOY_PAT is set as a secret here (fine-grained PAT with
+# Contents: Read & Write on heznpc/heznpc.github.io), every push to main
+# also fires a repository_dispatch so the hub rebuilds within ~1 minute.
+#
+# When the secret is absent the job still passes — the hub will pick up
+# changes on its next scheduled run, or whenever someone manually runs
+# `gh workflow run -R heznpc/heznpc.github.io deploy.yml`.
 
 on:
   push:
@@ -7,40 +20,39 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
-  build:
+  smoke-build:
+    name: Build (source-side smoke test)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - run: npm ci
-
       - run: npm run build:web
         env:
           GH_TOKEN: ${{ github.token }}
           CI: 'true'
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: apps/web/dist
-
-  deploy:
-    needs: build
+  dispatch:
+    name: Trigger hub rebuild
+    needs: smoke-build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      PAT: ${{ secrets.PAGES_DEPLOY_PAT }}
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Fire repository_dispatch (if PAT configured)
+        if: env.PAT != ''
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAGES_DEPLOY_PAT }}
+          repository: heznpc/heznpc.github.io
+          event-type: source-updated
+      - name: No PAT — rely on schedule
+        if: env.PAT == ''
+        run: |
+          echo "PAGES_DEPLOY_PAT secret not set."
+          echo "heznpc.github.io will rebuild on its next scheduled run,"
+          echo "or via:  gh workflow run -R heznpc/heznpc.github.io deploy.yml"
