@@ -7,4 +7,12 @@ export default defineConfig({
   },
   site: 'https://heznpc.github.io',
   base: '/',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ko'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
 });

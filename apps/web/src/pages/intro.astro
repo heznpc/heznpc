@@ -1,9 +1,14 @@
 ---
 import { base } from '../utils/base';
-const title = 'heznpc — Intro';
-const description = 'An ecosystem, in three views.';
+import { getDict, getLocale } from '../i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const t = getDict(locale).intro;
+const title = t.title;
+const description = t.description;
+const homeHref = locale === 'en' ? base : `${base}${locale}/`;
 ---
-<html lang="en">
+<html lang={locale}>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -265,12 +270,12 @@ const description = 'An ecosystem, in three views.';
     <h1 class="name" aria-label="heznpc">
       <span>h</span><span>e</span><span>z</span><span>n</span><span>p</span><span>c</span>
     </h1>
-    <p class="tagline">Building the ecosystem AI lives in</p>
+    <p class="tagline">{getDict(locale).home.tagline}</p>
   </div>
 </div>
 
-<a href={base} class="skip">Skip ›</a>
-<a href={base} class="enter">Enter <span class="arrow">→</span></a>
+<a href={homeHref} class="skip">{t.skip}</a>
+<a href={homeHref} class="enter">{t.enter} <span class="arrow">→</span></a>
 
 <script is:inline>
   (function(){

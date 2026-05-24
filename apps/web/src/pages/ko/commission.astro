@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CommissionPage from '../../components/CommissionPage.astro';
+import { getDict } from '../../i18n';
+
+const dict = getDict('ko');
+---
+
+<BaseLayout title={dict.commission.title} description={dict.commission.description}>
+  <CommissionPage dict={dict} />
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+// Korean splash — reuses the same template as /intro/ via Astro's i18n
+// route. Astro.currentLocale resolves to 'ko' for files under /ko/.
+import { base } from '../../utils/base';
+import { getDict, getLocale } from '../../i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const t = getDict(locale).intro;
+const tagline = getDict(locale).home.tagline;
+const homeHref = `${base}${locale}/`;
+---
+<html lang={locale}>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{t.title}</title>
+<meta name="description" content={t.description} />
+<meta name="theme-color" content="#07080c" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #07080c; --ink: #f4eee3; --ink-dim: rgba(244,238,227,.5); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; }
+  body { display: grid; place-items: center; padding: 24px; }
+  .name { font-family: 'Fraunces', Georgia, serif; font-size: clamp(56px, 9vw, 108px); line-height: 1; letter-spacing: -.015em; text-align: center; }
+  .tagline { margin-top: 22px; font-family: 'JetBrains Mono', monospace; font-size: clamp(10px, 1.1vw, 13px); letter-spacing: .22em; text-transform: uppercase; color: var(--ink-dim); text-align: center; }
+  .actions { margin-top: 56px; display: flex; gap: 12px; justify-content: center; }
+  .actions a {
+    padding: 13px 24px;
+    border: 1px solid rgba(244,238,227,.22);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    transition: background .3s ease, border-color .3s ease;
+  }
+  .actions a:hover { background: rgba(244,238,227,.08); border-color: rgba(244,238,227,.5); }
+</style>
+</head>
+<body>
+  <div>
+    <h1 class="name">heznpc</h1>
+    <p class="tagline">{tagline}</p>
+    <div class="actions">
+      <a href={homeHref}>{t.skip}</a>
+      <a href={homeHref}>{t.enter} →</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import { base } from '../utils/base';
 import brand from '../../../../heznpc.config.mjs';
+import LangSwitch from '../components/LangSwitch.astro';
+import { getDict, getLocale, localizePath } from '../i18n';
 
 interface Props {
   title: string;
@@ -12,13 +14,17 @@ interface Props {
 }
 
 const { title, description, ogImage, footerExtra, showNav = true } = Astro.props;
-const desc =
-  description ||
-  'Building the ecosystem AI lives in — Open-source infrastructure, products, tools, and research.';
+const locale = getLocale(Astro.currentLocale);
+const t = getDict(locale);
+const desc = description || t.meta.description;
 const image = ogImage || 'https://github.com/heznpc.png';
+
+const homeHref = locale === 'en' ? base : `${base}${locale}/`;
+const galleryHref = `${base.slice(0, -1)}${localizePath('/gallery/', locale)}`;
+const commissionHref = `${base.slice(0, -1)}${localizePath('/commission/', locale)}`;
 ---
 
-<html lang="en">
+<html lang={locale}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,13 +35,17 @@ const image = ogImage || 'https://github.com/heznpc.png';
   <meta property="og:description" content={desc} />
   <meta property="og:image" content={image} />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : 'en_US'} />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:image" content={image} />
+  <link rel="alternate" hreflang="en" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'en')}`} />
+  <link rel="alternate" hreflang="ko" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'ko')}`} />
+  <link rel="alternate" hreflang="x-default" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'en')}`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
 </head>
@@ -43,11 +53,12 @@ const image = ogImage || 'https://github.com/heznpc.png';
   {showNav && (
     <nav class="nav">
       <div class="nav-inner">
-        <a href={base} class="nav-brand">heznpc</a>
+        <a href={homeHref} class="nav-brand">heznpc</a>
         <div class="nav-links">
-          <a href={`${base}gallery/`} class="nav-link">Gallery</a>
-          <a href={`${base}commission/`} class="nav-link">Commission</a>
-          <a href={brand.links.github} target="_blank" rel="noopener" class="nav-link">GitHub</a>
+          <a href={galleryHref} class="nav-link">{t.nav.gallery}</a>
+          <a href={commissionHref} class="nav-link">{t.nav.commission}</a>
+          <a href={brand.links.github} target="_blank" rel="noopener" class="nav-link">{t.nav.github}</a>
+          <LangSwitch />
         </div>
       </div>
     </nav>

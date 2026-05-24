@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GalleryPage from '../../../components/GalleryPage.astro';
+import { getDict } from '../../../i18n';
+
+const dict = getDict('ko');
+---
+
+<BaseLayout title={dict.gallery.title} description={dict.gallery.description}>
+  <GalleryPage dict={dict} />
+</BaseLayout>

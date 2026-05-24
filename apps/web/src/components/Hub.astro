@@ -1,0 +1,285 @@
+---
+import EcoMap from './EcoMap.astro';
+import {
+  groupByBand,
+  groupByProgram,
+  PROGRAM_LABELS,
+  type Project,
+  type Starter,
+} from '../utils/types';
+import { base } from '../utils/base';
+import type { Dict, Locale } from '../i18n';
+
+import projectsData from '../../projects.json';
+
+interface Props {
+  locale: Locale;
+  dict: Dict;
+}
+
+const { locale, dict } = Astro.props;
+const t = dict.home;
+
+const projects = projectsData.projects as Project[];
+const starters = projectsData.starters as Starter[];
+
+const airmcp = projects.find((p) => p.id === 'airmcp');
+const bands = groupByBand(projects);
+const brand5Rest = bands.brand5.filter((p) => p.id !== 'airmcp');
+const programGroupsRaw = groupByProgram(projects);
+
+// Apply localized program labels/blurbs (the data layer still uses
+// PROGRAM_LABELS as English fallback; here we swap to the requested locale).
+const programGroups = programGroupsRaw.map((g) => ({
+  ...g,
+  label: t.programs[g.num]?.label ?? PROGRAM_LABELS[g.num]?.label ?? `Program ${g.num}`,
+  blurb: t.programs[g.num]?.blurb ?? PROGRAM_LABELS[g.num]?.blurb ?? '',
+}));
+
+const programCount = programGroups.filter((g) => g.num <= 5).length;
+
+const introHref = locale === 'en' ? `${base}intro/` : `${base}${locale}/intro/`;
+
+const ordinalSections: Array<{ key: 'supporting' | 'lab' | 'archive'; label: string }> = [
+  { key: 'supporting', label: t.sectionSupporting },
+  { key: 'lab', label: t.sectionLab },
+  { key: 'archive', label: t.sectionArchive },
+];
+---
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="hero-cells" aria-hidden="true">
+    <div class="hero-cell hero-cell-a"></div>
+    <div class="hero-cell hero-cell-b"></div>
+    <div class="hero-cell hero-cell-c"></div>
+  </div>
+  <h1 class="hero-name reveal">heznpc</h1>
+  <p class="hero-tagline reveal" data-delay="60">{t.tagline}</p>
+  <p class="hero-bio reveal" data-delay="120">{t.bio}</p>
+  <a class="hero-watch reveal" data-delay="200" href={introHref}>
+    <span>▸</span> {t.watchIntro}
+  </a>
+</header>
+
+<!-- 2. THESIS -->
+<section style="padding: 24px 0 48px">
+  <div class="container reveal">
+    <p class="thesis">{t.thesis}</p>
+  </div>
+</section>
+
+<!-- 3. FLAGSHIP — AirMCP editorial spread -->
+{airmcp && (
+  <section style="padding: 32px 0 56px">
+    <div class="container" data-category={airmcp.category}>
+      <article class="editorial-spread reveal">
+        <div>
+          <div class="editorial-spread-eyebrow">{t.flagshipEyebrow}</div>
+          <a href={airmcp.url} target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+            <h2 class="editorial-spread-title">{airmcp.name}</h2>
+          </a>
+          <p class="editorial-spread-body">{airmcp.description}</p>
+        </div>
+        <aside class="editorial-spread-aside">
+          <div class="editorial-spread-aside-row">
+            <span class="editorial-spread-meta">{t.flagshipTags}</span>
+            <span class="editorial-spread-meta-value">{airmcp.tags.slice(0, 3).join(' · ')}</span>
+          </div>
+          <div class="editorial-spread-aside-row">
+            <span class="editorial-spread-meta">{t.flagshipStatus}</span>
+            <span class="editorial-spread-meta-value">{t.status}</span>
+          </div>
+          <a href={airmcp.url} target="_blank" rel="noopener" class="editorial-spread-link">
+            {t.flagshipLink} <span>→</span>
+          </a>
+        </aside>
+      </article>
+    </div>
+  </section>
+)}
+
+<!-- 4. ECOSYSTEM MAP -->
+<section style="padding: 32px 0 48px">
+  <div class="container">
+    <p class="section-label reveal">{t.sectionEcosystem}</p>
+    <div class="reveal" data-delay="40">
+      <EcoMap bands={bands} />
+    </div>
+  </div>
+</section>
+
+<!-- 5. BRAND 5 — remaining four axes -->
+{brand5Rest.length > 0 && (
+  <section style="padding: 32px 0 48px">
+    <div class="container">
+      <header class="chapter-header">
+        <div class="chapter-num">§ 01</div>
+        <div class="chapter-title">{t.sectionBrand5}</div>
+        <div class="chapter-count">{bands.brand5.length} {t.axes}</div>
+      </header>
+      <ul class="editorial-list">
+        {brand5Rest.map((p, i) => (
+          <li>
+            <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+              <div class="editorial-index">{String(i + 1).padStart(2, '0')}</div>
+              <div class="editorial-content">
+                <div class="editorial-name">
+                  {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                  <span>{p.name}</span>
+                  {p.axis && <span class="editorial-tag" style="margin-left: 8px">{t.axisLabels[p.axis] || p.axis}</span>}
+                </div>
+                {p.description && <div class="editorial-desc">{p.description}</div>}
+                {p.tags.length > 0 && (
+                  <div class="editorial-tags">
+                    {p.tags.slice(0, 4).map((tag) => <span class="editorial-tag">{tag}</span>)}
+                  </div>
+                )}
+              </div>
+              <div class="editorial-meta">
+                <span>{t.status}</span>
+                <span class="editorial-arrow">→</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<!-- 6. RESEARCH PROGRAMS -->
+{programGroups.length > 0 && (
+  <section style="padding: 24px 0 48px">
+    <div class="container">
+      <header class="chapter-header">
+        <div class="chapter-num">§ 02</div>
+        <div class="chapter-title">{t.sectionPrograms}</div>
+        <div class="chapter-count">{programCount} {t.programsCount}</div>
+      </header>
+      {programGroups.map((g) => (
+        <section style="margin-top: 28px" data-category={`program-${g.num}`}>
+          <div class="program-header">
+            <span class="program-num">P{g.num}</span>
+            <span class="program-label">{g.label}</span>
+            <span class="program-count">{g.projects.length} {g.projects.length === 1 ? t.paper : t.papers}</span>
+          </div>
+          {g.blurb && <p class="program-blurb">{g.blurb}</p>}
+          <ul class="editorial-list" style="margin-top: 12px">
+            {g.projects.map((p) => (
+              <li>
+                <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                  <div class="editorial-index" style="font-size: .65rem">
+                    {p.role === 'anchor' ? '★' : '·'}
+                  </div>
+                  <div class="editorial-content">
+                    <div class="editorial-name">
+                      {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                      <span>{p.name}</span>
+                      {p.role === 'anchor' && <span class="editorial-tag" style="margin-left: 8px">{t.anchor}</span>}
+                    </div>
+                    {p.description && <div class="editorial-desc">{p.description}</div>}
+                  </div>
+                  <div class="editorial-meta">
+                    <span class="editorial-arrow">→</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- 7. SUPPORTING / LAB / ARCHIVE -->
+{ordinalSections.map((section, gi) => {
+  const items = bands[section.key];
+  if (!items || items.length === 0) return null;
+  const num = String(gi + 3).padStart(2, '0');
+  return (
+    <section style="padding: 24px 0 48px" data-category={section.key}>
+      <div class="container">
+        <header class="chapter-header">
+          <div class="chapter-num">§ {num}</div>
+          <div class="chapter-title">{section.label}</div>
+          <div class="chapter-count">{items.length} {items.length === 1 ? t.item : t.items}</div>
+        </header>
+        <ul class="editorial-list">
+          {items.map((p, i) => (
+            <li>
+              <a href={p.url} target="_blank" rel="noopener" class="editorial-row" data-category={p.category}>
+                <div class="editorial-index">{String(i + 1).padStart(2, '0')}</div>
+                <div class="editorial-content">
+                  <div class="editorial-name">
+                    {p.iconEmoji && <span class="editorial-name-emoji">{p.iconEmoji}</span>}
+                    <span>{p.name}</span>
+                  </div>
+                  {p.description && <div class="editorial-desc">{p.description}</div>}
+                  {p.tags.length > 0 && (
+                    <div class="editorial-tags">
+                      {p.tags.slice(0, 4).map((tag) => <span class="editorial-tag">{tag}</span>)}
+                    </div>
+                  )}
+                </div>
+                <div class="editorial-meta">
+                  <span class="editorial-arrow">→</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+})}
+
+<!-- 8. STARTERS -->
+<section style="padding: 48px 0 80px">
+  <div class="container">
+    <div class="reveal">
+      <button class="accordion" id="starterToggle" aria-expanded="false" aria-controls="starterContent">
+        <div>
+          <p class="section-label" style="margin-bottom:4px">{t.sectionStarters}</p>
+          <p style="font-size:.8rem; color:var(--ink-ghost); font-family:var(--font-mono); letter-spacing:.04em">{t.starterCaption.replace('{count}', String(starters.length))}</p>
+        </div>
+        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="accordion-content" id="starterContent" role="region" aria-labelledby="starterToggle">
+        <div>
+          <div class="starter-grid">
+            {starters.map((s) => (
+              <a href={`https://github.com/${s.repo}`} target="_blank" rel="noopener" class="starter-item">
+                <span class="starter-name">{s.name}</span>
+                <span class="starter-deploy">{s.deployTo}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var toggle = document.getElementById('starterToggle');
+    var content = document.getElementById('starterContent');
+    if (!toggle || !content) return;
+    var arrow = toggle.querySelector('.accordion-arrow');
+    toggle.addEventListener('click', function () {
+      var open = content.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      arrow.style.transform = open ? 'rotate(180deg)' : '';
+    });
+  })();
+</script>
+
+<script define:vars={{ locale }}>
+  // Mark <html lang> after hydration in case the server-rendered value
+  // disagrees with the resolved locale (defensive — should already match).
+  if (document.documentElement.lang !== locale) {
+    document.documentElement.lang = locale;
+  }
+</script>

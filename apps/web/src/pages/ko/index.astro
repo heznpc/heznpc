@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hub from '../components/Hub.astro';
-import projectsData from '../../projects.json';
-import { getDict } from '../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hub from '../../components/Hub.astro';
+import projectsData from '../../../projects.json';
+import { getDict } from '../../i18n';
 
-const locale = 'en' as const;
+const locale = 'ko' as const;
 const dict = getDict(locale);
 const meta = projectsData.meta;
 const projects = projectsData.projects.length;
