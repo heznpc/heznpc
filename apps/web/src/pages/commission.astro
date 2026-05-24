@@ -1,25 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import brand from '../../../../heznpc.config.mjs';
+import CommissionPage from '../components/CommissionPage.astro';
+import { getDict } from '../i18n';
+
+const dict = getDict('en');
 ---
 
-<BaseLayout
-  title="Commission — heznpc"
-  description="Commission illustration work from heznpc."
->
-  <section class="hero">
-    <div class="hero-cells" aria-hidden="true">
-      <div class="hero-cell hero-cell-a" style="background:radial-gradient(circle, var(--c-research), transparent 68%)"></div>
-      <div class="hero-cell hero-cell-c" style="background:radial-gradient(circle, var(--c-foundation), transparent 68%)"></div>
-    </div>
-    <p class="section-label reveal">Commission</p>
-    <h1 class="hero-name reveal" data-delay="40" style="font-size:clamp(64px,10vw,128px)">Paused</h1>
-    <p class="hero-bio reveal" data-delay="120">
-      Slots are closed while the gallery is being rebuilt. When they reopen,
-      the announcement will land here and on X. Thanks for the patience.
-    </p>
-    <a class="hero-watch reveal" data-delay="200" href={brand.links.x} target="_blank" rel="noopener">
-      <span>@</span> Watch @heznpc
-    </a>
-  </section>
+<BaseLayout title={dict.commission.title} description={dict.commission.description}>
+  <CommissionPage dict={dict} />
 </BaseLayout>

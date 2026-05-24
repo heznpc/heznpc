@@ -1,26 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import brand from '../../../../../heznpc.config.mjs';
+import GalleryPage from '../../components/GalleryPage.astro';
+import { getDict } from '../../i18n';
+
+const dict = getDict('en');
 ---
 
-<BaseLayout
-  title="Gallery — heznpc"
-  description="Illustrations, 2차 창작, and visual essays by heznpc."
->
-  <section class="hero">
-    <div class="hero-cells" aria-hidden="true">
-      <div class="hero-cell hero-cell-a" style="background:radial-gradient(circle, var(--c-products), transparent 68%)"></div>
-      <div class="hero-cell hero-cell-b" style="background:radial-gradient(circle, var(--c-tools), transparent 68%)"></div>
-    </div>
-    <p class="section-label reveal">Gallery</p>
-    <h1 class="hero-name reveal" data-delay="40" style="font-size:clamp(64px,10vw,128px)">In bloom soon</h1>
-    <p class="hero-bio reveal" data-delay="120">
-      Illustrations, 2차 창작, and visual essays are migrating home. This shelf
-      is empty on purpose — new pieces will land here once the new aesthetic
-      is locked in.
-    </p>
-    <a class="hero-watch reveal" data-delay="200" href={brand.links.pixiv} target="_blank" rel="noopener">
-      <span>◈</span> Until then · Pixiv
-    </a>
-  </section>
+<BaseLayout title={dict.gallery.title} description={dict.gallery.description}>
+  <GalleryPage dict={dict} />
 </BaseLayout>

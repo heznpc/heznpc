@@ -1,0 +1,52 @@
+---
+import { LOCALES, LOCALE_LABELS, LOCALE_NAMES, getLocale, localizePath } from '../i18n';
+
+const current = getLocale(Astro.currentLocale);
+
+// Astro.url.pathname includes the base. The Astro `base` is '/' here so
+// pathname is the actual route ('/', '/ko/', '/gallery/', etc.).
+const pathname = Astro.url.pathname;
+---
+
+<div class="lang-switch" role="group" aria-label="Language">
+  {LOCALES.map((loc) => {
+    const href = localizePath(pathname, loc);
+    const isCurrent = loc === current;
+    return (
+      <a
+        href={href}
+        class:list={["lang-switch-link", { active: isCurrent }]}
+        aria-current={isCurrent ? 'true' : undefined}
+        aria-label={LOCALE_NAMES[loc]}
+        hreflang={loc}
+        rel={isCurrent ? undefined : 'alternate'}
+      >{LOCALE_LABELS[loc]}</a>
+    );
+  })}
+</div>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+  }
+  .lang-switch-link {
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: var(--ink-dim);
+    text-decoration: none;
+    line-height: 1;
+    transition: color .2s ease, background .2s ease;
+  }
+  .lang-switch-link:hover { color: var(--ink); }
+  .lang-switch-link.active {
+    color: var(--ink);
+    background: rgba(239, 230, 210, .08);
+  }
+</style>
