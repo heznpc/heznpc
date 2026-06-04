@@ -36,8 +36,9 @@ Adjacent research (off-core, theory layer): [analogic-appropriation](https://git
 [newtria-crossflow](https://github.com/heznpc/newtria-crossflow),
 [pc-health-check](https://github.com/heznpc/pc-health-check),
 [ai-course-glossary](https://github.com/heznpc/ai-course-glossary) (skillBridge companion: Claude Code Skill plugin re-exposing the curated Academy terminology),
-[inertbox](https://github.com/heznpc/inertbox) (untrusted-content boundary primitive),
-[reclaim](https://github.com/heznpc/reclaim) (macOS context-aware cleaner; Phase 3 pivot to MCP-server hygiene).
+[inertbox](https://github.com/heznpc/inertbox) (untrusted-content boundary primitive).
+
+Pending push: `reclaim` (macOS context-aware cleaner; Phase 3 = MCP-server hygiene), `yt-shield` (Korean diet-scam comment filter).
 
 **Lab** — experiments and MVPs (explicitly not production):
 [dol-pin](https://github.com/heznpc/dol-pin),
@@ -46,7 +47,6 @@ Adjacent research (off-core, theory layer): [analogic-appropriation](https://git
 [mothball](https://github.com/heznpc/mothball),
 [gemma4-quiz](https://github.com/heznpc/gemma4-quiz),
 [hello-project](https://github.com/heznpc/hello-project),
-[yt-shield](https://github.com/heznpc/yt-shield),
 [token_save](https://github.com/heznpc/token_save).
 
 **External** — contributor surface (not owner):
