@@ -105,8 +105,8 @@ const en: Dict = {
     tagline: 'Building the ecosystem AI lives in',
     bio: 'Curator of open-source infrastructure, research, and tools for the AI era.',
     thesis:
-      'Five brand axes anchor the work: infrastructure (AirMCP), research (PLOIDY), ' +
-      'trust (Canary), traction (skillBridge), and signal (anvil). Around them sit five ' +
+      'Five brand axes anchor the work: infrastructure (AirMCP), research (ploidy), ' +
+      'trust (canary), traction (skillBridge), and signal (anvil). Around them sit five ' +
       'research programs, a stack of supporting tools, a lab of experiments, and an ' +
       'archive of what has already been learned.',
     watchIntro: 'Watch intro',
@@ -133,12 +133,12 @@ const en: Dict = {
     footerStats: (p) =>
       `${p.projects} projects · ${p.programs} research programs · ${p.supporting} supporting · ${p.lab} lab · ${p.templates} templates`,
     programs: {
-      1: { label: 'Human-Controlled AI Systems', blurb: 'Agent authority, HITL, audit, and forgetting. Anchored by AirMCP.' },
-      2: { label: 'Reflexive AI Research', blurb: 'Using AI to study AI. Cross-context debate; collaborative entrenchment; ADHD-as-advantage.' },
-      3: { label: 'NL-Code Communicability', blurb: 'Platonic representations at the natural-language ↔ code interface.' },
-      4: { label: 'AI-Driven Digital Hoarding', blurb: 'Asymmetric default-bias, info silos, scatter-caching, streak mechanics.' },
-      5: { label: 'AI Slop / Production-Detection Asymmetry', blurb: 'Multi-format AI content pollution beyond video.' },
-      6: { label: 'Adjacent research', blurb: 'Off-core but coherent — divination as inference, cross-cultural media studies.' },
+      1: { label: 'Human-Controlled AI Systems', blurb: 'Agent authority, HITL, audit, and forgetting. Tools side anchors the program; statute-of-limitations bridges to Program 4.' },
+      2: { label: 'Epistemic Failure and Correction', blurb: 'Using AI to study AI. Cross-context debate, collaborative entrenchment, ADHD-as-advantage, hierarchy calibration.' },
+      3: { label: 'Representation, Language, and Cultural Cognition', blurb: 'Stratified Platonic representations at the natural-language ↔ code interface, with cultural-cognition probes.' },
+      4: { label: 'AI-Mediated Accumulation', blurb: 'Asymmetric default-bias, info silos, scatter-caching, streak mechanics, institutional forgetting.' },
+      5: { label: 'Synthetic Content and Measurement', blurb: 'Production-detection asymmetry, AI-to-AI engagement loops, substrate chauvinism, alchemy-AGI homology.' },
+      6: { label: 'Analogy / theory layer', blurb: 'Off-core but coherent — divination as inference, cross-cultural media studies, friction-based pedagogy.' },
     },
     axisLabels: {
       product: 'Product',
@@ -191,8 +191,8 @@ const ko: Dict = {
     tagline: 'AI가 살아갈 생태계를 만듭니다',
     bio: 'AI 시대의 오픈소스 인프라·연구·툴을 큐레이팅합니다.',
     thesis:
-      '다섯 개의 브랜드 축이 작업 전체를 받칩니다: 인프라(AirMCP), 연구(PLOIDY), ' +
-      '신뢰(Canary), 확산(skillBridge), 시그널(anvil). 그 둘레로 5개의 연구 프로그램, ' +
+      '다섯 개의 브랜드 축이 작업 전체를 받칩니다: 인프라(AirMCP), 연구(ploidy), ' +
+      '신뢰(canary), 확산(skillBridge), 시그널(anvil). 그 둘레로 5개의 연구 프로그램, ' +
       '브랜드 축을 떠받치는 보조 툴, 실험 단계의 Lab, 그리고 이미 학습한 것을 보관하는 ' +
       'Archive가 자리합니다.',
     watchIntro: '인트로 보기',
@@ -219,12 +219,12 @@ const ko: Dict = {
     footerStats: (p) =>
       `프로젝트 ${p.projects} · 연구 프로그램 ${p.programs} · 보조 ${p.supporting} · Lab ${p.lab} · 템플릿 ${p.templates}`,
     programs: {
-      1: { label: '인간 통제형 AI 시스템', blurb: '에이전트 권한, HITL, 감사, 망각. AirMCP가 앵커.' },
-      2: { label: '반영적 AI 연구', blurb: 'AI로 AI를 연구합니다. 컨텍스트 간 토론, 공모적 강화, ADHD를 자원으로.' },
-      3: { label: '자연어-코드 소통가능성', blurb: '자연어 ↔ 코드 인터페이스에서의 플라톤적 표상.' },
-      4: { label: 'AI가 가속하는 디지털 호딩', blurb: '비대칭 기본값 편향, 정보 사일로, 흩뿌리기-캐싱, 스트릭 메커니즘.' },
-      5: { label: 'AI 슬롭 / 생산-탐지 비대칭', blurb: '영상 이외의 형식에서 일어나는 다형식 AI 콘텐츠 오염.' },
-      6: { label: '인접 연구', blurb: '코어는 아니지만 일관된 — 점복의 추론, 교차문화 미디어 연구.' },
+      1: { label: '인간 통제형 AI 시스템', blurb: '에이전트 권한, HITL, 감사, 망각. 툴 측이 앵커 역할을 하고, statute-of-limitations가 Program 4로 다리를 놓습니다.' },
+      2: { label: '인식론적 실패와 교정', blurb: 'AI로 AI를 연구합니다. 컨텍스트 간 토론, 공모적 강화, 위계 보정, ADHD를 자원으로.' },
+      3: { label: '표상·언어·문화적 인지', blurb: '자연어 ↔ 코드 인터페이스에서의 층화된 플라톤적 표상과 문화적 인지 탐침.' },
+      4: { label: 'AI 매개 누적', blurb: '비대칭 기본값 편향, 정보 사일로, 흩뿌리기-캐싱, 스트릭 메커니즘, 제도적 망각.' },
+      5: { label: '합성 콘텐츠와 측정', blurb: '생산-탐지 비대칭, AI-AI 인게이지먼트 루프, 기질 우월주의, 연금술-AGI 동형성.' },
+      6: { label: '유추 / 이론 층위', blurb: '코어는 아니지만 일관된 — 점복의 추론, 교차문화 미디어 연구, 마찰 기반 교육론.' },
     },
     axisLabels: {
       product: 'Product',
