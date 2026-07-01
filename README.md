@@ -15,7 +15,7 @@ This README is the same map in text.
 | Research | [ploidy](https://github.com/heznpc/ploidy-research) | Cross-session debate protocol — same model, different context depths. PyPI `ploidy` 0.3.3. Paper + tool monorepo. |
 | Trust | [canary](https://github.com/heznpc/canary) | Operator-machine observability — git state joined with Claude Code session transcripts. APL / MIP / PLR / UCP push-leakage metrics. |
 | Traction | [skillBridge](https://github.com/heznpc/skillBridge) | Translates Anthropic Academy lessons across 33 locales with an inline Claude tutor (Puter.js). MV3 v3.5.39. |
-| Signal | [anvil](https://github.com/heznpc/anvil) | MCP tool that bundles commit → PR → CI-wait → merge into one atomic call. Published as `anvil-mcp` on npm. |
+| Signal | [anvil](https://github.com/heznpc/anvil) | MCP tool that bundles commit → PR → CI-wait → merge into one atomic call. Published as `@heznpc/anvil` on npm. |
 
 **5 Research Programs** — each with an anchor and companions:
 

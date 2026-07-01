@@ -52,7 +52,7 @@ export default {
 
     { repo: 'anvil', category: 'brand5', tier: 1, axis: 'signal', emoji: '🔨',
       tags: ['MCP', 'Workflow'],
-      description: 'MCP tool that bundles commit → PR → CI-wait → merge into one atomic call. Published as anvil-mcp on npm.' },
+      description: 'MCP tool that bundles commit → PR → CI-wait → merge into one atomic call. Published as @heznpc/anvil on npm.' },
 
     { repo: 'skillBridge', category: 'brand5', tier: 1, axis: 'traction', emoji: '🌐',
       tags: ['Chrome', 'Education', 'i18n'],
