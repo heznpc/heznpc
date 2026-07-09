@@ -105,7 +105,7 @@
       "id": "profilekit",
       "name": "ProfileKit",
       "description": "Composable SVG profile and project cards by URL.",
-      "repo": "heznpc/ProfileKit",
+      "repo": "starter-series/ProfileKit",
       "category": "selected",
       "tier": 1,
       "tags": [
@@ -113,7 +113,7 @@
         "README",
         "API"
       ],
-      "url": "https://github.com/heznpc/ProfileKit",
+      "url": "https://github.com/starter-series/ProfileKit",
       "status": "shipped",
       "displayTier": "case-study",
       "area": "developer-presence",
@@ -145,7 +145,7 @@
       "id": "tr-story",
       "name": "TR-STORY",
       "description": "Mobile-first story viewer for a bounded cultural archive.",
-      "repo": "heznpc/TR-STORY",
+      "repo": "Tales-Runner/TR-STORY",
       "category": "area-proof",
       "tier": 2,
       "tags": [
@@ -153,7 +153,7 @@
         "Mobile UX",
         "Archive"
       ],
-      "url": "https://github.com/heznpc/TR-STORY",
+      "url": "https://github.com/Tales-Runner/TR-STORY",
       "status": "active",
       "displayTier": "area-proof",
       "area": "cultural-data-archives",
@@ -163,9 +163,9 @@
     },
     {
       "id": "tr-archive",
-      "name": "tr-archive",
+      "name": "TR-archive",
       "description": "Fan-archive style viewer and utility surface with search and static data flows.",
-      "repo": "heznpc/tr-archive",
+      "repo": "Tales-Runner/TR-archive",
       "category": "area-proof",
       "tier": 3,
       "tags": [
@@ -173,7 +173,7 @@
         "Search",
         "PWA"
       ],
-      "url": "https://github.com/heznpc/tr-archive",
+      "url": "https://github.com/Tales-Runner/TR-archive",
       "status": "repair",
       "displayTier": "area-proof",
       "area": "cultural-data-archives",
@@ -183,9 +183,9 @@
     },
     {
       "id": "academy-lens",
-      "name": "academy-lens",
+      "name": "AcademyLens",
       "description": "Sibling experiment for course-page translation and terminology preservation.",
-      "repo": "heznpc/academy-lens",
+      "repo": "heznpc/AcademyLens",
       "category": "lab",
       "tier": 3,
       "tags": [
@@ -193,7 +193,7 @@
         "Beta",
         "Glossary"
       ],
-      "url": "https://github.com/heznpc/academy-lens",
+      "url": "https://github.com/heznpc/AcademyLens",
       "status": "beta",
       "displayTier": "lab",
       "area": "ai-learning-localization",
@@ -245,7 +245,7 @@
       "id": "cuk-sw-community",
       "name": "cuk-sw-community",
       "description": "Community-app skeleton being reframed as an owner-write archive.",
-      "repo": "heznpc/cuk-sw-community",
+      "repo": "heznpc/heznpc-archive",
       "category": "archive",
       "tier": 3,
       "tags": [
@@ -253,7 +253,7 @@
         "RLS",
         "Admin"
       ],
-      "url": "https://github.com/heznpc/cuk-sw-community",
+      "url": "https://github.com/heznpc/heznpc-archive",
       "status": "archive",
       "displayTier": "archive",
       "area": "local-first-workflows",
@@ -305,68 +305,68 @@
   "starters": [
     {
       "name": "docker-deploy-starter",
-      "repo": "heznpc/docker-deploy-starter",
-      "url": "https://github.com/heznpc/docker-deploy-starter",
+      "repo": "starter-series/docker-deploy-starter",
+      "url": "https://github.com/starter-series/docker-deploy-starter",
       "deployTo": "VPS"
     },
     {
       "name": "browser-extension-starter",
-      "repo": "heznpc/browser-extension-starter",
-      "url": "https://github.com/heznpc/browser-extension-starter",
+      "repo": "starter-series/browser-extension-starter",
+      "url": "https://github.com/starter-series/browser-extension-starter",
       "deployTo": "Browser stores"
     },
     {
       "name": "discord-bot-starter",
-      "repo": "heznpc/discord-bot-starter",
-      "url": "https://github.com/heznpc/discord-bot-starter",
+      "repo": "starter-series/discord-bot-starter",
+      "url": "https://github.com/starter-series/discord-bot-starter",
       "deployTo": "Hosted runtime"
     },
     {
       "name": "telegram-bot-starter",
-      "repo": "heznpc/telegram-bot-starter",
-      "url": "https://github.com/heznpc/telegram-bot-starter",
+      "repo": "starter-series/telegram-bot-starter",
+      "url": "https://github.com/starter-series/telegram-bot-starter",
       "deployTo": "Hosted runtime"
     },
     {
       "name": "react-native-starter",
-      "repo": "heznpc/react-native-starter",
-      "url": "https://github.com/heznpc/react-native-starter",
+      "repo": "starter-series/react-native-starter",
+      "url": "https://github.com/starter-series/react-native-starter",
       "deployTo": "Mobile stores"
     },
     {
       "name": "electron-app-starter",
-      "repo": "heznpc/electron-app-starter",
-      "url": "https://github.com/heznpc/electron-app-starter",
+      "repo": "starter-series/electron-app-starter",
+      "url": "https://github.com/starter-series/electron-app-starter",
       "deployTo": "Desktop"
     },
     {
       "name": "vscode-extension-starter",
-      "repo": "heznpc/vscode-extension-starter",
-      "url": "https://github.com/heznpc/vscode-extension-starter",
+      "repo": "starter-series/vscode-extension-starter",
+      "url": "https://github.com/starter-series/vscode-extension-starter",
       "deployTo": "Editor marketplace"
     },
     {
       "name": "npm-package-starter",
-      "repo": "heznpc/npm-package-starter",
-      "url": "https://github.com/heznpc/npm-package-starter",
+      "repo": "starter-series/npm-package-starter",
+      "url": "https://github.com/starter-series/npm-package-starter",
       "deployTo": "Package registry"
     },
     {
       "name": "mcp-server-starter",
-      "repo": "heznpc/mcp-server-starter",
-      "url": "https://github.com/heznpc/mcp-server-starter",
+      "repo": "starter-series/mcp-server-starter",
+      "url": "https://github.com/starter-series/mcp-server-starter",
       "deployTo": "Package registry"
     },
     {
       "name": "python-mcp-server-starter",
-      "repo": "heznpc/python-mcp-server-starter",
-      "url": "https://github.com/heznpc/python-mcp-server-starter",
+      "repo": "starter-series/python-mcp-server-starter",
+      "url": "https://github.com/starter-series/python-mcp-server-starter",
       "deployTo": "Package registry"
     },
     {
       "name": "cloudflare-pages-starter",
-      "repo": "heznpc/cloudflare-pages-starter",
-      "url": "https://github.com/heznpc/cloudflare-pages-starter",
+      "repo": "starter-series/cloudflare-pages-starter",
+      "url": "https://github.com/starter-series/cloudflare-pages-starter",
       "deployTo": "Static hosting"
     }
   ]

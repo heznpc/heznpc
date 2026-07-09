@@ -1,0 +1,9 @@
+.claude/
+.codex/
+.env
+.env.*
+*.local
+.DS_Store
+node_modules/
+apps/web/.astro/
+apps/web/dist/

@@ -48,10 +48,11 @@ Every visible item should answer:
 ```sh
 npm install
 npm run dev       # local preview at http://localhost:4321
-npm run check     # audit + Astro type check + static build
+npm run check     # audit + Astro type check + pack surface check + static build
 npm run build     # regenerates apps/web/projects.json and builds apps/web/dist
 ```
 
 `apps/web/portfolio.config.mjs` is the source of truth. The build runs
 `apps/web/scripts/generate.mjs`, which refreshes `projects.json` from the
-config and then builds the static site.
+config, verifies public GitHub-backed links where possible, and then builds the
+static site.

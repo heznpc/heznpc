@@ -98,6 +98,7 @@ export default {
     },
     {
       repo: 'ProfileKit',
+      owner: 'starter-series',
       category: 'selected',
       displayTier: 'case-study',
       area: 'developer-presence',
@@ -111,6 +112,7 @@ export default {
     },
     {
       repo: 'pc-health-check',
+      private: true,
       category: 'selected',
       displayTier: 'case-study',
       area: 'trust-local-diagnostics',
@@ -124,6 +126,7 @@ export default {
     },
     {
       repo: 'TR-STORY',
+      owner: 'Tales-Runner',
       category: 'area-proof',
       displayTier: 'area-proof',
       area: 'cultural-data-archives',
@@ -136,7 +139,9 @@ export default {
       constraint: 'External content boundaries and data freshness need to stay visible.',
     },
     {
-      repo: 'tr-archive',
+      repo: 'TR-archive',
+      id: 'tr-archive',
+      owner: 'Tales-Runner',
       category: 'area-proof',
       displayTier: 'area-proof',
       area: 'cultural-data-archives',
@@ -149,7 +154,8 @@ export default {
       constraint: 'Current local test failures and unofficial-content boundaries keep it below case-study level.',
     },
     {
-      repo: 'academy-lens',
+      repo: 'AcademyLens',
+      id: 'academy-lens',
       category: 'lab',
       displayTier: 'lab',
       area: 'ai-learning-localization',
@@ -163,6 +169,7 @@ export default {
     },
     {
       repo: 'aispool',
+      private: true,
       category: 'lab',
       displayTier: 'lab',
       area: 'local-first-workflows',
@@ -176,6 +183,7 @@ export default {
     },
     {
       repo: 'mothball',
+      private: true,
       category: 'lab',
       displayTier: 'lab',
       area: 'local-first-workflows',
@@ -188,7 +196,9 @@ export default {
       constraint: 'Pre-alpha and file-operation-adjacent; not an end-user cleaner yet.',
     },
     {
-      repo: 'cuk-sw-community',
+      repo: 'heznpc-archive',
+      id: 'cuk-sw-community',
+      name: 'cuk-sw-community',
       category: 'archive',
       displayTier: 'archive',
       area: 'local-first-workflows',
@@ -202,6 +212,7 @@ export default {
     },
     {
       repo: 'dol-pin',
+      private: true,
       category: 'lab',
       displayTier: 'hold',
       area: 'marketplace-experiments',
@@ -229,16 +240,16 @@ export default {
   ],
 
   starters: [
-    { repo: 'docker-deploy-starter', deployTo: 'VPS' },
-    { repo: 'browser-extension-starter', deployTo: 'Browser stores' },
-    { repo: 'discord-bot-starter', deployTo: 'Hosted runtime' },
-    { repo: 'telegram-bot-starter', deployTo: 'Hosted runtime' },
-    { repo: 'react-native-starter', deployTo: 'Mobile stores' },
-    { repo: 'electron-app-starter', deployTo: 'Desktop' },
-    { repo: 'vscode-extension-starter', deployTo: 'Editor marketplace' },
-    { repo: 'npm-package-starter', deployTo: 'Package registry' },
-    { repo: 'mcp-server-starter', deployTo: 'Package registry' },
-    { repo: 'python-mcp-server-starter', deployTo: 'Package registry' },
-    { repo: 'cloudflare-pages-starter', deployTo: 'Static hosting' },
+    { owner: 'starter-series', repo: 'docker-deploy-starter', deployTo: 'VPS' },
+    { owner: 'starter-series', repo: 'browser-extension-starter', deployTo: 'Browser stores' },
+    { owner: 'starter-series', repo: 'discord-bot-starter', deployTo: 'Hosted runtime' },
+    { owner: 'starter-series', repo: 'telegram-bot-starter', deployTo: 'Hosted runtime' },
+    { owner: 'starter-series', repo: 'react-native-starter', deployTo: 'Mobile stores' },
+    { owner: 'starter-series', repo: 'electron-app-starter', deployTo: 'Desktop' },
+    { owner: 'starter-series', repo: 'vscode-extension-starter', deployTo: 'Editor marketplace' },
+    { owner: 'starter-series', repo: 'npm-package-starter', deployTo: 'Package registry' },
+    { owner: 'starter-series', repo: 'mcp-server-starter', deployTo: 'Package registry' },
+    { owner: 'starter-series', repo: 'python-mcp-server-starter', deployTo: 'Package registry' },
+    { owner: 'starter-series', repo: 'cloudflare-pages-starter', deployTo: 'Static hosting' },
   ],
 };

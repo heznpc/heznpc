@@ -16,6 +16,8 @@ name: Notify heznpc.github.io to redeploy
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -39,6 +41,7 @@ jobs:
   dispatch:
     name: Trigger hub rebuild
     needs: smoke-build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     env:
       PAT: ${{ secrets.PAGES_DEPLOY_PAT }}

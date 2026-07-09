@@ -9,7 +9,7 @@
  * GitHub API 실패 시 config 값만으로 fallback.
  */
 
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,31 +33,46 @@ function failIfInvalid(errors) {
 
 // ── 2. GitHub에서 전체 repo 목록 fetch ──────
 const repoMap = new Map();
+const fetchedOwners = new Set();
+const owners = new Set([
+  owner,
+  ...(config.projects ?? []).map((project) => project.owner ?? owner),
+  ...(config.starters ?? []).map((starter) => starter.owner ?? owner),
+]);
 
-try {
-  const raw = execSync(
-    `gh repo list ${owner} --json nameWithOwner,name,description,url,repositoryTopics --limit 200`,
-    { encoding: 'utf8', timeout: 15_000 },
-  );
-  for (const r of JSON.parse(raw)) {
-    repoMap.set(r.name.toLowerCase(), {
-      name: r.name,
-      description: r.description || '',
-      url: r.url,
-      topics: (r.repositoryTopics || []).map((t) => t.name),
-    });
+function repoKey(repoOwner, repoName) {
+  return `${repoOwner}/${repoName}`.toLowerCase();
+}
+
+for (const repoOwner of owners) {
+  try {
+    const raw = execFileSync(
+      'gh',
+      ['repo', 'list', repoOwner, '--json', 'nameWithOwner,name,description,url,repositoryTopics', '--limit', '200'],
+      { encoding: 'utf8', timeout: 15_000 },
+    );
+    const repos = JSON.parse(raw);
+    for (const r of repos) {
+      repoMap.set(repoKey(repoOwner, r.name), {
+        name: r.name,
+        description: r.description || '',
+        url: r.url,
+        topics: (r.repositoryTopics || []).map((t) => t.name),
+      });
+    }
+    fetchedOwners.add(repoOwner);
+    process.stderr.write(`  fetched ${repos.length} repos from github.com/${repoOwner}\n`);
+  } catch (err) {
+    // CI must fail loudly on a missing description fetch — silently shipping
+    // a portfolio that uses stale config-only descriptions defeats the purpose
+    // of generate.mjs. Local dev (no CI=true) is allowed to fall back so that
+    // network-flaky environments still build.
+    if (process.env.CI === 'true') {
+      process.stderr.write(`  github fetch failed for ${repoOwner} in CI: ${err.message}\n`);
+      process.exit(1);
+    }
+    process.stderr.write(`  github fetch failed for ${repoOwner} — using config values only\n`);
   }
-  process.stderr.write(`  fetched ${repoMap.size} repos from github.com/${owner}\n`);
-} catch (err) {
-  // CI must fail loudly on a missing description fetch — silently shipping
-  // a portfolio that uses stale config-only descriptions defeats the purpose
-  // of generate.mjs. Local dev (no CI=true) is allowed to fall back so that
-  // network-flaky environments still build.
-  if (process.env.CI === 'true') {
-    process.stderr.write(`  github fetch failed in CI: ${err.message}\n`);
-    process.exit(1);
-  }
-  process.stderr.write('  github fetch failed — using config values only\n');
 }
 
 // ── 3. projects 생성 ────────────────────────
@@ -66,7 +81,8 @@ const areaIds = new Set((config.areas ?? []).map((area) => area.id));
 const projectIds = new Set();
 
 const projects = config.projects.map((p) => {
-  const gh = repoMap.get(p.repo.toLowerCase());
+  const projectOwner = p.owner ?? owner;
+  const gh = repoMap.get(repoKey(projectOwner, p.repo));
   const id = p.id ?? p.repo.toLowerCase();
 
   if (projectIds.has(id)) configErrors.push(`duplicate project id "${id}"`);
@@ -77,16 +93,19 @@ const projects = config.projects.map((p) => {
   }
   if (p.status && !VALID_STATUSES.has(p.status)) configErrors.push(`${id}: unknown status "${p.status}"`);
   if (p.area && !areaIds.has(p.area)) configErrors.push(`${id}: unknown area "${p.area}"`);
+  if (fetchedOwners.has(projectOwner) && !p.private && !gh) {
+    configErrors.push(`${id}: repo "${p.repo}" not found on github.com/${projectOwner}`);
+  }
 
   return {
     id,
     name: p.name ?? gh?.name ?? p.repo,
     description: p.description ?? gh?.description ?? '',
-    repo: `${owner}/${p.repo}`,
+    repo: `${projectOwner}/${p.repo}`,
     category: p.category,
     tier: p.tier,
     tags: p.tags ?? (gh?.topics?.length ? gh.topics : []),
-    url: p.url ?? gh?.url ?? `https://github.com/${owner}/${p.repo}`,
+    url: p.url ?? gh?.url ?? `https://github.com/${projectOwner}/${p.repo}`,
     status: p.status ?? 'active',
     ...(p.displayTier && { displayTier: p.displayTier }),
     ...(p.area && { area: p.area }),
@@ -101,12 +120,20 @@ const projects = config.projects.map((p) => {
 });
 
 // ── 4. starters 생성 ────────────────────────
-const starters = config.starters.map((s) => ({
-  name: repoMap.get(s.repo.toLowerCase())?.name ?? s.repo,
-  repo: `${owner}/${s.repo}`,
-  url: `https://github.com/${owner}/${s.repo}`,
-  deployTo: s.deployTo,
-}));
+const starters = config.starters.map((s) => {
+  const starterOwner = s.owner ?? owner;
+  const gh = repoMap.get(repoKey(starterOwner, s.repo));
+  if (fetchedOwners.has(starterOwner) && !s.private && !gh) {
+    configErrors.push(`starter "${s.repo}" not found on github.com/${starterOwner}`);
+  }
+
+  return {
+    name: gh?.name ?? s.repo,
+    repo: `${starterOwner}/${s.repo}`,
+    url: gh?.url ?? `https://github.com/${starterOwner}/${s.repo}`,
+    deployTo: s.deployTo,
+  };
+});
 
 for (const area of config.areas ?? []) {
   const seen = new Set();

@@ -7,6 +7,8 @@
  * tagline, bio, thesis, program labels) is translated.
  */
 
+import type { ProjectStatus } from '../utils/types';
+
 export type Locale = 'en' | 'ko';
 export const LOCALES = ['en', 'ko'] as const;
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -58,7 +60,7 @@ export interface Dict {
     areaCount: (count: number) => string;
     proofCaption: string;
     labCaption: string;
-    statusLabels: Record<string, string>;
+    statusLabels: Record<ProjectStatus, string>;
   };
   // Gallery
   gallery: {

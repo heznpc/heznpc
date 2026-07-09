@@ -3,7 +3,7 @@ import { base } from '../utils/base';
 import type { Dict, Locale } from '../i18n';
 import ProjectRow from './ProjectRow.astro';
 import { getPortfolioViewModel } from '../utils/portfolio';
-import type { PortfolioData } from '../utils/types';
+import type { PortfolioData, ProjectStatus } from '../utils/types';
 
 import projectsData from '../../projects.json';
 
@@ -22,8 +22,8 @@ const { areas, hero, caseStudies, frontProof, lowerProof } = getPortfolioViewMod
 
 const introHref = locale === 'en' ? `${base}intro/` : `${base}${locale}/intro/`;
 
-function statusLabel(status: string): string {
-  return copy.statusLabels[status] ?? status;
+function statusLabel(status: ProjectStatus): string {
+  return copy.statusLabels[status];
 }
 ---
 
