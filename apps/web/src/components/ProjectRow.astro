@@ -1,0 +1,45 @@
+---
+import type { Project } from '../utils/types';
+
+interface Props {
+  project: Project;
+  index: number;
+  statusLabel: string;
+  evidenceLabel?: string;
+  constraintLabel?: string;
+  showProof?: boolean;
+}
+
+const { project, index, statusLabel, evidenceLabel, constraintLabel, showProof = false } = Astro.props;
+---
+
+<li>
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noopener"
+    class:list={["editorial-row", { "proof-row": showProof }]}
+    data-category={project.category}
+  >
+    <div class="editorial-index">{String(index + 1).padStart(2, '0')}</div>
+    <div class="editorial-content">
+      <div class="editorial-name">
+        {project.iconEmoji && <span class="editorial-name-emoji">{project.iconEmoji}</span>}
+        <span>{project.name}</span>
+        <span class="editorial-tag status-tag">{statusLabel}</span>
+      </div>
+      <div class="editorial-desc">{project.description}</div>
+      {showProof ? (
+        <div class="proof-mini">
+          {project.evidence && <p><span>{evidenceLabel}</span>{project.evidence}</p>}
+          {project.constraint && <p><span>{constraintLabel}</span>{project.constraint}</p>}
+        </div>
+      ) : (
+        project.constraint && <div class="editorial-desc muted-desc">{project.constraint}</div>
+      )}
+    </div>
+    <div class="editorial-meta">
+      <span class="editorial-arrow">→</span>
+    </div>
+  </a>
+</li>

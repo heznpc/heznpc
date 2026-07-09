@@ -10,6 +10,8 @@
   "scripts": {
     "dev": "npm -w @heznpc/web run dev",
     "dev:web": "npm -w @heznpc/web run dev",
+    "audit": "npm audit --audit-level=high",
+    "check": "npm run audit && npm -w @heznpc/web run check && npm run build:web",
     "build": "npm -w @heznpc/web run build",
     "build:web": "npm -w @heznpc/web run build"
   }

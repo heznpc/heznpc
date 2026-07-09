@@ -3,16 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hub from '../../components/Hub.astro';
 import projectsData from '../../../projects.json';
 import { getDict } from '../../i18n';
+import { getHomeStats } from '../../utils/portfolio';
+import type { PortfolioData } from '../../utils/types';
 
 const locale = 'ko' as const;
 const dict = getDict(locale);
-const meta = projectsData.meta;
-const projects = projectsData.projects.length;
-const programs = new Set(projectsData.projects.filter((p: any) => p.program != null && p.program <= 5).map((p: any) => p.program)).size;
-const supporting = projectsData.projects.filter((p: any) => p.category === 'supporting').length;
-const lab = projectsData.projects.filter((p: any) => p.category === 'lab').length;
-const templates = projectsData.starters.length;
-const footerExtra = dict.home.footerStats({ projects, programs, supporting, lab, templates });
+const data = projectsData as PortfolioData;
+const meta = data.meta;
+const footerExtra = dict.home.footerStats(getHomeStats(data));
 ---
 
 <BaseLayout title={`${meta.name} ${dict.home.titleSuffix}`} footerExtra={footerExtra}>

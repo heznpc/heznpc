@@ -39,29 +39,26 @@ export interface Dict {
     bio: string;
     thesis: string;
     watchIntro: string;
-    flagshipEyebrow: string;   // "Brand 5 · Product flagship"
-    flagshipTags: string;
-    flagshipStatus: string;
-    flagshipLink: string;      // "Read on GitHub"
-    sectionEcosystem: string;
-    sectionBrand5: string;
-    sectionPrograms: string;
-    sectionSupporting: string;
-    sectionLab: string;
-    sectionArchive: string;
     sectionStarters: string;
     starterCaption: string;    // "Clone → Push → Deployed · X CI/CD templates"
-    axes: string;
-    programsCount: string;
-    items: string;
-    item: string;
-    papers: string;
-    paper: string;
-    anchor: string;
-    status: string;
     footerStats: (p: { projects: number; programs: number; supporting: number; lab: number; templates: number }) => string;
-    programs: Record<number, { label: string; blurb: string }>;
-    axisLabels: Record<'product' | 'research' | 'trust' | 'traction' | 'signal', string>;
+  };
+  hub: {
+    selectedProof: string;
+    focusAreas: string;
+    labArchive: string;
+    evidence: string;
+    constraint: string;
+    now: string;
+    frontier: string;
+    related: string;
+    openRepo: string;
+    noRepoClaim: string;
+    proofCount: (count: number) => string;
+    areaCount: (count: number) => string;
+    proofCaption: string;
+    labCaption: string;
+    statusLabels: Record<string, string>;
   };
   // Gallery
   gallery: {
@@ -92,7 +89,7 @@ export interface Dict {
 
 const en: Dict = {
   meta: {
-    description: 'Building the ecosystem AI lives in — open-source infrastructure, research, and tools.',
+    description: 'Systems across AI, trust, local tools, cultural data, and future physical computing.',
   },
   nav: {
     gallery: 'Gallery',
@@ -101,51 +98,42 @@ const en: Dict = {
     langLabel: 'Language',
   },
   home: {
-    titleSuffix: '— Curator of AI infrastructure, research, and tools',
-    tagline: 'Building the ecosystem AI lives in',
-    bio: 'Curator of open-source infrastructure, research, and tools for the AI era.',
+    titleSuffix: '— Systems across AI, trust, local tools, and data',
+    tagline: 'Systems that make messy workflows legible',
+    bio: 'Small, inspectable tools across AI learning, local trust, developer presentation, and cultural data.',
     thesis:
-      'Five brand axes anchor the work: infrastructure (AirMCP), research (ploidy), ' +
-      'trust (canary), traction (skillBridge), and signal (anvil). Around them sit five ' +
-      'research programs, a stack of supporting tools, a lab of experiments, and an ' +
-      'archive of what has already been learned.',
+      'The portfolio is organized by evidence, not repo count. A few projects carry front-layer proof; ' +
+      'the rest stay in area, lab, or archive layers with their constraints visible.',
     watchIntro: 'Watch intro',
-    flagshipEyebrow: 'Brand 5 · Product flagship',
-    flagshipTags: 'Tags',
-    flagshipStatus: 'Status',
-    flagshipLink: 'Read on GitHub',
-    sectionEcosystem: 'Ecosystem',
-    sectionBrand5: 'Brand 5',
-    sectionPrograms: 'Research Programs',
-    sectionSupporting: 'Supporting',
-    sectionLab: 'Lab',
-    sectionArchive: 'Archive',
     sectionStarters: 'Starter Series',
-    starterCaption: 'Clone → Push → Deployed · {count} CI/CD templates',
-    axes: 'axes',
-    programsCount: 'programs',
-    items: 'items',
-    item: 'item',
-    papers: 'papers',
-    paper: 'paper',
-    anchor: 'Anchor',
-    status: 'active',
+    starterCaption: 'Lower-layer templates · {count} reusable starts',
     footerStats: (p) =>
-      `${p.projects} projects · ${p.programs} research programs · ${p.supporting} supporting · ${p.lab} lab · ${p.templates} templates`,
-    programs: {
-      1: { label: 'Human-Controlled AI Systems', blurb: 'Agent authority, HITL, audit, and forgetting. Tools side anchors the program; statute-of-limitations bridges to Program 4.' },
-      2: { label: 'Epistemic Failure and Correction', blurb: 'Using AI to study AI. Cross-context debate, collaborative entrenchment, ADHD-as-advantage, hierarchy calibration.' },
-      3: { label: 'Representation, Language, and Cultural Cognition', blurb: 'Stratified Platonic representations at the natural-language ↔ code interface, with cultural-cognition probes.' },
-      4: { label: 'AI-Mediated Accumulation', blurb: 'Asymmetric default-bias, info silos, scatter-caching, streak mechanics, institutional forgetting.' },
-      5: { label: 'Synthetic Content and Measurement', blurb: 'Production-detection asymmetry, AI-to-AI engagement loops, substrate chauvinism, alchemy-AGI homology.' },
-      6: { label: 'Analogy / theory layer', blurb: 'Off-core but coherent — divination as inference, cross-cultural media studies, friction-based pedagogy.' },
-    },
-    axisLabels: {
-      product: 'Product',
-      research: 'Research',
-      trust: 'Trust',
-      traction: 'Traction',
-      signal: 'Signal',
+      `${p.projects} proof items · ${p.programs} focus areas · ${p.supporting} selected · ${p.lab} lab/archive · ${p.templates} templates`,
+  },
+  hub: {
+    selectedProof: 'Selected proof',
+    focusAreas: 'Focus areas',
+    labArchive: 'Lab / Archive',
+    evidence: 'Evidence',
+    constraint: 'Constraint',
+    now: 'Now',
+    frontier: 'Frontier',
+    related: 'Related proof',
+    openRepo: 'Open repo',
+    noRepoClaim: 'No representative repo yet',
+    proofCount: (count) => `${count} proof points`,
+    areaCount: (count) => `${count} areas`,
+    proofCaption: 'Only three pieces get front-layer weight, and each carries its constraint.',
+    labCaption: 'Experiments, holds, and archives stay below the fold so they are not mistaken for shipped work.',
+    statusLabels: {
+      active: 'active',
+      shipped: 'shipped',
+      beta: 'beta',
+      lab: 'lab',
+      archive: 'archive',
+      hold: 'hold',
+      repair: 'repair',
+      'pre-alpha': 'pre-alpha',
     },
   },
   gallery: {
@@ -170,7 +158,7 @@ const en: Dict = {
   },
   intro: {
     title: 'heznpc — Intro',
-    description: 'An ecosystem, in three views.',
+    description: 'A compact portfolio map.',
     skip: 'Skip ›',
     enter: 'Enter',
   },
@@ -178,7 +166,7 @@ const en: Dict = {
 
 const ko: Dict = {
   meta: {
-    description: 'AI가 살아갈 생태계를 만듭니다 — 오픈소스 인프라·연구·툴.',
+    description: 'AI, 신뢰, 로컬 도구, 문화 데이터, 물리 컴퓨팅으로 확장되는 시스템.',
   },
   nav: {
     gallery: '갤러리',
@@ -187,51 +175,42 @@ const ko: Dict = {
     langLabel: '언어',
   },
   home: {
-    titleSuffix: '— AI 인프라·연구·툴 큐레이터',
-    tagline: 'AI가 살아갈 생태계를 만듭니다',
-    bio: 'AI 시대의 오픈소스 인프라·연구·툴을 큐레이팅합니다.',
+    titleSuffix: '— AI·신뢰·로컬 도구·데이터 시스템',
+    tagline: '복잡한 흐름을 읽히는 시스템으로 바꿉니다',
+    bio: 'AI 학습, 로컬 신뢰, 개발자 표현, 문화 데이터를 작고 검토 가능한 도구로 엮습니다.',
     thesis:
-      '다섯 개의 브랜드 축이 작업 전체를 받칩니다: 인프라(AirMCP), 연구(ploidy), ' +
-      '신뢰(canary), 확산(skillBridge), 시그널(anvil). 그 둘레로 5개의 연구 프로그램, ' +
-      '브랜드 축을 떠받치는 보조 툴, 실험 단계의 Lab, 그리고 이미 학습한 것을 보관하는 ' +
-      'Archive가 자리합니다.',
+      '이 포트폴리오는 레포 수가 아니라 증거를 기준으로 정리합니다. 몇 개의 대표 작업만 전면에 두고, ' +
+      '나머지는 영역·Lab·Archive 층에 두어 제약까지 함께 보이게 합니다.',
     watchIntro: '인트로 보기',
-    flagshipEyebrow: 'Brand 5 · Product 플래그십',
-    flagshipTags: '태그',
-    flagshipStatus: '상태',
-    flagshipLink: 'GitHub에서 보기',
-    sectionEcosystem: '에코시스템',
-    sectionBrand5: 'Brand 5',
-    sectionPrograms: '연구 프로그램',
-    sectionSupporting: 'Supporting',
-    sectionLab: 'Lab',
-    sectionArchive: 'Archive',
     sectionStarters: 'Starter Series',
-    starterCaption: 'Clone → Push → 배포 · CI/CD 템플릿 {count}종',
-    axes: '축',
-    programsCount: '프로그램',
-    items: '항목',
-    item: '항목',
-    papers: '논문',
-    paper: '논문',
-    anchor: '앵커',
-    status: '진행 중',
+    starterCaption: '낮은 층의 재사용 템플릿 · {count}종',
     footerStats: (p) =>
-      `프로젝트 ${p.projects} · 연구 프로그램 ${p.programs} · 보조 ${p.supporting} · Lab ${p.lab} · 템플릿 ${p.templates}`,
-    programs: {
-      1: { label: '인간 통제형 AI 시스템', blurb: '에이전트 권한, HITL, 감사, 망각. 툴 측이 앵커 역할을 하고, statute-of-limitations가 Program 4로 다리를 놓습니다.' },
-      2: { label: '인식론적 실패와 교정', blurb: 'AI로 AI를 연구합니다. 컨텍스트 간 토론, 공모적 강화, 위계 보정, ADHD를 자원으로.' },
-      3: { label: '표상·언어·문화적 인지', blurb: '자연어 ↔ 코드 인터페이스에서의 층화된 플라톤적 표상과 문화적 인지 탐침.' },
-      4: { label: 'AI 매개 누적', blurb: '비대칭 기본값 편향, 정보 사일로, 흩뿌리기-캐싱, 스트릭 메커니즘, 제도적 망각.' },
-      5: { label: '합성 콘텐츠와 측정', blurb: '생산-탐지 비대칭, AI-AI 인게이지먼트 루프, 기질 우월주의, 연금술-AGI 동형성.' },
-      6: { label: '유추 / 이론 층위', blurb: '코어는 아니지만 일관된 — 점복의 추론, 교차문화 미디어 연구, 마찰 기반 교육론.' },
-    },
-    axisLabels: {
-      product: 'Product',
-      research: 'Research',
-      trust: 'Trust',
-      traction: 'Traction',
-      signal: 'Signal',
+      `증거 항목 ${p.projects} · 작업 영역 ${p.programs} · 대표 ${p.supporting} · Lab/Archive ${p.lab} · 템플릿 ${p.templates}`,
+  },
+  hub: {
+    selectedProof: '대표 증거',
+    focusAreas: '작업 영역',
+    labArchive: 'Lab / Archive',
+    evidence: '증거',
+    constraint: '제약',
+    now: '현재',
+    frontier: '확장',
+    related: '관련 증거',
+    openRepo: '저장소 보기',
+    noRepoClaim: '아직 대표 레포 없음',
+    proofCount: (count) => `증거 ${count}개`,
+    areaCount: (count) => `영역 ${count}개`,
+    proofCaption: '검증 가능한 산출물 중심으로 3개만 전면에 둡니다.',
+    labCaption: '실험, 보류, 아카이브는 완성품처럼 보이지 않도록 낮은 층에 둡니다.',
+    statusLabels: {
+      active: '진행',
+      shipped: '출시',
+      beta: '베타',
+      lab: '실험',
+      archive: '보관',
+      hold: '보류',
+      repair: '보수',
+      'pre-alpha': '초기',
     },
   },
   gallery: {
@@ -256,7 +235,7 @@ const ko: Dict = {
   },
   intro: {
     title: 'heznpc — 인트로',
-    description: '세 가지 시선으로 보는 생태계.',
+    description: '압축된 포트폴리오 지도.',
     skip: '건너뛰기 ›',
     enter: '들어가기',
   },

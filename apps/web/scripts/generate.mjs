@@ -21,6 +21,16 @@ const ROOT = join(__dirname, '..');
 const config = (await import(join(ROOT, 'portfolio.config.mjs'))).default;
 const owner = config.owner;
 
+const VALID_CATEGORIES = new Set(['selected', 'area-proof', 'lab', 'archive']);
+const VALID_DISPLAY_TIERS = new Set(['hero', 'case-study', 'area-proof', 'lab', 'archive', 'hold']);
+const VALID_STATUSES = new Set(['active', 'shipped', 'beta', 'lab', 'archive', 'hold', 'repair', 'pre-alpha']);
+
+function failIfInvalid(errors) {
+  if (errors.length === 0) return;
+  for (const err of errors) process.stderr.write(`  config error: ${err}\n`);
+  process.exit(1);
+}
+
 // ── 2. GitHub에서 전체 repo 목록 fetch ──────
 const repoMap = new Map();
 
@@ -51,11 +61,25 @@ try {
 }
 
 // ── 3. projects 생성 ────────────────────────
+const configErrors = [];
+const areaIds = new Set((config.areas ?? []).map((area) => area.id));
+const projectIds = new Set();
+
 const projects = config.projects.map((p) => {
   const gh = repoMap.get(p.repo.toLowerCase());
+  const id = p.id ?? p.repo.toLowerCase();
+
+  if (projectIds.has(id)) configErrors.push(`duplicate project id "${id}"`);
+  projectIds.add(id);
+  if (!VALID_CATEGORIES.has(p.category)) configErrors.push(`${id}: unknown category "${p.category}"`);
+  if (p.displayTier && !VALID_DISPLAY_TIERS.has(p.displayTier)) {
+    configErrors.push(`${id}: unknown displayTier "${p.displayTier}"`);
+  }
+  if (p.status && !VALID_STATUSES.has(p.status)) configErrors.push(`${id}: unknown status "${p.status}"`);
+  if (p.area && !areaIds.has(p.area)) configErrors.push(`${id}: unknown area "${p.area}"`);
 
   return {
-    id: p.id ?? p.repo.toLowerCase(),
+    id,
     name: p.name ?? gh?.name ?? p.repo,
     description: p.description ?? gh?.description ?? '',
     repo: `${owner}/${p.repo}`,
@@ -63,7 +87,11 @@ const projects = config.projects.map((p) => {
     tier: p.tier,
     tags: p.tags ?? (gh?.topics?.length ? gh.topics : []),
     url: p.url ?? gh?.url ?? `https://github.com/${owner}/${p.repo}`,
-    status: 'active',
+    status: p.status ?? 'active',
+    ...(p.displayTier && { displayTier: p.displayTier }),
+    ...(p.area && { area: p.area }),
+    ...(p.evidence && { evidence: p.evidence }),
+    ...(p.constraint && { constraint: p.constraint }),
     ...(p.axis && { axis: p.axis }),
     ...(p.program && { program: p.program }),
     ...(p.role && { role: p.role }),
@@ -76,11 +104,23 @@ const projects = config.projects.map((p) => {
 const starters = config.starters.map((s) => ({
   name: repoMap.get(s.repo.toLowerCase())?.name ?? s.repo,
   repo: `${owner}/${s.repo}`,
+  url: `https://github.com/${owner}/${s.repo}`,
   deployTo: s.deployTo,
 }));
 
+for (const area of config.areas ?? []) {
+  const seen = new Set();
+  for (const id of area.projectIds ?? []) {
+    if (seen.has(id)) configErrors.push(`${area.id}: duplicate projectIds entry "${id}"`);
+    seen.add(id);
+    if (!projectIds.has(id)) configErrors.push(`${area.id}: missing projectId "${id}"`);
+  }
+}
+
+failIfInvalid(configErrors);
+
 // ── 5. 출력 ─────────────────────────────────
-const output = { meta: config.meta, projects, starters };
+const output = { meta: config.meta, areas: config.areas ?? [], projects, starters };
 const outPath = join(ROOT, 'projects.json');
 
 writeFileSync(outPath, JSON.stringify(output, null, 2) + '\n');

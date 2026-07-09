@@ -5,11 +5,16 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generate.mjs",
+    "check": "astro check",
     "dev": "astro dev",
     "build": "node scripts/generate.mjs && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.7.10"
+    "astro": "^7.0.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
   }
 }

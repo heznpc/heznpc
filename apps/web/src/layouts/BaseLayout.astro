@@ -39,15 +39,10 @@ const commissionHref = `${base.slice(0, -1)}${localizePath('/commission/', local
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:image" content={image} />
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
   <link rel="alternate" hreflang="en" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'en')}`} />
   <link rel="alternate" hreflang="ko" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'ko')}`} />
   <link rel="alternate" hreflang="x-default" href={`https://heznpc.github.io${localizePath(Astro.url.pathname, 'en')}`} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
 </head>
 <body>
   {showNav && (
@@ -68,29 +63,7 @@ const commissionHref = `${base.slice(0, -1)}${localizePath('/commission/', local
 
   <footer class="footer">
     <a href={brand.links.github} target="_blank" rel="noopener">heznpc</a>
-    {footerExtra && <p class="footer-extra" set:html={footerExtra} />}
+    {footerExtra && <p class="footer-extra">{footerExtra}</p>}
   </footer>
-
-  <script is:inline>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
-        return;
-      }
-      var obs = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              var d = parseInt(e.target.dataset.delay || 0);
-              setTimeout(function () { e.target.classList.add('visible'); }, d);
-              obs.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
-      );
-      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
-    })();
-  </script>
 </body>
 </html>

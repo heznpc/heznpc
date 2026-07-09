@@ -6,32 +6,32 @@
 @property --s  { syntax: '<number>'; inherits: false; initial-value: 0; }
 
 :root {
-  /* Surfaces — warm near-black, paper feel */
-  --bg:         #0B0A08;
-  --bg-elev:    #141210;
-  --bg-card:    rgba(239, 230, 210, .04);
-  --border:     rgba(239, 230, 210, .12);
-  --border-hi:  rgba(239, 230, 210, .22);
-  --rule:       rgba(239, 230, 210, .14);
-  --rule-soft:  rgba(239, 230, 210, .06);
+  /* Surfaces */
+  --bg:         #0D0F10;
+  --bg-elev:    #141719;
+  --bg-card:    rgba(255, 255, 255, .045);
+  --border:     rgba(255, 255, 255, .12);
+  --border-hi:  rgba(255, 255, 255, .28);
+  --rule:       rgba(255, 255, 255, .14);
+  --rule-soft:  rgba(255, 255, 255, .07);
 
-  /* Ink — warm cream */
-  --ink:        #EFE6D2;
-  --ink-mid:    rgba(239, 230, 210, .72);
-  --ink-dim:    rgba(239, 230, 210, .55);
-  --ink-ghost:  rgba(239, 230, 210, .32);
+  /* Ink */
+  --ink:        #F4F6F3;
+  --ink-mid:    rgba(244, 246, 243, .74);
+  --ink-dim:    rgba(244, 246, 243, .52);
+  --ink-ghost:  rgba(244, 246, 243, .34);
 
   /* Accent — single warm amber (editorial focus) */
-  --accent:     oklch(0.78 0.11 60);
-  --accent-fb:  #d4a574;
+  --accent:     oklch(0.78 0.12 190);
+  --accent-fb:  #6fd4dd;
 
   /* Band hues (Hub 5-band structure) */
-  --c-brand5:     #c9b3f6;
-  --c-programs:   #8ab4ff;
-  --c-supporting: #9de3c4;
-  --c-lab:        #f6b3c8;
-  --c-archive:    rgba(239, 230, 210, .35);
-  --c-seed:       #f4eee3;
+  --c-brand5:     #8AB4FF;
+  --c-programs:   #66D9A8;
+  --c-supporting: #F5D06F;
+  --c-lab:        #F083B0;
+  --c-archive:    rgba(244, 246, 243, .36);
+  --c-seed:       #F4F6F3;
 
   /* Legacy aliases — kept so intro.astro and existing CSS keep working */
   --c-foundation: var(--c-brand5);
@@ -42,7 +42,7 @@
   --c-illust:     var(--c-supporting);
 
   /* Typography */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-sans);
   --font-sans:    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -53,7 +53,8 @@
 
   /* Layout */
   --nav-h: 64px;
-  --max-w: 760px;
+  --max-w: 1080px;
+  --read-w: 720px;
 }
 
 /* Apply hue variable based on data-category */
@@ -68,8 +69,10 @@
 [data-category="supporting"] { --hue: var(--c-supporting); }
 [data-category="lab"]        { --hue: var(--c-lab); }
 [data-category="archive"]    { --hue: var(--c-archive); }
+[data-category="selected"]   { --hue: var(--c-brand5); }
+[data-category="area-proof"] { --hue: var(--c-programs); }
 
-/* Legacy data-category values still used by intro.astro and ProjectIcon */
+/* Legacy data-category values still used by older project categories */
 [data-category="foundation"] { --hue: var(--c-brand5); }
 [data-category="research"]   { --hue: var(--c-programs); }
 [data-category="tools"]      { --hue: var(--c-supporting); }

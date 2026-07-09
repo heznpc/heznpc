@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  cta: string;
+  href: string;
+  marker: string;
+}
+
+const { eyebrow, heading, body, cta, href, marker } = Astro.props;
+---
+
+<section class="hero">
+  <p class="section-label reveal">{eyebrow}</p>
+  <h1 class="hero-name reveal simple-hero-title">{heading}</h1>
+  <p class="hero-bio reveal">{body}</p>
+  <a class="hero-watch reveal" href={href} target="_blank" rel="noopener">
+    <span>{marker}</span> {cta}
+  </a>
+</section>

@@ -1,5 +1,6 @@
 ---
 import brand from '../../../../heznpc.config.mjs';
+import SimpleHeroPage from './SimpleHeroPage.astro';
 import type { Dict } from '../i18n';
 
 interface Props {
@@ -9,15 +10,11 @@ const { dict } = Astro.props;
 const t = dict.gallery;
 ---
 
-<section class="hero">
-  <div class="hero-cells" aria-hidden="true">
-    <div class="hero-cell hero-cell-a" style="background:radial-gradient(circle, var(--c-products), transparent 68%)"></div>
-    <div class="hero-cell hero-cell-b" style="background:radial-gradient(circle, var(--c-tools), transparent 68%)"></div>
-  </div>
-  <p class="section-label reveal">{t.eyebrow}</p>
-  <h1 class="hero-name reveal" data-delay="40" style="font-size:clamp(64px,10vw,128px)">{t.heading}</h1>
-  <p class="hero-bio reveal" data-delay="120">{t.body}</p>
-  <a class="hero-watch reveal" data-delay="200" href={brand.links.pixiv} target="_blank" rel="noopener">
-    <span>◈</span> {t.cta}
-  </a>
-</section>
+<SimpleHeroPage
+  eyebrow={t.eyebrow}
+  heading={t.heading}
+  body={t.body}
+  cta={t.cta}
+  href={brand.links.pixiv}
+  marker="◈"
+/>

@@ -1,818 +1,373 @@
 {
   "meta": {
     "name": "heznpc",
-    "tagline": "Building the ecosystem AI lives in",
-    "bio": "Curator of open-source infrastructure, research, and tools for the AI era.",
-    "thesis": "Five brand axes anchor the work: infrastructure (AirMCP), research (ploidy), trust (canary), traction (skillBridge), and signal (anvil). Around them sit five research programs, a stack of supporting tools, a lab of experiments, and an archive of what has already been learned.",
+    "tagline": "Systems across AI, trust, local tools, and cultural data",
+    "bio": "Heznpc builds small, inspectable systems that turn messy workflows into usable tools.",
+    "thesis": "This hub is a portfolio map, not a repo dump. Work is grouped by the problem it proves: AI learning localization, local trust, developer presentation, local-first workflow tools, cultural archives, marketplace experiments, and future physical-computing systems.",
     "github": "https://github.com/heznpc",
     "contact": "https://github.com/heznpc"
   },
+  "areas": [
+    {
+      "id": "ai-learning-localization",
+      "label": "AI learning localization",
+      "summary": "Browser-based learning tools where translation, glossary control, and tutor UX need to stay bounded.",
+      "current": "Use course-specific flows as proof, not generic translation claims.",
+      "frontier": "Evaluation, permission hygiene, and first-user proof before stronger public claims.",
+      "projectIds": [
+        "skillbridge"
+      ]
+    },
+    {
+      "id": "trust-local-diagnostics",
+      "label": "Trust and local diagnostics",
+      "summary": "Local checks that explain risk without turning the user machine into a telemetry source.",
+      "current": "Prefer readable reports, opt-in lookups, and artifact hygiene over broad security promises.",
+      "frontier": "Local device trust, agent-tool governance, and privacy-preserving diagnostics.",
+      "projectIds": [
+        "pc-health-check"
+      ]
+    },
+    {
+      "id": "developer-presence",
+      "label": "Developer presence and publishing",
+      "summary": "Composable presentation surfaces for code, docs, and project evidence.",
+      "current": "Show verified artifacts and examples instead of rankings or soft metrics.",
+      "frontier": "A portfolio layer that stays current without inflating unfinished work.",
+      "projectIds": [
+        "profilekit"
+      ]
+    },
+    {
+      "id": "local-first-workflows",
+      "label": "Local-first workflow tools",
+      "summary": "Small utilities for private work queues, reversible file operations, and personal automation.",
+      "current": "Keep these as lab proof until restore, install, and synthetic demo paths are clean.",
+      "frontier": "Human-controlled tools that can later bridge into physical and edge workflows.",
+      "projectIds": [
+        "aispool",
+        "mothball"
+      ]
+    },
+    {
+      "id": "cultural-data-archives",
+      "label": "Cultural data and archive UX",
+      "summary": "Static and mobile-first viewers for niche datasets where provenance and scope matter.",
+      "current": "Useful as UX/data examples, not as central product claims.",
+      "frontier": "Clear source boundaries, mobile proof, and better refresh evidence.",
+      "projectIds": [
+        "tr-story",
+        "tr-archive",
+        "hello-project"
+      ]
+    },
+    {
+      "id": "marketplace-experiments",
+      "label": "Marketplace experiments",
+      "summary": "Trust-heavy product ideas that are still below service-ready evidence.",
+      "current": "Do not present as launched services until payment, dispute, and safety flows are verified.",
+      "frontier": "Narrow state-machine prototypes before any public marketplace framing.",
+      "projectIds": [
+        "dol-pin"
+      ]
+    },
+    {
+      "id": "physical-computing-frontier",
+      "label": "Physical computing frontier",
+      "summary": "Future work at the boundary of local software, sensing, devices, and edge intelligence.",
+      "current": "Direction only; no representative repo is claimed yet.",
+      "frontier": "IoT and physical-system work should inherit the same local trust and evidence rules.",
+      "projectIds": []
+    }
+  ],
   "projects": [
-    {
-      "id": "airmcp",
-      "name": "AirMCP",
-      "description": "One MCP server for the Apple ecosystem (272 tools, 29 modules). Core infra — per-call HITL, HMAC-chained audit, OAuth 2.1 + Resource Indicators, allowNetwork policy — is the differentiated layer.",
-      "repo": "heznpc/AirMCP",
-      "category": "brand5",
-      "tier": 1,
-      "tags": [
-        "MCP",
-        "macOS",
-        "HITL"
-      ],
-      "url": "https://github.com/heznpc/AirMCP",
-      "status": "active",
-      "axis": "product",
-      "icon": "https://heznpc.github.io/AirMCP/airmcp-icon-128.png"
-    },
-    {
-      "id": "ploidy-research",
-      "name": "ploidy-research",
-      "description": "Cross-session debate protocol — same model, different context depths. PyPI ploidy 0.3.3. Paper + tool monorepo.",
-      "repo": "heznpc/ploidy-research",
-      "category": "brand5",
-      "tier": 1,
-      "tags": [
-        "Protocol",
-        "MCP",
-        "Research artifact"
-      ],
-      "url": "https://github.com/heznpc/ploidy-research",
-      "status": "active",
-      "axis": "research",
-      "iconEmoji": "🧬"
-    },
-    {
-      "id": "canary",
-      "name": "canary",
-      "description": "Operator-machine observability — git state joined with Claude Code session transcripts. APL / MIP / PLR / UCP push-leakage metrics.",
-      "repo": "heznpc/canary",
-      "category": "brand5",
-      "tier": 1,
-      "tags": [
-        "Observability",
-        "Dashboard",
-        "Audit"
-      ],
-      "url": "https://github.com/heznpc/canary",
-      "status": "active",
-      "axis": "trust",
-      "iconEmoji": "🐤"
-    },
-    {
-      "id": "anvil",
-      "name": "anvil",
-      "description": "MCP tool that bundles commit → PR → CI-wait → merge into one atomic call. Published as @heznpc/anvil on npm.",
-      "repo": "heznpc/anvil",
-      "category": "brand5",
-      "tier": 1,
-      "tags": [
-        "MCP",
-        "Workflow"
-      ],
-      "url": "https://github.com/heznpc/anvil",
-      "status": "active",
-      "axis": "signal",
-      "iconEmoji": "🔨"
-    },
     {
       "id": "skillbridge",
       "name": "skillBridge",
-      "description": "Translates Anthropic Academy lessons across 33 locales with an inline Claude tutor (Puter.js). MV3 v3.5.39. CWS US-locale pending re-publication after icon redesign.",
+      "description": "Course-focused browser extension for translation, glossary control, and inline tutor flows.",
       "repo": "heznpc/skillBridge",
-      "category": "brand5",
+      "category": "selected",
       "tier": 1,
       "tags": [
-        "Chrome",
-        "Education",
+        "Extension",
+        "Learning",
         "i18n"
       ],
       "url": "https://github.com/heznpc/skillBridge",
       "status": "active",
-      "axis": "traction",
+      "displayTier": "hero",
+      "area": "ai-learning-localization",
+      "evidence": "Large local quality surface: unit tests, lint, formatting, locale checks, screenshots, and release scripts.",
+      "constraint": "Public listing, region availability, and latest released version must be verified before claiming traction.",
       "iconEmoji": "🌐"
-    },
-    {
-      "id": "statute-of-limitations",
-      "name": "statute-of-limitations",
-      "description": "Designing institutional forgetting for AI agent memory — authority expiry vs deletion. Bridge between Programs 1 and 4. Foundational to AirMCP memory governance.",
-      "repo": "heznpc/statute-of-limitations",
-      "category": "program-1",
-      "tier": 2,
-      "tags": [
-        "Memory",
-        "AI Ethics",
-        "Forgetting"
-      ],
-      "url": "https://github.com/heznpc/statute-of-limitations",
-      "status": "active",
-      "program": 1,
-      "iconEmoji": "⏳"
-    },
-    {
-      "id": "oncology",
-      "name": "oncology",
-      "description": "Agent failure taxonomy — errors detected but action continues. Crosses Programs 1 and 2.",
-      "repo": "heznpc/oncology",
-      "category": "program-1",
-      "tier": 2,
-      "tags": [
-        "Agent Failure",
-        "Taxonomy"
-      ],
-      "url": "https://github.com/heznpc/oncology",
-      "status": "active",
-      "program": 1,
-      "iconEmoji": "🧬"
-    },
-    {
-      "id": "ochre",
-      "name": "ochre",
-      "description": "Desktop-metaphor analogue for AI-assisted authoring interfaces. Layer-1 simulations + 5 testable predictions.",
-      "repo": "heznpc/ochre",
-      "category": "program-1",
-      "tier": 3,
-      "tags": [
-        "Interface",
-        "Predictions"
-      ],
-      "url": "https://github.com/heznpc/ochre",
-      "status": "active",
-      "program": 1,
-      "iconEmoji": "🎨"
-    },
-    {
-      "id": "villagent",
-      "name": "villagent",
-      "description": "Agent entity continuity — configuration-loss-as-death framing. Companion to ploidy at the entity level. Concept note.",
-      "repo": "heznpc/villagent",
-      "category": "program-1",
-      "tier": 3,
-      "tags": [
-        "Agents",
-        "Continuity"
-      ],
-      "url": "https://github.com/heznpc/villagent",
-      "status": "active",
-      "program": 1,
-      "iconEmoji": "🏠"
-    },
-    {
-      "id": "meta-paper",
-      "name": "meta",
-      "description": "LLM-as-research-infrastructure — using Claude Code to study Claude Code. alt.CHI 2027 target.",
-      "repo": "heznpc/meta",
-      "category": "program-2",
-      "tier": 1,
-      "tags": [
-        "Reflexive",
-        "Methodology"
-      ],
-      "url": "https://github.com/heznpc/meta",
-      "status": "active",
-      "program": 2,
-      "role": "anchor",
-      "iconEmoji": "🔄"
-    },
-    {
-      "id": "narcissus",
-      "name": "narcissus",
-      "description": "Narcissus loop — collaborative entrenchment as an emergent property of the human + AI interaction loop.",
-      "repo": "heznpc/narcissus",
-      "category": "program-2",
-      "tier": 2,
-      "tags": [
-        "Confirmation Bias",
-        "HCI"
-      ],
-      "url": "https://github.com/heznpc/narcissus",
-      "status": "active",
-      "program": 2,
-      "iconEmoji": "🌸"
-    },
-    {
-      "id": "coup",
-      "name": "coup",
-      "description": "Hierarchy calibration in multi-agent debate — C(P) and τ metrics. Concept note.",
-      "repo": "heznpc/coup",
-      "category": "program-2",
-      "tier": 3,
-      "tags": [
-        "Multi-Agent",
-        "Calibration"
-      ],
-      "url": "https://github.com/heznpc/coup",
-      "status": "active",
-      "program": 2,
-      "iconEmoji": "♟️"
-    },
-    {
-      "id": "eddy",
-      "name": "eddy",
-      "description": "ADHD × AI — neurodivergent workflows as competitive advantage in multi-session work. Published with Zenodo DOI.",
-      "repo": "heznpc/eddy",
-      "category": "program-2",
-      "tier": 2,
-      "tags": [
-        "HCI",
-        "ADHD",
-        "DOI"
-      ],
-      "url": "https://github.com/heznpc/eddy",
-      "status": "active",
-      "program": 2,
-      "iconEmoji": "🌀"
-    },
-    {
-      "id": "lifespan",
-      "name": "lifespan",
-      "description": "Accumulation–renewal dilemma — substrate-independent theory linking confirmation bias, paradigm lock-in, and LLM context entrenchment. Bridges Programs 2 and 4.",
-      "repo": "heznpc/lifespan",
-      "category": "program-2",
-      "tier": 2,
-      "tags": [
-        "Theory",
-        "Renewal"
-      ],
-      "url": "https://github.com/heznpc/lifespan",
-      "status": "active",
-      "program": 2,
-      "iconEmoji": "⏳"
-    },
-    {
-      "id": "z-gap",
-      "name": "z-gap",
-      "description": "Convergence ≠ Communicability — stratified Platonic Representations at the NL-Code interface. TACL rolling.",
-      "repo": "heznpc/z-gap",
-      "category": "program-3",
-      "tier": 1,
-      "tags": [
-        "NLP",
-        "Representations"
-      ],
-      "url": "https://github.com/heznpc/z-gap",
-      "status": "active",
-      "program": 3,
-      "role": "anchor",
-      "iconEmoji": "📐"
-    },
-    {
-      "id": "third-vertex-llm",
-      "name": "third-vertex-llm",
-      "description": "Korean as third vertex — breaks the language/head-directionality/cultural-cluster confound in Japanese- and Chinese-only LLM cultural-cognition studies.",
-      "repo": "heznpc/third-vertex-llm",
-      "category": "program-3",
-      "tier": 3,
-      "tags": [
-        "Cultural Cognition",
-        "Korean"
-      ],
-      "url": "https://github.com/heznpc/third-vertex-llm",
-      "status": "active",
-      "program": 3,
-      "iconEmoji": "📐"
-    },
-    {
-      "id": "macaronic",
-      "name": "macaronic",
-      "description": "Polyglot LLM stack orchestration as literary code-switching. Concept note.",
-      "repo": "heznpc/macaronic",
-      "category": "program-3",
-      "tier": 3,
-      "tags": [
-        "Code-Switching",
-        "Polyglot"
-      ],
-      "url": "https://github.com/heznpc/macaronic",
-      "status": "active",
-      "program": 3,
-      "iconEmoji": "🗣️"
-    },
-    {
-      "id": "habitus",
-      "name": "habitus",
-      "description": "Bourdieusian companion to z-gap — habitus explains why convergent representations fail to produce mutual intelligibility.",
-      "repo": "heznpc/habitus",
-      "category": "program-3",
-      "tier": 3,
-      "tags": [
-        "Theory",
-        "Bourdieu"
-      ],
-      "url": "https://github.com/heznpc/habitus",
-      "status": "active",
-      "program": 3,
-      "iconEmoji": "🎭"
-    },
-    {
-      "id": "tidal",
-      "name": "tidal",
-      "description": "The Asymmetric Tide — AI amplifies digital hoarding through structural default bias. ABM + 8-cloud audit. CHI / FAccT / CSCW 2027 fit.",
-      "repo": "heznpc/tidal",
-      "category": "program-4",
-      "tier": 1,
-      "tags": [
-        "Digital Hoarding",
-        "ABM"
-      ],
-      "url": "https://github.com/heznpc/tidal",
-      "status": "active",
-      "program": 4,
-      "role": "anchor",
-      "iconEmoji": "🌊"
-    },
-    {
-      "id": "silo",
-      "name": "silo",
-      "description": "Three-layer bias model — encounter / save / retrieval. AI-mediated search creates confirmation-biased digital hoards.",
-      "repo": "heznpc/silo",
-      "category": "program-4",
-      "tier": 2,
-      "tags": [
-        "Information Bias",
-        "Search"
-      ],
-      "url": "https://github.com/heznpc/silo",
-      "status": "active",
-      "program": 4,
-      "iconEmoji": "🏗️"
-    },
-    {
-      "id": "scatter-caching",
-      "name": "scatter-caching",
-      "description": "TSI (Tool Scatter Index) — cross-platform information distribution as an unmeasured hoarding dimension.",
-      "repo": "heznpc/scatter-caching",
-      "category": "program-4",
-      "tier": 2,
-      "tags": [
-        "Digital Hoarding",
-        "Measurement"
-      ],
-      "url": "https://github.com/heznpc/scatter-caching",
-      "status": "active",
-      "program": 4,
-      "iconEmoji": "🐿️"
-    },
-    {
-      "id": "elixir",
-      "name": "elixir",
-      "description": "The Last Elixir — PRISMA review of hoarding-related behaviors in digital games.",
-      "repo": "heznpc/elixir",
-      "category": "program-4",
-      "tier": 2,
-      "tags": [
-        "Games",
-        "PRISMA"
-      ],
-      "url": "https://github.com/heznpc/elixir",
-      "status": "active",
-      "program": 4,
-      "iconEmoji": "🧪"
-    },
-    {
-      "id": "sediment",
-      "name": "sediment",
-      "description": "Streak mechanics drive compelled production of low-quality digital content. Deposition / Compaction / Fossilization lifecycle.",
-      "repo": "heznpc/sediment",
-      "category": "program-4",
-      "tier": 3,
-      "tags": [
-        "Streaks",
-        "Content Quality"
-      ],
-      "url": "https://github.com/heznpc/sediment",
-      "status": "active",
-      "program": 4,
-      "iconEmoji": "🪨"
-    },
-    {
-      "id": "ai-slop",
-      "name": "ai-slop",
-      "description": "Production-Detection Asymmetry — multi-format AI content pollution beyond video. CACM + Big Data & Society umbrella.",
-      "repo": "heznpc/ai-slop",
-      "category": "program-5",
-      "tier": 1,
-      "tags": [
-        "AI Slop",
-        "Content Quality"
-      ],
-      "url": "https://github.com/heznpc/ai-slop",
-      "status": "active",
-      "program": 5,
-      "role": "anchor",
-      "iconEmoji": "🫠"
-    },
-    {
-      "id": "emergence-paradox",
-      "name": "emergence-paradox",
-      "description": "Substrate chauvinism — replaces consciousness / creativity / identity as load-bearing concept in AI-acceptance discourse. Reorienting to CHI 2027 after Inquiry SI deadline.",
-      "repo": "heznpc/emergence-paradox",
-      "category": "program-5",
-      "tier": 2,
-      "tags": [
-        "Philosophy",
-        "AI Ethics"
-      ],
-      "url": "https://github.com/heznpc/emergence-paradox",
-      "status": "active",
-      "program": 5,
-      "iconEmoji": "🪞"
-    },
-    {
-      "id": "aichemist",
-      "name": "aichemist",
-      "description": "Burning Lead for Gold — structural homology between alchemy and the AGI paradigm.",
-      "repo": "heznpc/aichemist",
-      "category": "program-5",
-      "tier": 2,
-      "tags": [
-        "AGI",
-        "Philosophy"
-      ],
-      "url": "https://github.com/heznpc/aichemist",
-      "status": "active",
-      "program": 5,
-      "iconEmoji": "⚗️"
-    },
-    {
-      "id": "babel",
-      "name": "babel",
-      "description": "Babel and Anti-Babel — scale-dependent coupled dynamics of fragmentation and excessive convergence. Companion to aichemist.",
-      "repo": "heznpc/babel",
-      "category": "program-5",
-      "tier": 3,
-      "tags": [
-        "Convergence",
-        "Theory"
-      ],
-      "url": "https://github.com/heznpc/babel",
-      "status": "active",
-      "program": 5,
-      "iconEmoji": "🗼"
-    },
-    {
-      "id": "ai-bubble",
-      "name": "ai-bubble",
-      "description": "AI-to-AI content loops as engagement-metric inflation isomorphic to four financial-fraud forms.",
-      "repo": "heznpc/ai-bubble",
-      "category": "program-5",
-      "tier": 3,
-      "tags": [
-        "Economics",
-        "Engagement"
-      ],
-      "url": "https://github.com/heznpc/ai-bubble",
-      "status": "active",
-      "program": 5,
-      "iconEmoji": "🫧"
-    },
-    {
-      "id": "analogic-appropriation",
-      "name": "analogic-appropriation",
-      "description": "Cross-cultural media study on children’s play and combat narratives across media eras. Under review (New Media & Society).",
-      "repo": "heznpc/analogic-appropriation",
-      "category": "program-6",
-      "tier": 2,
-      "tags": [
-        "Media",
-        "Culture",
-        "Under review"
-      ],
-      "url": "https://github.com/heznpc/analogic-appropriation",
-      "status": "active",
-      "program": 6,
-      "iconEmoji": "📚"
-    },
-    {
-      "id": "pythia",
-      "name": "pythia",
-      "description": "Divination systems as non-formal inference engines — functional convergence with LLMs.",
-      "repo": "heznpc/pythia",
-      "category": "program-6",
-      "tier": 3,
-      "tags": [
-        "Divination",
-        "LLM"
-      ],
-      "url": "https://github.com/heznpc/pythia",
-      "status": "active",
-      "program": 6,
-      "iconEmoji": "🔮"
-    },
-    {
-      "id": "whetstone",
-      "name": "whetstone",
-      "description": "Productive vs unproductive friction in AI-augmented learning. Invariant functions of pedagogy.",
-      "repo": "heznpc/whetstone",
-      "category": "program-6",
-      "tier": 3,
-      "tags": [
-        "Education",
-        "Friction"
-      ],
-      "url": "https://github.com/heznpc/whetstone",
-      "status": "active",
-      "program": 6,
-      "iconEmoji": "🪨"
     },
     {
       "id": "profilekit",
       "name": "ProfileKit",
-      "description": "GitHub profile cards by URL. No ratings, no rankings — composable presentation only. (canonical at newtria/ProfileKit)",
+      "description": "Composable SVG profile and project cards by URL.",
       "repo": "heznpc/ProfileKit",
-      "category": "supporting",
-      "tier": 2,
+      "category": "selected",
+      "tier": 1,
       "tags": [
-        "GitHub",
+        "SVG",
+        "README",
         "API"
       ],
-      "url": "https://github.com/newtria/ProfileKit",
-      "status": "active",
+      "url": "https://github.com/heznpc/ProfileKit",
+      "status": "shipped",
+      "displayTier": "case-study",
+      "area": "developer-presence",
+      "evidence": "Local checks and tests cover rendering, URL safety, and endpoint behavior.",
+      "constraint": "Canonical hosting and some endpoint docs need freshness checks before stronger adoption claims.",
       "iconEmoji": "🪪"
-    },
-    {
-      "id": "profilekit-mcp",
-      "name": "profilekit-mcp",
-      "description": "MCP server over ProfileKit. URL-only, never inlines SVG.",
-      "repo": "heznpc/profilekit-mcp",
-      "category": "supporting",
-      "tier": 3,
-      "tags": [
-        "MCP",
-        "GitHub"
-      ],
-      "url": "https://github.com/heznpc/profilekit-mcp",
-      "status": "active",
-      "iconEmoji": "🛠️"
-    },
-    {
-      "id": "cairn",
-      "name": "cairn",
-      "description": "Yakdo-style pictogram maps. Fewer landmarks by design.",
-      "repo": "heznpc/cairn",
-      "category": "supporting",
-      "tier": 3,
-      "tags": [
-        "Pictogram",
-        "Maps"
-      ],
-      "url": "https://github.com/heznpc/cairn",
-      "status": "active",
-      "iconEmoji": "🗺️"
-    },
-    {
-      "id": "newtria-crossflow",
-      "name": "newtria-crossflow",
-      "description": "Cross-OS Shortcuts ↔ Power Automate bridge. v0.1 ships the verified tool.",
-      "repo": "heznpc/newtria-crossflow",
-      "category": "supporting",
-      "tier": 3,
-      "tags": [
-        "Shortcuts",
-        "Power Automate"
-      ],
-      "url": "https://github.com/heznpc/newtria-crossflow",
-      "status": "active",
-      "iconEmoji": "🔁"
     },
     {
       "id": "pc-health-check",
       "name": "pc-health-check",
-      "description": "PC health checker for Korean banking whitelist constraints.",
+      "description": "Local PC diagnostic reports for compatibility and trust checks.",
       "repo": "heznpc/pc-health-check",
-      "category": "supporting",
-      "tier": 3,
+      "category": "selected",
+      "tier": 1,
       "tags": [
-        "Trust",
-        "Utility"
+        "Local",
+        "Diagnostics",
+        "Privacy"
       ],
       "url": "https://github.com/heznpc/pc-health-check",
-      "status": "active",
+      "status": "shipped",
+      "displayTier": "case-study",
+      "area": "trust-local-diagnostics",
+      "evidence": "Rule tests and release smoke checks exist, with a local-first report model.",
+      "constraint": "Public examples should use sanitized output and avoid implying a complete security product.",
       "iconEmoji": "🩺"
     },
     {
-      "id": "ai-course-glossary",
-      "name": "ai-course-glossary",
-      "description": "Claude Code Skill plugin re-exposing skillBridge’s curated Anthropic Academy terminology. Companion to skillBridge.",
-      "repo": "heznpc/ai-course-glossary",
-      "category": "supporting",
+      "id": "tr-story",
+      "name": "TR-STORY",
+      "description": "Mobile-first story viewer for a bounded cultural archive.",
+      "repo": "heznpc/TR-STORY",
+      "category": "area-proof",
       "tier": 2,
       "tags": [
-        "Skill",
-        "Terminology"
+        "Static",
+        "Mobile UX",
+        "Archive"
       ],
-      "url": "https://github.com/heznpc/ai-course-glossary",
+      "url": "https://github.com/heznpc/TR-STORY",
       "status": "active",
-      "iconEmoji": "📚"
+      "displayTier": "area-proof",
+      "area": "cultural-data-archives",
+      "evidence": "Static export, data snapshot, and basic tests are present.",
+      "constraint": "External content boundaries and data freshness need to stay visible.",
+      "iconEmoji": "📖"
     },
     {
-      "id": "inertbox",
-      "name": "inertbox",
-      "description": "Untrusted-content boundary primitive — wraps external content (web pages, emails, tool output) in delimited “data not instructions” boundaries.",
-      "repo": "heznpc/inertbox",
-      "category": "supporting",
+      "id": "tr-archive",
+      "name": "tr-archive",
+      "description": "Fan-archive style viewer and utility surface with search and static data flows.",
+      "repo": "heznpc/tr-archive",
+      "category": "area-proof",
       "tier": 3,
       "tags": [
-        "Trust",
-        "Boundary"
+        "Archive",
+        "Search",
+        "PWA"
       ],
-      "url": "https://github.com/heznpc/inertbox",
-      "status": "active",
-      "iconEmoji": "📦"
+      "url": "https://github.com/heznpc/tr-archive",
+      "status": "repair",
+      "displayTier": "area-proof",
+      "area": "cultural-data-archives",
+      "evidence": "Route breadth, headers, search, and app structure are substantial.",
+      "constraint": "Current local test failures and unofficial-content boundaries keep it below case-study level.",
+      "iconEmoji": "🎮"
     },
     {
-      "id": "dol-pin",
-      "name": "dol-pin",
-      "description": "K-pop concert merch C2C rental marketplace — MVP only.",
-      "repo": "heznpc/dol-pin",
+      "id": "academy-lens",
+      "name": "academy-lens",
+      "description": "Sibling experiment for course-page translation and terminology preservation.",
+      "repo": "heznpc/academy-lens",
       "category": "lab",
       "tier": 3,
       "tags": [
-        "K-pop",
-        "Marketplace",
-        "Flutter"
+        "Extension",
+        "Beta",
+        "Glossary"
       ],
-      "url": "https://github.com/heznpc/dol-pin",
-      "status": "active",
-      "iconEmoji": "🐬"
+      "url": "https://github.com/heznpc/academy-lens",
+      "status": "beta",
+      "displayTier": "lab",
+      "area": "ai-learning-localization",
+      "evidence": "Local static checks and unit tests exist.",
+      "constraint": "Still a beta/local-install project; store readiness and live QA should not be implied.",
+      "iconEmoji": "🔎"
     },
     {
-      "id": "cuk-sw-community",
-      "name": "cuk-sw-community",
-      "description": "University SW community + blog + course materials. Pre-launch debugging.",
-      "repo": "heznpc/cuk-sw-community",
+      "id": "aispool",
+      "name": "aispool",
+      "description": "Local inbox for reviewing and promoting AI-work session candidates.",
+      "repo": "heznpc/aispool",
       "category": "lab",
       "tier": 3,
       "tags": [
-        "Next.js",
-        "Supabase"
+        "CLI",
+        "Local",
+        "Workflow"
       ],
-      "url": "https://github.com/heznpc/cuk-sw-community",
-      "status": "active",
-      "iconEmoji": "🏫"
-    },
-    {
-      "id": "kontest",
-      "name": "kontest",
-      "description": "Cross-source contest aggregator — 4 KR + 3 global sources, dedupe, classify, Telegram push.",
-      "repo": "heznpc/kontest",
-      "category": "lab",
-      "tier": 3,
-      "tags": [
-        "Aggregator",
-        "Telegram"
-      ],
-      "url": "https://github.com/heznpc/kontest",
-      "status": "active",
-      "iconEmoji": "🏁"
+      "url": "https://github.com/heznpc/aispool",
+      "status": "lab",
+      "displayTier": "lab",
+      "area": "local-first-workflows",
+      "evidence": "Small CLI and tests exist with local-only data assumptions.",
+      "constraint": "Any public demo must be synthetic; real local metadata should never be shown.",
+      "iconEmoji": "🧵"
     },
     {
       "id": "mothball",
       "name": "mothball",
-      "description": "macOS Swift package — git-aware project archiver with sidecar manifest.",
+      "description": "Git-aware project archiver exploring reversible cleanup flows.",
       "repo": "heznpc/mothball",
       "category": "lab",
       "tier": 3,
       "tags": [
         "Swift",
-        "Archiver"
+        "Archiver",
+        "Restore"
       ],
       "url": "https://github.com/heznpc/mothball",
-      "status": "active",
+      "status": "pre-alpha",
+      "displayTier": "lab",
+      "area": "local-first-workflows",
+      "evidence": "Swift package structure and restore round-trip tests are present.",
+      "constraint": "Pre-alpha and file-operation-adjacent; not an end-user cleaner yet.",
       "iconEmoji": "📦"
     },
     {
-      "id": "gemma4-quiz",
-      "name": "gemma4-quiz",
-      "description": "Local Gemma / Ollama quiz tool. PDF → MCQ + short-answer via JSON schema.",
-      "repo": "heznpc/gemma4-quiz",
-      "category": "lab",
+      "id": "cuk-sw-community",
+      "name": "cuk-sw-community",
+      "description": "Community-app skeleton being reframed as an owner-write archive.",
+      "repo": "heznpc/cuk-sw-community",
+      "category": "archive",
       "tier": 3,
       "tags": [
-        "Gemma",
-        "Ollama",
-        "Local LLM"
+        "Archive",
+        "RLS",
+        "Admin"
       ],
-      "url": "https://github.com/heznpc/gemma4-quiz",
-      "status": "active",
-      "iconEmoji": "🧩"
+      "url": "https://github.com/heznpc/cuk-sw-community",
+      "status": "archive",
+      "displayTier": "archive",
+      "area": "local-first-workflows",
+      "evidence": "Auth, storage, rate-limit, and archive-mode code paths exist.",
+      "constraint": "Do not describe it as a live community service.",
+      "iconEmoji": "🗃️"
+    },
+    {
+      "id": "dol-pin",
+      "name": "dol-pin",
+      "description": "C2C rental marketplace prototype for event goods.",
+      "repo": "heznpc/dol-pin",
+      "category": "lab",
+      "tier": 4,
+      "tags": [
+        "Marketplace",
+        "Trust",
+        "Mobile"
+      ],
+      "url": "https://github.com/heznpc/dol-pin",
+      "status": "hold",
+      "displayTier": "hold",
+      "area": "marketplace-experiments",
+      "evidence": "Planning, app structure, and trust-flow code exist.",
+      "constraint": "Payment, dispute, safety, and dirty-worktree risks keep it out of the public front layer.",
+      "iconEmoji": "🐬"
     },
     {
       "id": "hello-project",
       "name": "hello-project",
-      "description": "Hello! Project timeline visualization. Fanart, frozen.",
+      "description": "Closed-scope cultural timeline visualization.",
       "repo": "heznpc/hello-project",
-      "category": "lab",
-      "tier": 3,
-      "tags": [
-        "D3",
-        "Timeline",
-        "Fanart"
-      ],
-      "url": "https://github.com/heznpc/hello-project",
-      "status": "active",
-      "iconEmoji": "🎤"
-    },
-    {
-      "id": "token_save",
-      "name": "token_save",
-      "description": "LLM API cost-reduction checklist — prompt caching, structure, batch API, model tiering. Notes only.",
-      "repo": "heznpc/token_save",
-      "category": "lab",
-      "tier": 3,
-      "tags": [
-        "Notes",
-        "LLM Cost"
-      ],
-      "url": "https://github.com/heznpc/token_save",
-      "status": "active",
-      "iconEmoji": "📝"
-    },
-    {
-      "id": "tr-archive",
-      "name": "TR-archive",
-      "description": "Tales-Runner unofficial archive — character stats, change-ticket simulator, story viewer. heznpc is contributor.",
-      "repo": "heznpc/TR-archive",
-      "category": "lab",
-      "tier": 3,
-      "tags": [
-        "Next.js",
-        "Community"
-      ],
-      "url": "https://github.com/Tales-Runner/TR-archive",
-      "status": "active",
-      "iconEmoji": "🎮"
-    },
-    {
-      "id": "trashmonster",
-      "name": "trashmonster",
-      "description": "AI waste classification game for kids. Frozen at newtria org.",
-      "repo": "heznpc/trashmonster",
       "category": "archive",
       "tier": 3,
       "tags": [
-        "Frozen"
+        "Timeline",
+        "Data",
+        "Archive"
       ],
-      "url": "https://github.com/newtria/trashmonster",
-      "status": "active",
-      "iconEmoji": "🗑️"
+      "url": "https://github.com/heznpc/hello-project",
+      "status": "archive",
+      "displayTier": "archive",
+      "area": "cultural-data-archives",
+      "evidence": "Static visualization and scoped dataset exist.",
+      "constraint": "Best kept as archive proof unless provenance and mobile proof are refreshed.",
+      "iconEmoji": "🎤"
     }
   ],
   "starters": [
     {
       "name": "docker-deploy-starter",
       "repo": "heznpc/docker-deploy-starter",
-      "deployTo": "Any VPS"
+      "url": "https://github.com/heznpc/docker-deploy-starter",
+      "deployTo": "VPS"
     },
     {
       "name": "browser-extension-starter",
       "repo": "heznpc/browser-extension-starter",
-      "deployTo": "Chrome + AMO"
+      "url": "https://github.com/heznpc/browser-extension-starter",
+      "deployTo": "Browser stores"
     },
     {
       "name": "discord-bot-starter",
       "repo": "heznpc/discord-bot-starter",
-      "deployTo": "Railway / Fly.io"
+      "url": "https://github.com/heznpc/discord-bot-starter",
+      "deployTo": "Hosted runtime"
     },
     {
       "name": "telegram-bot-starter",
       "repo": "heznpc/telegram-bot-starter",
-      "deployTo": "Railway / Fly.io"
+      "url": "https://github.com/heznpc/telegram-bot-starter",
+      "deployTo": "Hosted runtime"
     },
     {
       "name": "react-native-starter",
       "repo": "heznpc/react-native-starter",
-      "deployTo": "App / Play Store"
+      "url": "https://github.com/heznpc/react-native-starter",
+      "deployTo": "Mobile stores"
     },
     {
       "name": "electron-app-starter",
       "repo": "heznpc/electron-app-starter",
-      "deployTo": "Cross-platform"
+      "url": "https://github.com/heznpc/electron-app-starter",
+      "deployTo": "Desktop"
     },
     {
       "name": "vscode-extension-starter",
       "repo": "heznpc/vscode-extension-starter",
-      "deployTo": "VS Marketplace"
+      "url": "https://github.com/heznpc/vscode-extension-starter",
+      "deployTo": "Editor marketplace"
     },
     {
       "name": "npm-package-starter",
       "repo": "heznpc/npm-package-starter",
-      "deployTo": "npm registry"
+      "url": "https://github.com/heznpc/npm-package-starter",
+      "deployTo": "Package registry"
     },
     {
       "name": "mcp-server-starter",
       "repo": "heznpc/mcp-server-starter",
-      "deployTo": "npm registry"
+      "url": "https://github.com/heznpc/mcp-server-starter",
+      "deployTo": "Package registry"
     },
     {
       "name": "python-mcp-server-starter",
       "repo": "heznpc/python-mcp-server-starter",
-      "deployTo": "PyPI"
+      "url": "https://github.com/heznpc/python-mcp-server-starter",
+      "deployTo": "Package registry"
     },
     {
       "name": "cloudflare-pages-starter",
       "repo": "heznpc/cloudflare-pages-starter",
-      "deployTo": "Cloudflare"
+      "url": "https://github.com/heznpc/cloudflare-pages-starter",
+      "deployTo": "Static hosting"
     }
   ]
 }
